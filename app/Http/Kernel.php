@@ -60,6 +60,19 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+
+       
+         //new middlewares from here-> for excluding the follows roles from routes
+        'sys_admin' => \App\Http\Middleware\SysAdmin::class,
+        'admins' => \App\Http\Middleware\Admins::class,
+        'ex_client' => \App\Http\Middleware\ExcludeClient::class,
+        'ex_trainer' => \App\Http\Middleware\ExcludeTrainer::class,
+        'ex_consultant' => \App\Http\Middleware\ExcludeConsultant::class,
+        'ex_employer' => \App\Http\Middleware\ExcludeEmployer::class,
+        'ex_course_prov' => \App\Http\Middleware\ExcludeCourseProvider::class,
+
+        
     ];
 
     /**
