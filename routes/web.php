@@ -65,14 +65,17 @@ Route::get('dataprotection', function () {
 Route::get('newsletter', function () {
     return view('newsletter');
 });
-
-
-
+Route::resource('admin', 'AdminCrudUserController');
+Route::resource('client', 'ClientController');
+/*Route::get('/admin', function () {
+    return view('admin');
+});
+*/
 
 Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
-Route::get('admin', 'RoleController@role')->name('cane');
+
 
 Route::get('/prova', function () {
     return view('prova');

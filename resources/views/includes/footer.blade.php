@@ -1,5 +1,5 @@
 
-<footer class="border border-success row d-flex justify-content-around text-center mt-4 fixed-bottom">
+<footer class="border border-success row d-flex justify-content-around text-center ">
 	<div class="col-4 p-3">
 		<div >
 			<div>
