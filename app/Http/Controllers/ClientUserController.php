@@ -45,24 +45,20 @@ class ClientUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($user)
-    {
-       
-    $res = User::where('role', '=' , 'client')->find($user);
+    {     
+        $res = User::where('role', '=' , 'client')->find($user);
 
-    if(!$res){
-        echo 'is not a Client '; //redirect
-    }else{ 
-            $res = $res->userClient;
-        if($res ->isEmpty()){
-            echo 'is role Client but does not have a row in clients table';//Create row
-        }else{
-            //is a Client with row in clients table
-            echo $res->userClient; // return show
-        }
-    }
-
-
-       
+        if(!$res){
+            echo 'is not a Client '; //redirect
+        }else{ 
+                $res = $res->userClient;
+            if($res ->isEmpty()){
+                echo 'is role Client but does not have a row in clients table';//Create row
+            }else{
+                //is a Client with row in clients table
+                echo $res; // return show
+            }
+        }    
     }
 
     /**
