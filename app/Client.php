@@ -11,7 +11,7 @@ class Client extends Model
         return $this->belongsTo('App\User', 'FK_user');
     }
 
-	protected $fillable = ['date_birth','description', 'website', 'FK_user'];
+	protected $fillable = ['date_birth','description','FK_user','website'];
     protected $dates = ['created_at', 'updated_at'];
     public $timestamps = false;
 }

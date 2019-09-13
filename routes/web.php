@@ -67,6 +67,7 @@ Route::get('newsletter', function () {
 });
 Route::resource('admin', 'AdminCrudUserController');
 Route::resource('client', 'ClientUserController');
+Route::resource('consultant', 'ConsultantUserController');
 /*Route::get('/admin', function () {
     return view('admin');
 });

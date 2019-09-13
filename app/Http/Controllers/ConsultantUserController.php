@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Client;
+use App\Consultant;
 use Illuminate\Http\Request;
 
-class ClientUserController extends Controller
+class ConsultantUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ClientUserController extends Controller
      */
     public function index()
     {
-        echo 'your profile has been updated @ADD REDIRECT';
+        echo 'This is Index,  @ADD REDIRECT';
     }
 
     /**
@@ -25,7 +25,7 @@ class ClientUserController extends Controller
      */
     public function create()
     {
-        return redirect('/client');
+        return redirect('/consultant');
     }
 
     /**
@@ -36,7 +36,7 @@ class ClientUserController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('/client');
+        return redirect('/consultant');
     }
 
     /**
@@ -46,28 +46,25 @@ class ClientUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($user)
-    {     
-        $resUser = User::where('role', '=' , 'client')->find($user);
+    {
+         $resUser = User::where('role', '=' , 'consultant')->find($user);
 
         if(!$resUser){
-            echo 'is not a Client '; //redirect
-           // return redirect(' somewhere !!');
+            echo 'is not a Consultant, we need a redirect here';
         }else{ 
-            $res = $resUser->userClient;
+            $res = $resUser->userConsultant;
             if($res ->isEmpty()){
-                //it has Client role but does not have a row in clients table';
-                //Create row and then refresh the page
-                Client::create(['FK_user' => $user]);
-                return redirect('client/'.$user);
+                Consultant::create(['FK_user' => $user]);
+                return redirect('consultant/'.$user);
             }else{
-                //is a Client with row in clients table
+              
                /*
                 resUser = User Table
-                res = Client Table
+                res = Consultant Table
                */
-               return view('client.show', compact('resUser', 'res'));
+               return view('consultant.show', compact('resUser', 'res'));
             }
-        }    
+        }
     }
 
     /**
@@ -78,8 +75,8 @@ class ClientUserController extends Controller
      */
     public function edit($user)
     {
-        $res = User::where('role', '=' , 'client')->find($user)->userClient;
-        return view('client/edit', compact('res'));
+         $res = User::where('role', '=' , 'consultant')->find($user)->userConsultant;
+        return view('consultant/edit', compact('res'));
     }
 
     /**
@@ -91,8 +88,8 @@ class ClientUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Client::where('id', $id)->update($request->except(['_token','_method']));
-        return redirect('/client');
+        Consultant::where('id', $id)->update($request->except(['_token','_method']));
+        return redirect('consultant');
     }
 
     /**
@@ -103,8 +100,6 @@ class ClientUserController extends Controller
      */
     public function destroy(User $user)
     {
-         return redirect('/client');
+        return redirect('/consultant');
     }
 }
-
-

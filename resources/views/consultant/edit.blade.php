@@ -6,7 +6,7 @@
 	{{-- expr --}}
 
 	<div class="p-5">
-		 <form method="POST" action="{{ route('client.update', $res->id) }}">
+		 <form method="POST" action="{{ route('consultant.update', $res->id) }}">
 			@csrf 
 			{{ method_field('PUT') }}
 
@@ -19,10 +19,6 @@
 			    <textarea name="description" type="text" class="form-control" id="description" >
 			    	{{ $res->description }}
 			    </textarea> 
-		  </div>
-		  <div class="form-group">
-		    <label for="website">Website</label>
-		    <input value="{{ $res->website }}" name="website" type="text" class="form-control" id="website"  >
 		  </div>		  		
 
 		<div class="p-2">

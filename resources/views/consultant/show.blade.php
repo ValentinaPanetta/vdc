@@ -7,9 +7,9 @@
 	<h3><small>Last Name:</small> {{ $resUser->last_name}}</h3>
 	<hr>
 
-	<h2 class="text-primary">Consultant Table</h2>
+	<h2 class="text-primary">Client Table</h2>
 		@foreach ($res as $res)
 			<h3>created_at: {{ $res->created_at }}</h3>
-			<h3>web: {{ $res->website }}</h3>
+			<h3>description: {{ $res->description }}</h3>
 		@endforeach
 @endsection

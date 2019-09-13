@@ -39,8 +39,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+ /**
+     * 
+     *
+     * relations between User and childs tables
+     * 
+     */
     public function userClient()
     {
         return $this->hasMany('App\Client', 'FK_user');
+    }
+    public function userConsultant()
+    {
+        return $this->hasMany('App\Consultant', 'FK_user');
     }
 }
