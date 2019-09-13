@@ -66,7 +66,7 @@ Route::get('newsletter', function () {
     return view('newsletter');
 });
 Route::resource('admin', 'AdminCrudUserController');
-Route::resource('client', 'ClientController');
+Route::resource('client', 'ClientUserController');
 /*Route::get('/admin', function () {
     return view('admin');
 });
