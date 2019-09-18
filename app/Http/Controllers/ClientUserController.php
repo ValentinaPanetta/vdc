@@ -92,7 +92,8 @@ class ClientUserController extends Controller
     public function update(Request $request, $id)
     {
         Client::where('id', $id)->update($request->except(['_token','_method']));
-        return redirect('/client');
+        $fk = Client::where('id','=', $id)->find($id)->FK_user;
+        return redirect('/client/'.$fk);
     }
 
     /**

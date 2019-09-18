@@ -74,9 +74,21 @@ class ConsultantUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($user)
-    {
-         $res = User::where('role', '=' , 'consultant')->find($user)->userConsultant;
-        return view('consultant/edit', compact('res'));
+    {   
+        $resUser = User::where('role', '=' , 'consultant')->find($user);
+        if(!$resUser){
+            echo 'is not a Consultant, we need a redirect here';
+        }else{ 
+            $res = $resUser->userConsultant;
+            if($res ->isEmpty()){
+                Consultant::create(['FK_user' => $user]);
+                return redirect('consultant/'.$user.'/edit');
+            }else{
+
+            return view('consultant/edit', compact('res'));
+            }
+       
+        }
     }
 
     /**
@@ -89,7 +101,8 @@ class ConsultantUserController extends Controller
     public function update(Request $request, $id)
     {
         Consultant::where('id', $id)->update($request->except(['_token','_method']));
-        return redirect('consultant');
+        $fk = Consultant::where('id','=', $id)->find($id)->FK_user;
+        return redirect('/consultant/'.$fk);
     }
 
     /**

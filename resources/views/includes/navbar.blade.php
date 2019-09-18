@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light row fixed-top bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     VDC
@@ -28,6 +28,36 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('newsletter') }}">Newsletter</a>
                         </li>
+                        @auth
+                            @switch(Auth::user()->role) 
+                                @case('client')
+                                    <li class="nav-item">
+                                         <a class="nav-link" href="{{ url('client/'.Auth::user()->id) }}">My Profile</a>
+                                    </li>
+                                @break
+                                @case('consultant')
+                                    <li class="nav-item">
+                                         <a class="nav-link" href="{{ url('consultant/'.Auth::user()->id) }}">My Profile</a>
+                                    </li>
+                                @break
+                                @case('trainer')
+                                    <li class="nav-item">
+                                         <a class="nav-link" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
+                                    </li>
+                                @break
+                                @case('course_provider')
+                                    <li class="nav-item">
+                                         <a class="nav-link" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
+                                    </li>
+                                @break
+                            @endswitch
+
+                            @if(Auth::user()->role == 'sys_admin' or Auth::user()->role == 'off_admin')
+                                <li class="nav-item">
+                                     <a class="nav-link" href="{{ url('admin') }}">Admin Panel</a>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

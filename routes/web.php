@@ -68,11 +68,13 @@ Route::get('newsletter', function () {
 Route::resource('admin', 'AdminCrudUserController');
 Route::resource('client', 'ClientUserController');
 Route::resource('consultant', 'ConsultantUserController');
-/*Route::get('/admin', function () {
-    return view('admin');
-});
-*/
-
+Route::resource('companies', 'PartnerCompanieController');
+Route::resource('employee', 'PartnerEmployeeController');
+Route::resource('newsletter', 'NewsletterController');
+Route::resource('account', 'UserAccountController');
+Route::resource('employer', 'EmployerController');
+Route::resource('officeadmin', 'OfficeAdminController');
+Route::resource('consultings', 'ConsultingController');
 Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/

@@ -1,6 +1,12 @@
 @extends('layouts.adminPannel')
 
 @section('content')
+
+	<div class="d-flex justify-content-around">
+		<a href="{{ route('admin.index')}}" >
+			<button class="btn btn-primary ">Go Back</button>
+		</a>
+	</div>
 	<div class="p-5">
 		 <form method="POST" action="{{ route('admin.store') }}">
 

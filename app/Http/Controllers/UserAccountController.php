@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class AdminCrudUserController extends Controller
+class UserAccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,7 @@ class AdminCrudUserController extends Controller
      */
     public function index()
     {
-        $res = User::all();
-        return view('admin/index', compact('res'));
-     
+        //
     }
 
     /**
@@ -30,7 +28,7 @@ class AdminCrudUserController extends Controller
      */
     public function create()
     {
-        return view('admin/create');
+        //
     }
 
     /**
@@ -41,36 +39,7 @@ class AdminCrudUserController extends Controller
      */
     public function store(Request $request)
     {
-         
-       User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'last_name' => $request['last_name'],
-            'phone' => $request['phone'],
-            'registration_type' => $request['registration_type'],
-            'image' => $request['image'],
-            'role' => $request['role'],
-            'gender' => $request['gender'],
-        ]);
-        $user = User::where('email', $request['email'])->first();
-        $id = $user->id;
-        $role = $user->role;
-
-        switch ($role) {
-            case "trainer":
-                return redirect('/employee/'.$id.'/edit');
-                break;
-            case "consultant":
-                return redirect('/consultant/'.$id.'/edit');
-                break;
-            case "course_provider":
-                return redirect('/employee/'.$id.'/edit');
-                break;
-            default:
-                return redirect()->route('admin.index');
-        }
-
+        //
     }
 
     /**
@@ -81,8 +50,7 @@ class AdminCrudUserController extends Controller
      */
     public function show(User $user)
     {
-
-        return redirect('/admin');
+        //
     }
 
     /**
@@ -92,15 +60,12 @@ class AdminCrudUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($user)
-
     {
         $res = User::find($user);
        
 
-        return view('admin/edit', compact('res'));
-        
-
-    }
+        return view('account/edit', compact('res'));
+            }
 
     /**
      * Update the specified resource in storage.
@@ -112,12 +77,28 @@ class AdminCrudUserController extends Controller
     public function update(Request $request, $id)
     {
         User::where('id', $id)->update($request->except(['_token','_method']));
-        return redirect('/admin');
-
-   
-
+        $account = User::where('id','=', $id)->find($id);
+        switch ($account->role) {
+            case "client":
+                return redirect('/client/'.$account->id);
+                break;
+            case "trainer":
+                return redirect('/employee/'.$account->id);
+                break;
+            case "consultant":
+                return redirect('/consultant/'.$account->id);
+                break;
+            case "course_provider":
+                return redirect('/employee/'.$account->id);
+                break;
+            case "off_admin":
+                return redirect('/officeadmin/'.$account->id);
+                break;
+            case "employer":
+                return redirect('/employer/'.$account->id);
+                break;
+        }
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -125,15 +106,8 @@ class AdminCrudUserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-
-            public function destroy($id)
-            {
-             if(User::destroy($id)) {
-               return redirect('admin');
-             } else {
-               return redirect('admin');
-             }
-            }
-
-
+    public function destroy(User $user)
+    {
+        //
+    }
 }

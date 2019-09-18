@@ -10,7 +10,7 @@
 
 <body>
     <div id="app">
-        <main class="container-fluid">
+        <main id="main" class="container-fluid">
 
             @include('includes.navbar')
 
@@ -49,13 +49,15 @@
             <div id="blog" class="w-100 border border-primary my-3" style="height: 20em;">
                 <h2 class="text-primary text-center">blog</h2>
             </div>
-            <div id="partners" class="w-100 border border-info " style="height: 20em;">
+            <div id="partners" class="w-100 border border-info mb-3" style="height: 20em;">
                 <h2 class="text-info text-center">partners</h2>
             </div>
 
         
             @include('includes.footer')
         </main>
+
+
     </div>
     
 </body>

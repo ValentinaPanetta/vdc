@@ -8,7 +8,7 @@
 
 <body>
     <div id="app">
-        <main class="container-fluid">
+        <main id="main" class="container-fluid">
         	@include('includes.navbar')
 
         	
@@ -17,6 +17,7 @@
 
 	        @include('includes.footer')
         </main>
+        
     </div>
     
 </body>

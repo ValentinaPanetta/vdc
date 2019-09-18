@@ -1,5 +1,32 @@
 // Body
 $body-bg: #f8fafc;
+* {
+ box-sizing: border-box;
+}
+
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+
+html, body {
+  padding-top: 3em;
+  height: 100%;
+  position: relative;
+}
+
+#main {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 7em;
+}
+
+.footer {
+ position: absolute;
+ bottom: 0;
+}
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
@@ -17,3 +44,193 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$white: #fff;
+
+// Brand colors
+
+$darkblue: #000044;
+$mediumblue: #003366;
+$lightblue: #6699CC;
+
+$darkgrey: #808b96;
+$mediumgrey: #abb2b9;
+$lightgrey: #d5d8dc;
+
+$btn-shadow: rgba(82, 161, 225, 0.5);
+
+// Background Colors
+
+.bg-darkblue {
+	background-color: $darkblue;
+}
+
+.bg-mediumblue {
+	background-color: $mediumblue;
+}
+
+.bg-lightblue {
+	background-color: $lightblue;
+}
+
+.bg-darkgrey {
+	background-color: $darkgrey;
+}
+
+.bg-mediumgrey {
+	background-color: $mediumgrey;
+}
+
+.bg-lightgrey {
+	background-color: $lightgrey;
+}
+
+// Text Colors
+
+.text-darkblue {
+	color: $darkblue;
+}
+
+.text-mediumblue {
+	color: $mediumblue;
+}
+
+.text-lightblue {
+	color: $lightblue;
+}
+
+.text-darkgrey {
+	color: $darkgrey;
+}
+
+.text-mediumgrey {
+	color: $mediumgrey;
+}
+
+.text-lightgrey {
+	color: $lightgrey;
+}
+
+// Custom Buttons
+.btn-custom {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-custom {
+    transition: none;
+  }
+}
+
+.btn-custom:hover {
+  color: $white;
+  text-decoration: none;
+}
+
+.btn-custom:focus,
+.btn-custom.focus {
+  outline: 0;
+ 
+}
+
+.btn-custom.disabled,
+.btn-custom:disabled {
+  opacity: 0.65;
+}
+
+a.btn-custom.disabled,
+fieldset:disabled a.btn-custom {
+  pointer-events: none;
+}
+
+// Primary Button
+
+.btn-custom-blue {
+  color: $white;
+  background-color: $darkblue;
+  border-color: $darkblue;
+}
+
+.btn-custom-blue:hover {
+  color: $white;
+  background-color: $mediumblue;
+  border-color: $lightblue;
+}
+
+.btn-custom-blue:focus,
+.btn-custom-blue.focus {
+  box-shadow: 0 0 0 0.2rem $btn-shadow;
+}
+
+.btn-custom-blue.disabled,
+.btn-custom-blue:disabled {
+  color: $white;
+  background-color: $darkblue;
+  border-color: $darkblue;
+}
+
+.btn-custom-blue:not(:disabled):not(.disabled):active,
+.btn-custom-blue:not(:disabled):not(.disabled).active,
+.show > .btn-custom-blue.dropdown-toggle {
+  color: $white;
+  background-color: $lightblue;
+  border-color: $lightblue;
+}
+
+.btn-custom-blue:not(:disabled):not(.disabled):active:focus,
+.btn-custom-blue:not(:disabled):not(.disabled).active:focus,
+.show > .btn-custom-blue.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $btn-shadow;
+}
+
+// Secondary Button
+
+.btn-custom-grey {
+  color: $white;
+  background-color: $darkgrey;
+  border-color: $darkgrey;
+}
+
+.btn-custom-grey:hover {
+  color: $white;
+  background-color: $mediumgrey;
+  border-color: $lightgrey;
+}
+
+.btn-custom-grey:focus,
+.btn-custom-grey.focus {
+  box-shadow: 0 0 0 0.2rem $btn-shadow;
+}
+
+.btn-custom-grey.disabled,
+.btn-custom-grey:disabled {
+  color: $white;
+  background-color: $darkgrey;
+  border-color: $darkgrey;
+}
+
+.btn-custom-grey:not(:disabled):not(.disabled):active,
+.btn-custom-grey:not(:disabled):not(.disabled).active,
+.show > .btn-custom-grey.dropdown-toggle {
+  color: $white;
+  background-color: $lightgrey;
+  border-color: $lightgrey;
+}
+
+.btn-custom-grey:not(:disabled):not(.disabled):active:focus,
+.btn-custom-grey:not(:disabled):not(.disabled).active:focus,
+.show > .btn-custom-grey.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $btn-shadow;
+}
