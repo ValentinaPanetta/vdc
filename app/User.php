@@ -58,4 +58,25 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\PartnerEmployee', 'FK_user');
     }
+    public function userConsulting()
+    {
+        return $this->hasMany('App\Consulting', 'FK_trainer');
+    }
+        /**
+     * 
+     *
+     * MANY TO MANY relations between User(role:Client,) and User(role:Consulting) 
+     * through the client_to_consultant table
+     *
+     */
+    public function clientToConsulting()
+    {
+        return $this->belongsToMany(
+            'App\Consulting', 
+            'clients_to_consultings',
+            'FK_client', 
+            'FK_consulting'
+         );
+    }
+    
 }

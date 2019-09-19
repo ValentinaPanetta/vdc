@@ -126,14 +126,14 @@ class AdminCrudUserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-            public function destroy($id)
-            {
-             if(User::destroy($id)) {
-               return redirect('admin');
-             } else {
-               return redirect('admin');
-             }
-            }
+    public function destroy($id)
+    {
+         if(User::destroy($id)) {
+           return redirect('admin');
+         } else {
+           return redirect('admin');
+         }
+    }
 
 
 }

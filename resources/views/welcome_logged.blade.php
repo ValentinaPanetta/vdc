@@ -5,9 +5,11 @@
                 
                  <div id="yellow" class=" row px-3">
 	                <div class="col-lg-4 p-3">
-	                    <div class="border border-success" style="height: 12em;">
-	                        <h2 class="text-success">Intro consulting</h2>
-	                    </div>
+	                	<a href="{{ url('consultings') }}">
+		                    <div class="border border-success" style="height: 12em;">
+		                        <h2 class="text-success">Intro consulting</h2>
+		                    </div>
+	                	</a>
 	                </div>
 	                <div class="col-lg-4 p-3">
 	                    <div class="border border-success" style="height: 12em;">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Consulting;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ConsultingController extends Controller
 {
@@ -13,9 +15,13 @@ class ConsultingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+
+        $res = Consulting::get();
+        $user = User::all()->clientToConsulting();
+        return view('consultings.index', compact('res', 'user'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +30,11 @@ class ConsultingController extends Controller
      */
     public function create()
     {
-        //
+
+        $conUser = User::where('role', '=', 'consultant')->get();
+        $trnUser = User::where('role', '=', 'trainer')->get();
+        return view('consultings.create', compact('conUser','trnUser'));
+
     }
 
     /**
@@ -35,7 +45,21 @@ class ConsultingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Consulting::create([
+            'title' => $request['title'],
+            'type' => $request['type'],
+            'duration' => $request['duration'],
+            'consult_date' => $request['consult_date'],
+            'country' => $request['country'],
+            'zipCode' => $request['zipCode'],
+            'street' => $request['street'],
+            'city' => $request['city'],          
+            'FK_trainer' => $request['FK_trainer'],
+            'FK_consultant' => $request['FK_consultant'],
+            'consult_limit' => $request['consult_limit'],
+        ]);
+
+        return redirect()->route('consultings.index');
     }
 
     /**
@@ -44,9 +68,11 @@ class ConsultingController extends Controller
      * @param  \App\Consulting  $consulting
      * @return \Illuminate\Http\Response
      */
-    public function show(Consulting $consulting)
+    public function show($consulting)
     {
-        //
+        $res = Consulting::find($consulting);
+        return view('consultings.show', compact('res'));
+
     }
 
     /**
@@ -55,9 +81,12 @@ class ConsultingController extends Controller
      * @param  \App\Consulting  $consulting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Consulting $consulting)
-    {
-        //
+    public function edit( $consulting)
+    {   
+        $conUser = User::where('role', '=', 'consultant')->get();
+        $trnUser = User::where('role', '=', 'trainer')->get();
+        $res = Consulting::find($consulting);
+        return view('consultings.edit', compact('res','conUser','trnUser'));
     }
 
     /**
@@ -67,9 +96,10 @@ class ConsultingController extends Controller
      * @param  \App\Consulting  $consulting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Consulting $consulting)
+    public function update(Request $request, $id)
     {
-        //
+        Consulting::where('id', $id)->update($request->except(['_token','_method']));
+        return redirect('consultings/'.$id);
     }
 
     /**
@@ -78,8 +108,9 @@ class ConsultingController extends Controller
      * @param  \App\Consulting  $consulting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Consulting $consulting)
+    public function destroy($id)
     {
-        //
+        Consulting::destroy($id);
+        return redirect()->route('consultings.index');
     }
 }
