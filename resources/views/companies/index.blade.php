@@ -4,6 +4,9 @@
 	    <a href="{{ route('companies.create')}}" >
 			<button class="btn btn-success ">CREATE Company</button>
 		</a>
+		<a href="{{ route('languages.index')}}" >
+			<button class="btn btn-info ">Languages</button>
+		</a>
 		<a href="{{ route('admin.index')}}" >
 			<button class="btn btn-primary ">USERS table</button>
 		</a>

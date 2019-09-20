@@ -75,6 +75,10 @@ Route::resource('account', 'UserAccountController');
 Route::resource('employer', 'EmployerController');
 Route::resource('officeadmin', 'OfficeAdminController');
 Route::resource('consultings', 'ConsultingController');
+Route::resource('courses', 'CourseController');
+Route::resource('languages', 'LanguageController');
+Route::resource('ClientsToConsulting', 'ClientsToConsultingController');
+
 Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/

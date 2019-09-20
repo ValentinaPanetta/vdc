@@ -41,7 +41,7 @@
 		   <div class="form-group">
 		    <label  for="regi_type">Registration type</label>
 		    <select name="registration_type"  class="form-control" id="regi_type">
-		      <option value="{{ $res->registration_type }}" selected class="text-primary">{{ $res->registration_type }}</option>}
+		      <option value="{{ $res->registration_type }}" selected class="text-primary">{{ $res->registration_type }}</option>
 		      option
 		      <option value="vdc">VDC</option>
 		      <option value="external">External</option>

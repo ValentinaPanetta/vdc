@@ -1,8 +1,8 @@
 @extends('layouts.default')
 
 @section('content')
-	<div class="">
-		<div class="">
+	<div class="row">
+		<div class="col-lg-8">
 				<div class="">
 					<h1 class="text-center text-dark">{{ $res->title }}</h1>
 					<hr>
@@ -16,10 +16,10 @@
 					</div>
 					<div>
 						<form method="POST" action="{{ route('consultings.destroy', $res->id) }}">
-									@csrf
-									{{ method_field('DELETE') }} 
-									<button type="submit" value="delete" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')" >Delete</button>
-					</form>
+							@csrf
+							{{ method_field('DELETE') }} 
+							<button type="submit" value="delete" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')" >Delete</button>
+						</form>
 					</div>
 				</div>
 					
@@ -34,6 +34,22 @@
 						{{ $res->country }}
 					</p>
 					<p><strong>People Limit: </strong>{{ $res->consult_limit }}</p>
+					<p>
+						<strong>Available Places: </strong>
+						{{-- Available Places calculation	--}}
+						<span class="availability">
+							{{ $res->consult_limit - $res->consultingClient()->get()->count() }}
+						</span>
+					</p>
+					<p>
+						@foreach($res->consultingClient()->get() as $client)
+							@if(Auth::user())  
+								@if($client->email == Auth::user()->email)
+									<h5 class="text-success">You are in!!!</h5>
+								@endif
+							@endif
+						@endforeach
+					</p>
 					<p>Consultant: 
 						@foreach($res->consultingConsultant()->get() as $sub)
 							<a href="{{ url('consultant/'.$sub->id) }}">{{$sub->name}} {{$sub->last_name}}</a>
@@ -46,7 +62,82 @@
 					</p>
 				
 				</div>
+				<div class="border border-info d-flex justify-content-around p-3">
+					<div>    
+						@if(Auth::user())
+							@php ($in = false)
+							@foreach($res->consultingClient()->get() as $client)
+								@if($client->email == Auth::user()->email )   {{--Check subscribtion--}}
+									@php ($in = true)		
+								@endif		
+							@endforeach
+
+							@if($in == false)  {{-- If auth is NOT subscribed--}}
+								<form method="POST" action="{{ route('ClientsToConsulting.store') }}">
+								{{--, $res->id--}}
+								@csrf
+								<input type="hidden" name="FK_client" value="{{ Auth::user()->id }}">
+								<input type="hidden" name="FK_consulting" value="{{ $res->id }}">
+								<button type="submit" value="delete" class="btn btn-success" onclick="return confirm('Are you sure to Subscribe?')" >Subscribe</button>
+								</form>
+							@else
+{{--
+								<form method="POST" action="{{ route('ClientsToConsulting.detach' , Auth::user()->id, $res->id) }}">
+							
+								{{ method_field('DELETE') }}
+								@csrf
+								<input type="hidden" name="FK_client" value="{{ Auth::user()->id }}">
+								<input type="hidden" name="FK_consulting" value="{{ $res->id }}">
+								<button type="submit" value="delete" class="btn btn-danger " onclick="return confirm('Are you sure to Subscribe?')" >Unsubscribe</button>
+								</form>
+								--}}
+							@endif
+
+
+						@else
+							<div class="text-success">
+								<h3>Log in if you want to subscribe!!!</h3>
+							</div>
+						@endif
+					</div>
+				</div>
 			</div>
-			
+			<div class="col-lg-4 text-center "> <!-- participants right pannel -->
+				<h2 class="text-info">Participants</h2>
+				<div class="row d-flex justify-content-center">
+				@if(Auth::user())  
+					@foreach($res->consultingClient()->get() as $client)
+						@if($client->email == Auth::user()->email)
+							<div class="col-12 row d-flex justify-content-center">
+								<div class="col-4 p-1">
+								  	<div class="border border-success">
+									   	<div>
+										 	<img src="{{$client->image}}"  class="w-100">
+									   	</div>
+
+										<h4 class="text-success">{{$client->name}}</h4>
+								  	</div>
+								</div>
+							</div>
+
+						@endif							
+					@endforeach
+					@foreach($res->consultingClient()->get() as $client)
+						@if($client->email != Auth::user()->email)
+							<div class="col-3 p-1">
+								<a href="{{ url('client/'.$client->id) }}" >
+								  	<div class="border border-info">
+									   	<div>
+										 	<img src="{{$client->image}}" class="w-100">
+									   	</div>
+										<h4>{{$client->name}}</h4>
+								  	</div>
+								</a>
+							</div>
+						@endif	
+					@endforeach
+				@endif
+				</div>
+			</div>
 	</div>
 @endsection

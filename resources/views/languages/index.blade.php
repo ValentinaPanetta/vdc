@@ -1,0 +1,43 @@
+@extends('layouts.adminPannel')
+@section('content')
+	<div class="d-flex justify-content-center my-3">
+		<h3 class="text-darkblue">Languages</h3>
+	</div>
+	<div class="d-flex justify-content-around mb-4">
+    <a href="{{ route('languages.create')}}" >
+		<button class="btn-custom btn-custom-blue">add a language</button>
+	</a>
+	</div>
+<div class="d-flex justify-content-center">
+	<table class="table col-6">
+	  <thead>
+	    <tr>
+	      <th scope="col">ID</th>
+	      <th scope="col">Language</th>
+	      <th scope="col">Remove</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  @foreach ($languages as $language)
+	    <tr>
+	      <th scope="row">{{ $language->id}}</th>
+	      <td>{{ $language->language_name}}</td>
+	      <td class="text-danger font-weight-bold">
+			<form method="POST" action="{{ route('languages.destroy', $language->id) }}">
+			@csrf
+			{{ method_field('DELETE') }}
+			    
+			<button type="submit" value="delete" class="bg-darkblue text-white pointer" onclick="return confirm('Are you sure to delete?')" style="border-radius: 100%; border:0; cursor: pointer;">X</button>
+			</form>
+			</td>
+		    </tr>
+		@endforeach
+	  </tbody>
+	</table>
+</div>
+	<div class="d-flex justify-content-around mb-4">
+    <a href="{{ route('admin.index')}}" >
+		<button class="btn btn-info">go back</button>
+	</a>
+	</div>
+@endsection

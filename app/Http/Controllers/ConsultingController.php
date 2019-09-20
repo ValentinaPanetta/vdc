@@ -16,11 +16,21 @@ class ConsultingController extends Controller
      */
     public function index()
     {   
+       
 
         $res = Consulting::get();
-        $user = User::all()->clientToConsulting();
-        return view('consultings.index', compact('res', 'user'));
+     return view('consultings.index', compact('res'));
+       
+
+/*
+       $users = Consulting::with('consultingClient')->get();
+        foreach ($users->flatMap->consultingClient as $cli) {
+          echo $cli->pivot;
+       
+        }*/
+       
     }
+
 
 
     /**
@@ -71,6 +81,7 @@ class ConsultingController extends Controller
     public function show($consulting)
     {
         $res = Consulting::find($consulting);
+/*        $p = Consulting::with('consultingClient')->find($consulting);*/
         return view('consultings.show', compact('res'));
 
     }
@@ -108,9 +119,11 @@ class ConsultingController extends Controller
      * @param  \App\Consulting  $consulting
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($arr)
+    {   
+
         Consulting::destroy($id);
         return redirect()->route('consultings.index');
     }
+
 }
