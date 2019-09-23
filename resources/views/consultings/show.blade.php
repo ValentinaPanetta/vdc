@@ -42,13 +42,15 @@
 						</span>
 					</p>
 					<p>
+						@if(Auth::user())
 						@foreach($res->consultingClient()->get() as $client)
-							@if(Auth::user())  
+							  
 								@if($client->email == Auth::user()->email)
 									<h5 class="text-success">You are in!!!</h5>
 								@endif
-							@endif
+							
 						@endforeach
+						@endif
 					</p>
 					<p>Consultant: 
 						@foreach($res->consultingConsultant()->get() as $sub)
@@ -71,26 +73,30 @@
 									@php ($in = true)		
 								@endif		
 							@endforeach
-
-							@if($in == false)  {{-- If auth is NOT subscribed--}}
-								<form method="POST" action="{{ route('ClientsToConsulting.store') }}">
-								{{--, $res->id--}}
-								@csrf
-								<input type="hidden" name="FK_client" value="{{ Auth::user()->id }}">
-								<input type="hidden" name="FK_consulting" value="{{ $res->id }}">
-								<button type="submit" value="delete" class="btn btn-success" onclick="return confirm('Are you sure to Subscribe?')" >Subscribe</button>
-								</form>
+{{-- If auth is NOT subscribed--}}
+							@if($in == false)  
+		{{-- If auth there is place yet--}}
+								@if($res->consult_limit - $res->consultingClient()->get()->count() > 0)
+									<form method="POST" action="{{ route('ClientToConsulting.attach') }}">                
+									@csrf
+									<input type="hidden" name="FK_client" value="{{ Auth::user()->id }}">
+									<input type="hidden" name="FK_consulting" value="{{ $res->id }}">
+									<button type="submit" value="delete" class="btn btn-success" onclick="return confirm('Are you sure to Subscribe?')" >Subscribe</button>
+									</form>
+								@else
+									<h2 class="text-info">Sorry, we are full!!!</h2>
+								@endif
 							@else
-{{--
-								<form method="POST" action="{{ route('ClientsToConsulting.detach' , Auth::user()->id, $res->id) }}">
-							
-								{{ method_field('DELETE') }}
+
+								<form method="POST" action="{{ route('ClientsToConsulting.detach') }}">
 								@csrf
+								{{ method_field('GET') }}
+								
 								<input type="hidden" name="FK_client" value="{{ Auth::user()->id }}">
 								<input type="hidden" name="FK_consulting" value="{{ $res->id }}">
-								<button type="submit" value="delete" class="btn btn-danger " onclick="return confirm('Are you sure to Subscribe?')" >Unsubscribe</button>
+								<button type="submit" value="delete" class="btn btn-danger " >Unsubscribe</button>
 								</form>
-								--}}
+							
 							@endif
 
 
@@ -107,10 +113,13 @@
 				<div class="row d-flex justify-content-center">
 				@if(Auth::user())  
 					@foreach($res->consultingClient()->get() as $client)
+	{{--If the current user has already subscribed show his/her pictures on the first place--}}
 						@if($client->email == Auth::user()->email)
 							<div class="col-12 row d-flex justify-content-center">
 								<div class="col-4 p-1">
+
 								  	<div class="border border-success">
+								  		<h5 class="text-success">It's me</h5>
 									   	<div>
 										 	<img src="{{$client->image}}"  class="w-100">
 									   	</div>

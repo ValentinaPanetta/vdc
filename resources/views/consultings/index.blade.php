@@ -42,6 +42,18 @@
 						<p>{{$client->name}}</p>
 					@endforeach
 	--}}			
+					@if(Auth::user())
+						@php ($in = false)
+						@foreach($res->consultingClient()->get() as $client) 
+							@if($client->email == Auth::user()->email)
+								<h2 class="text-success">You are in!!!</h2>
+								@php ($in = true)
+							@endif
+						@endforeach
+						@if($in == false)
+							<h2 class="text-success">Subscribe Now</h2>
+						@endif
+					@endif
 						<h2 class="dinamic">Available</h2>
 						
 					<p>Consultant: 

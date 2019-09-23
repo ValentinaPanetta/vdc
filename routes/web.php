@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/events', function () {
+    return view('events');
+});
+
 
 Route::get('/', function () {
     return view('welcome_guest');
@@ -77,7 +81,13 @@ Route::resource('officeadmin', 'OfficeAdminController');
 Route::resource('consultings', 'ConsultingController');
 Route::resource('courses', 'CourseController');
 Route::resource('languages', 'LanguageController');
-Route::resource('ClientsToConsulting', 'ClientsToConsultingController');
+/*Routes for clientsToConsulting*/
+Route::post('clientsToConsulting', 'ClientsToConsultingController@attach')
+->name('ClientToConsulting.attach');
+Route::get('confirm', 'ClientsToConsultingController@detach')
+->name('ClientsToConsulting.detach');
+Route::delete('delete/{id}', 'ClientsToConsultingController@delete')
+->name('ClientsToConsulting.delete');
 
 Auth::routes();
 

@@ -119,11 +119,14 @@ class ConsultingController extends Controller
      * @param  \App\Consulting  $consulting
      * @return \Illuminate\Http\Response
      */
-    public function destroy($arr)
+    public function destroy($id)
     {   
 
         Consulting::destroy($id);
         return redirect()->route('consultings.index');
     }
+
+
+    
 
 }
