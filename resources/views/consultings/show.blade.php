@@ -26,6 +26,7 @@
 					<hr>
 
 					<h4><strong>Type: </strong>{{ $res->type }}</h4>
+					<h4><strong>Duration: </strong>{{ $res->duration }} minutes</h4>
 					<p><strong>When:</strong> {{ $res->consult_date }}</p>
 					<p><strong>Where: </strong>
 						{{ $res->city }},

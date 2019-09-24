@@ -6,8 +6,9 @@ use App\Consulting;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class ConsultingController extends Controller
+class CalendarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +17,19 @@ class ConsultingController extends Controller
      */
     public function index()
     {   
-       
+    $authId = Auth::user()->id;
+    $res = DB::table('consultings')  // Get All the consultings where i am subscribed
+        ->select('title', 'FK_consulting', 'consult_date', 'duration','consultings.id as con_ID')
+        ->join('clients_to_consultings', 'FK_consulting', 'consultings.id')
+        ->join('users', 'users.id', 'FK_client')
+        ->where('users.id', $authId)
+        ->get();      
 
-        $res = Consulting::get();
-     return view('consultings.index', compact('res'));
-       
+    $unsub = Consulting::all();  // Get All the consultings
+
+   /*  $res = Consulting::get();*/
+     return view('calendar_page', compact('res', 'unsub'));
+       /*return $subscriptions;*/
     }
 
 
@@ -33,9 +42,9 @@ class ConsultingController extends Controller
     public function create()
     {
 
-        $conUser = User::where('role', '=', 'consultant')->get();
+       /* $conUser = User::where('role', '=', 'consultant')->get();
         $trnUser = User::where('role', '=', 'trainer')->get();
-        return view('consultings.create', compact('conUser','trnUser'));
+        return view('consultings.create', compact('conUser','trnUser'));*/
 
     }
 
@@ -47,7 +56,7 @@ class ConsultingController extends Controller
      */
     public function store(Request $request)
     {
-        Consulting::create([
+/*        Consulting::create([
             'title' => $request['title'],
             'type' => $request['type'],
             'duration' => $request['duration'],
@@ -59,7 +68,7 @@ class ConsultingController extends Controller
             'FK_trainer' => $request['FK_trainer'],
             'FK_consultant' => $request['FK_consultant'],
             'consult_limit' => $request['consult_limit'],
-        ]);
+        ]);*/
 
         return redirect()->route('consultings.index');
     }
@@ -86,10 +95,10 @@ class ConsultingController extends Controller
      */
     public function edit( $consulting)
     {   
-        $conUser = User::where('role', '=', 'consultant')->get();
+    /*    $conUser = User::where('role', '=', 'consultant')->get();
         $trnUser = User::where('role', '=', 'trainer')->get();
         $res = Consulting::find($consulting);
-        return view('consultings.edit', compact('res','conUser','trnUser'));
+        return view('consultings.edit', compact('res','conUser','trnUser'));*/
     }
 
     /**
@@ -101,8 +110,8 @@ class ConsultingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Consulting::where('id', $id)->update($request->except(['_token','_method']));
-        return redirect('consultings/'.$id);
+/*        Consulting::where('id', $id)->update($request->except(['_token','_method']));
+        return redirect('consultings/'.$id);*/
     }
 
     /**
@@ -113,9 +122,9 @@ class ConsultingController extends Controller
      */
     public function destroy($id)
     {   
-
+/*
         Consulting::destroy($id);
-        return redirect()->route('consultings.index');
+        return redirect()->route('consultings.index');*/
     }
 
 

@@ -24,8 +24,8 @@
 
 
 		  <div class="form-group">
-		    <label for="duration">Duration</label>
-		    <input name="duration" type="text" class="form-control" id="duration" placeholder="one hour and one half" required value="{{$res->duration }}">
+		    <label for="duration">Duration in minutes</label>
+		    <input name="duration" type="number" class="form-control" id="duration" placeholder="one hour and one half" required value="{{$res->duration }}">
 		  </div>
 
 		  <div class="form-group">

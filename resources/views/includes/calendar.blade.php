@@ -19,11 +19,11 @@
     }
     $MONTHS=array(1=>'Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre');
     for($k=1; $k<=$j; $k++){$adj.="<td> </td>";}
-    echo "Today is " . date("d/n/Y");
-    $today = date("d/n/Y");
+   /* echo "Today is " . date("d-n-Y");*/
+    $today = date("d-n-Y");
 @endphp
 
-  <table class="table table-bordered text-center">
+  <table class="table table-bordered text-center" id="calendar_table">
     <div class="d-flex justify-content-around p-2 border-bottom border-secondary">
 	    <div>
 		     <a href="?prm={{$m}}&chm=-1">
@@ -39,7 +39,7 @@
 		     </a>
 	    </div>
     </div>
-    <tr>
+    <tr class="">
     <td><strong>Lun</strong></td>
     <td><strong>Mar</strong></td>
     <td><strong>Mer</strong></td>
@@ -51,24 +51,65 @@
     <tr>
     @php
      for($i=1;$i<=$nd;$i++)
-	    {	/*     date mysql format   ->".$i." ".$mn." ".$yn."<-        */
+	    {	
+		$going = $i."-".$mn."-".$yn; //current day in the loop
+        $match = false;             //default no consultings 
+        for($r=0; $r<count($con_date); $r++){
+            if($con_date[$r] == $going){ //matched consultings    -->       print consulting
+                $j++;
+                echo $adj."<td class='text-success border border-success font-weight-bold'>
+                        <a href='consultings/".$con_id[$r]."' class='text-success'>
+                        <p>".$con_title[$r]."</p>
+                        ";
+                // is it today?
+                if($today == $going) 
+                    echo"<h2 class='text-success font-italic'>".$i."</h2>
+                        <p class='text-success font-italic'>Today</p></a>
+                        </td>";
+                else
+                    echo $i ."</a></td>";
+                $match = true;              // consulting found
+            }
+        }
+           
+            if($match == false){ 
+               $catch = false;     //default no consultings today
+                for($z=0; $z<count($un_date); $z++){ 
+                    if($going == $un_date[$z]){  //               -->print consulting not in
+                        $catch = true;$j++; 
+                            if($today == $going) 
+                                echo $adj."<td>
+                                            <a href='consultings/".$un_id[$z]."' class='text-info'>
+                                            <p class=''>".$un_title[$z]."</p>
+                                            <h2 class='text-success font-italic'>".$i."</h2>
+                                            <p class='text-success font-italic'>Today</p>
+                                            </a>
+                                            </td>";  
+                            else
+                                echo $adj."<td>
+                                            <a href='consultings/".$un_id[$z]."' class='text-info'>
+                                            <p class=''>".$un_title[$z]."</p>".$i."</a>
+                                            </td>" ; 
+                    }     
+                } 
+                if($catch == false){                           //   --> print normal days
+                        $j++;
+                        if($today == $going) 
+                            echo $adj."<td>
+                                            <h2 class='text-danger font-italic'><p></p>".$i."</h2>
+                                            <p class='text-success font-italic'>Today</p>
+                                       </td>";  
+                        else
+                            echo $adj."<td><p></p>".$i."</td>";
+                    }
+            }
+	    	$adj='';    	
+     		if($j==7){echo"</tr><tr>";$j=0;}
+     	}  //end main for loop 
 
-			$controller = $i."/".$mn."/".$yn;
-			if($today == $controller){
-				echo $adj."<td class='text-success border border-success'>
-								<h5>".$i." ".$MONTHS[$mn]."   ".$yn."</h5>
-							</td>";
-			}else{
-	    		echo $adj."<td>".$i." ".$MONTHS[$mn]."   ".$yn."</td>";
-	    	}
-	    	$adj='';
-	    	$j++;
-     		if($j==7){
-     			echo"</tr><tr>";$j=0;
-     		}
-	     	
-     	} 
+   
       @endphp
     </tr>
    </table>
 </div>
+

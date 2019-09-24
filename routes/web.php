@@ -88,7 +88,8 @@ Route::get('confirm', 'ClientsToConsultingController@detach')
 ->name('ClientsToConsulting.detach');
 Route::delete('delete/{id}', 'ClientsToConsultingController@delete')
 ->name('ClientsToConsulting.delete');
-
+/*end*/
+Route::resource('calendar', 'CalendarController');
 Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
