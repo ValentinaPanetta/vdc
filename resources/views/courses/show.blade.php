@@ -16,6 +16,13 @@
         @foreach($courses->courseLanguage()->get() as $language)
                 <p class="text-info">{{$language->language_name}}</p>
         @endforeach
+        <p class="font-weight-bold text-darkblue">Skills:</p>
+             @foreach($courses->courseToSkill()->get() as $skill)
+                <p class="card-text">{{$skill->name}}<span class="small text-muted"> Level: {{$skill->pivot->lvl}}</span></p>
+            @endforeach
+        <a href="{{ route('attachSkills', $courses->id)}}">
+            <button class="btn-custom btn-custom-blue">add skill</button>
+        </a>
         <p>Capacity: {{ $courses->course_limit }}</p>
     
    <div class="d-flex justify-content-start">

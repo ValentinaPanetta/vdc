@@ -16,6 +16,10 @@
 		    @foreach($courses->courseLanguage()->get() as $language)
                 <p class="card-text">{{$language->language_name}}</p>
             @endforeach
+            <p class="card-text font-weight-bold text-darkblue">Skills:</p>
+             @foreach($courses->courseToSkill()->get() as $skill)
+                <p class="card-text">{{$skill->name}}<span class="small text-muted"> Level: {{$skill->pivot->lvl}}</span></p>
+            @endforeach
 		    <p class="card-text">Address: {{ $courses->street }} {{ $courses->city }} {{ $courses->zipCode }}, {{ $courses->country }}</p>
 		    <p class="card-text">From: {{ date('d-m-Y',strtotime($courses->start_date)) }}</p>
 		    <p class="card-text">To: {{ date('d-m-Y',strtotime($courses->end_date)) }}</p>

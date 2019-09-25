@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\PartnerCompanie;
 use App\Language;
+use App\CoursesToSkill;
+use App\Skill;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -18,6 +20,8 @@ class CourseController extends Controller
     {
 
         $courses = Course::get();
+        // $course = Course::find(8);
+        // return $course->courseToSkill;
         return view('courses/index', compact('courses'));
     }
 
@@ -28,11 +32,14 @@ class CourseController extends Controller
      */
     public function create()
     {   
+        // Model::all(['column_in_table']) to get all the data of those columns from all rows
+        
         $companies = PartnerCompanie::all(['id', 'company_name']);
         $languages = Language::all(['id', 'language_name']);
+        $skills = Skill::all(['id', 'name']);
         $courses = Course::get();
 
-        return view('courses/create', compact('courses', 'companies', 'languages'));
+        return view('courses/create', compact('courses', 'companies', 'languages', 'skills'));
     }
 
     /**

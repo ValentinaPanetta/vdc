@@ -28,7 +28,9 @@
                 <h2 class="text-danger text-center">references</h2>
             </div>
             <div id="blog" class="w-100 border border-primary my-3" style="height: 20em;">
-                <h2 class="text-primary text-center">blog</h2>
+                <a href="{{ url('blog') }}">
+                    <h2 class="text-primary text-center">blog</h2>
+                </a>
             </div>
             <div id="partners" class="w-100 border border-info mb-3" style="height: 20em;">
                 <h2 class="text-info text-center">partners</h2>

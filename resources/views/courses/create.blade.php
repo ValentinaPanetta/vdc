@@ -44,10 +44,9 @@
 			<label for="country">Country</label>
 			<input name="country" type="text" class="form-control" id="country_add" placeholder="Country" required>
 		</div>
-
 		<div class="form-group">
 		    <label for="course_limit">Course Limit</label>
-		    <input name="course_limit" type="number" min="1" max="10" class="form-control" id="course_limit" placeholder="Course Limit" required>
+		    <input name="course_limit" type="number" min="1" class="form-control" id="course_limit" placeholder="Course Limit" required>
 		</div>
 		<div class="form-group">
 			<label for="exampleFormControlInput1">Start Date</label>
@@ -75,7 +74,6 @@
 			<label for="price">Price</label>
 			<input name="price" type="number" min="0" step="0.01" class="form-control" id="price_add" placeholder="Price" required>
 		</div>
-     
 		<div class="form-group">
 			<label for="FK_company">Company</label>
 			<select name="FK_company" class="form-control" id="FK_company" required>

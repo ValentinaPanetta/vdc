@@ -12,15 +12,19 @@
 	                	</a>
 	                </div>
 	                <div class="col-lg-4 p-3">
-	                    <div class="border border-success" style="height: 12em;">
-	                        <h2 class="text-success">Intro courses</h2>
-	                    </div>
+	                	<a href="{{ url('courses') }}">
+		                    <div class="border border-success" style="height: 12em;">
+		                        <h2 class="text-success">Intro courses</h2>
+		                    </div>
+	              	    </a>
 	                </div>
 
 	                <div class="col-lg-4 p-3">
-	                    <div class="border border-success" style="height: 12em;">
-	                        <h2 class="text-success">Intro career</h2>
-	                    </div>
+	                	<a href="{{ url('job') }}">
+		                    <div class="border border-success" style="height: 12em;">
+		                        <h2 class="text-success">Intro career</h2>
+		                    </div>
+		                </a>    
 	                </div>
 
             	</div>

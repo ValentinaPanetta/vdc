@@ -42,9 +42,6 @@ Route::get('partners', function () {
     return view('partners');
 });
 
-Route::get('blog', function () {
-    return view('blog');
-});
 
 Route::get('contact', function () {
     return view('contact');
@@ -81,6 +78,13 @@ Route::resource('officeadmin', 'OfficeAdminController');
 Route::resource('consultings', 'ConsultingController');
 Route::resource('courses', 'CourseController');
 Route::resource('languages', 'LanguageController');
+
+Route::resource('calendar', 'CalendarController');
+Route::resource('blog', 'BlogController');
+Route::resource('postComments', 'BlogPstsCommentController');
+Route::resource('job', 'JobController');
+Route::resource('skills', 'SkillController');
+
 /*Routes for clientsToConsulting*/
 Route::post('clientsToConsulting', 'ClientsToConsultingController@attach')
 ->name('ClientToConsulting.attach');
@@ -89,11 +93,29 @@ Route::get('confirm', 'ClientsToConsultingController@detach')
 Route::delete('delete/{id}', 'ClientsToConsultingController@delete')
 ->name('ClientsToConsulting.delete');
 /*end*/
-Route::resource('calendar', 'CalendarController');
+
+/*Routes for clientsToConsulting*/
+Route::post('pts_attach', 'ProfilesToSkillController@attach')
+        ->name('ProfilesToSkill.attach');
+Route::post('pts_update', 'ProfilesToSkillController@update')
+        ->name('ProfilesToSkill.update');
+Route::get('pts_confirm', 'ProfilesToSkillController@detach')
+        ->name('ProfilesToSkill.detach');
+Route::delete('pts_delete/{id}', 'ProfilesToSkillController@delete')
+        ->name('ProfilesToSkill.delete');
+/*end*/
+
+
+/*Routes for coursesToSkill*/
+Route::get('attachSkills/{id}', 'CoursesToSkillController@display')
+->name('attachSkills');
+Route::post('coursesToSkill', 'CoursesToSkillController@attach')
+->name('courseToSkill.attach');
+Route::get('laica', 'CoursesToSkillController@detach')
+->name('courseToSkill.detach');
+/*end*/
+
 Auth::routes();
-
-/*Route::get('/home', 'HomeController@index')->name('home');*/
-
 
 Route::get('/prova', function () {
     return view('prova');

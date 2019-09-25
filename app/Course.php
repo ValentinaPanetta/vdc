@@ -10,11 +10,26 @@ class Course extends Model
     protected $dates = ['created_at', 'updated_at'];
     public $timestamps = false;
 
+    /* function to access parent table
+    @param: Parent table, foreign key of child table
+    */
     public function courseCompany(){
     	return $this->belongsTo('App\PartnerCompanie', 'FK_company');
     }
 
     public function courseLanguage(){
     	return $this->belongsTo('App\Language', 'FK_language');
+    }
+
+    /* function to access to tables through many to many relational table
+    @belongsToMany param: Table to connect, relational table, foreign key of the starting table, foreign key of the second table.
+    @withPivot('additional data of the relational table')
+    */
+    public function courseToSkill() {
+    	return $this->belongsToMany('App\Skill', 'courses_to_skills', 'FK_course', 'FK_skill')->withPivot('lvl');
+    }
+
+    public function cToSkill(){
+        return $this->belongsToMany('App\Skill', 'courses_to_skills', 'FK_course', 'FK_skill');
     }
 }

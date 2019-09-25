@@ -28,6 +28,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('newsletter') }}">Newsletter</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('courses') }}">Courses</a>
+                        </li>
                         @auth
                             @switch(Auth::user()->role) 
                                 @case('client')
@@ -58,6 +61,10 @@
                                 </li>
                             @endif
                         @endauth
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('calendar') }}">Calendar</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
