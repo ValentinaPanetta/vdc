@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class PartnerCompanieController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource for Admin Pannel.
      *
      * @return \Illuminate\Http\Response
      */

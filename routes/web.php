@@ -38,11 +38,6 @@ Route::get('terms', function () {
     return view('terms');
 });
 
-Route::get('partners', function () {
-    return view('partners');
-});
-
-
 Route::get('contact', function () {
     return view('contact');
 });
@@ -70,6 +65,7 @@ Route::resource('admin', 'AdminCrudUserController');
 Route::resource('client', 'ClientUserController');
 Route::resource('consultant', 'ConsultantUserController');
 Route::resource('companies', 'PartnerCompanieController');
+Route::resource('partners', 'PartnerController');
 Route::resource('employee', 'PartnerEmployeeController');
 Route::resource('newsletter', 'NewsletterController');
 Route::resource('account', 'UserAccountController');
