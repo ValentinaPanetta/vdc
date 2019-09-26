@@ -19,6 +19,11 @@
 				<div>{{ $res->street }}</div>
 				<div>{{ $res->zipCode }} {{ $res->city }}</div>
 				<div>{{ $res->country }}</div>
+				<div class="mt-3 text-center">
+					<a href="{{ route('companies.show', $res->id) }}">
+						<button class="btn-custom btn-custom-blue" type="submit">read more</button>
+					</a>
+				</div>
 			</div>
 		</div>
 		@endforeach

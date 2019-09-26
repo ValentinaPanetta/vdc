@@ -59,9 +59,10 @@ class PartnerCompanieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PartnerCompanie $companie)
+    public function show($companie)
     {
-        return redirect('/companies');
+        $res = PartnerCompanie::find($companie);
+        return view('companies/show', compact('res'));
     }
 
     /**
