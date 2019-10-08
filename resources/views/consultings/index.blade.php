@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content') 
-
+@include('consultings.search')
 
 	<div class="">
 		<h1 class="text-center">Consultings</h1>
@@ -14,7 +14,7 @@
 	<div class="row">
 		@foreach ($res as $res)
 
-			<div class="col-lg-4 p-2">
+			<div class="col-lg-4 p-2 cane" id="{{ $res->id }}" >
 				<div class="border border-info pl-3 py-4 ">
 					<a href="consultings/{{ $res->id }}"><h2 class="text-center text-info">{{ $res->title }}</h2></a>
 					<hr>
@@ -85,6 +85,5 @@
 			</div>	
 		@endforeach
 	</div>
-
 
 @endsection

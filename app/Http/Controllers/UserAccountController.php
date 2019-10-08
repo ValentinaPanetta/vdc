@@ -8,9 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\Traits\UploadTrait;
 class UserAccountController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -78,7 +79,30 @@ class UserAccountController extends Controller
     {
         User::where('id', $id)->update($request->except(['_token','_method']));
         $account = User::where('id','=', $id)->find($id);
-        switch ($account->role) {
+        $request->validate([
+            'image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+        // Check if a profile image has been uploaded
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name =$account->name.'_'.'userID'.'-'.$account->id;
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+           $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+           $account->image = $filePath;
+        }
+        // Persist user record to database
+        $account->save();
+
+
+
+       switch ($account->role) {
             case "client":
                 return redirect('/client/'.$account->id);
                 break;

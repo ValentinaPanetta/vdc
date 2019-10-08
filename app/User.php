@@ -78,5 +78,20 @@ class User extends Authenticatable
             'FK_consulting'
          );
     }
-    
+
+    public function clientToCourse() 
+    {
+        return $this->belongsToMany(
+            'App\Course', 
+            'clients_to_courses', 
+            'FK_client', 
+            'FK_course')
+        ->withPivot('client_status');
+    }
+
+    public function comment()
+    {
+        return $this->hasMany('App\Comment', 'FK_subject');
+    }
+
 }

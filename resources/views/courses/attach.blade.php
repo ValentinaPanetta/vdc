@@ -1,7 +1,10 @@
 @extends('layouts.adminPannel')
 
 @section('content')
-
+<div class="row d-flex justify-content-center p-2">
+	<h3 class="font-weight-bold text-darkblue">Skills</h3>
+</div>
+<div class="row d-flex justify-content-center p-2">
 @php
 for($i=0; $i<count($skills); $i++){
 	$sk = $skills[$i]->id;
@@ -18,13 +21,15 @@ for($i=0; $i<count($skills); $i++){
 	
 		@if($check == true )
 			@php echo
-					'<form class="p-5" method="POST" action="';
+					'<div class="col-4 my-2">
+					<form class="p-5 border border-secondary rounded d-flex justify-content-center align-items-center" method="POST" action="';
 			@endphp
-					{{ route('courseToSkill.attach') }}
+					{{ route('courseToSkill.detach') }}
 					
 			@php echo'">'; 
 			@endphp 
-			@csrf 
+			@csrf
+			{{ method_field('GET') }}
 			@php echo'
 					<div class="form-check my-3">
 					<input class="form-control" type="hidden" name="FK_skill" id="exampleRadios1" 
@@ -40,11 +45,12 @@ for($i=0; $i<count($skills); $i++){
 						<option value="3">advanced</option>
 
 					</select>
-					<button type="submit" class="btn btn-danger">
+					<button type="submit" value="delete" class="btn-custom btn-custom-grey">
 								  -
 								</button>
 								</div>
-						</form>';
+						</form>
+					</div>';
 			@endphp
 
 		@endif
@@ -56,7 +62,8 @@ for($i=0; $i<count($skills); $i++){
 	
 		@if($check == false )
 			@php echo
-					'<form class="p-5" method="POST" action="';
+					'<div class="col-4 my-2 ">
+					<form class="p-5 border border-primary rounded d-flex justify-content-center align-items-center" method="POST" action="';
 			@endphp
 					{{ route('courseToSkill.attach') }}
 					
@@ -75,17 +82,18 @@ for($i=0; $i<count($skills); $i++){
 						<option value="3">advanced</option>
 
 					</select>
-					<button type="submit" class="btn btn-primary">
+					<button type="submit" class="btn-custom btn-custom-blue">
 								  +
 								</button>
 								</div>
-						</form>';
+						</form>
+					</div>';
 			@endphp
 
  @endif
 	@php
 		}
 	@endphp
-
+</div>
 @endsection
 

@@ -19,9 +19,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('references') }}">References</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('blog') }}">Blog/News</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('partners') }}">Partners</a>
                         </li>
@@ -32,6 +30,9 @@
                             <a class="nav-link" href="{{ url('courses') }}">Courses</a>
                         </li>
                         @auth
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{ url('blog') }}">Blog/News</a>
+                            </li>
                             @switch(Auth::user()->role) 
                                 @case('client')
                                     <li class="nav-item">
@@ -60,11 +61,12 @@
                                      <a class="nav-link" href="{{ url('admin') }}">Admin Panel</a>
                                 </li>
                             @endif
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{ url('calendar') }}">Calendar</a>
+                            </li>
                         @endauth
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('calendar') }}">Calendar</a>
-                        </li>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->

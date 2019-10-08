@@ -1,3 +1,6 @@
+@extends('layouts.default')
+
+@section('content')
  <form method="POST" action="{{ route('newsletter.store') }}">
     @csrf
 
@@ -17,3 +20,4 @@
         </div>
     </div>
 </form>
+@endsection

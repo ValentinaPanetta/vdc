@@ -1,10 +1,10 @@
-<div class="container border border-secondary mt-5">	
+<div class="container border border-secondary mt-5">    
 
 @php
     if(isset($_GET['prm'])){
-    	$m=strip_tags($_GET['prm'])+strip_tags($_GET['chm']);
+        $m=strip_tags($_GET['prm'])+strip_tags($_GET['chm']);
     }else{
-    	$m=date("m");
+        $m=date("m");
     }
     $adj="";
     $d=date("d");
@@ -14,30 +14,30 @@
     $yn=date('Y',mktime(0,0,0,$m,1,$y));
     $j= date('w',mktime(0,0,0,$m,1,$y))-1;
     if($j=="-1"){
-    	$j="6";
+        $j="6";
     }
     $MONTHS=array(1=>'Januar','Februar','März','April','Mai','Juni',
         'Juli','August','September','Oktober','November','Dezember');
     for($k=1; $k<=$j; $k++){$adj.="<td> </td>";}
-   /* echo "Today is " . date("j-n-Y");*/
+   /* echo "Today is " . date("d-n-Y");*/
     $today = date("j-n-Y");
 @endphp
 
   <table class="table table-bordered text-center" id="calendar_table">
     <div class="d-flex justify-content-around p-2 border-bottom border-secondary">
-	    <div>
-		     <a href="?prm={{$m}}&chm=-1">
-				<button class="btn btn-success "><h2><</h2></button>
-		     </a>
-	    </div>
-	    <div >
-	     	<h2 class="text-success pt-1">{{$MONTHS[$mn]." ".$yn}}</h2>
-	    </div>
-	    <div>
-		     <a href="?prm={{$m}}&chm=1">
-				<button class="btn btn-success "><h2>></h2></button>
-		     </a>
-	    </div>
+        <div>
+             <a href="?prm={{$m}}&chm=-1">
+                <button class="btn btn-success "><h2><</h2></button>
+             </a>
+        </div>
+        <div >
+            <h2 class="text-success pt-1">{{$MONTHS[$mn]." ".$yn}}</h2>
+        </div>
+        <div>
+             <a href="?prm={{$m}}&chm=1">
+                <button class="btn btn-success "><h2>></h2></button>
+             </a>
+        </div>
     </div>
     <tr class="">
     <td><strong>Montag</strong></td>
@@ -51,8 +51,8 @@
     <tr>
     @php
      for($i=1;$i<=$nd;$i++)
-	    {	
-		$going = $i."-".$mn."-".$yn; //current day in the loop
+        {   
+        $going = $i."-".$mn."-".$yn; //current day in the loop
         $match = false;             //default no consultings 
         if($con_date != null){
                 for($r=0; $r<count($con_date); $r++){
@@ -93,9 +93,9 @@
                             echo $adj."<td><h4 class='font-italic p-2'>".$i."</h4></td>";       
             }
 
-	    	$adj='';    	
-     		if($j==7){echo"</tr><tr>";$j=0;}
-     	}  //end main for loop 
+            $adj='';        
+            if($j==7){echo"</tr><tr>";$j=0;}
+        }  //end main for loop 
 
 
 
@@ -104,3 +104,4 @@
    </table>
 
 </div>
+

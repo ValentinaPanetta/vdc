@@ -1,4 +1,4 @@
-<footer class="footer w-100 bg-white shadow-sm row d-flex justify-content-around text-center">
+<footer class="footer w-100 bg-white shadow row d-flex justify-content-around text-center">
 	<div class="col-4 p-3">
 		<div >
 			<div>

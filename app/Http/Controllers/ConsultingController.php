@@ -8,21 +8,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ConsultingController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
-       
+         if(request()->ajax())
+         {
+                  if(!empty($request->input_html))
+                      {
+                            $ar = Consulting::where('title', 'like',  $request->input_html. '%')->get();
+                            return  $ar; 
+                        }
+                      
+        }else{
+            {
+                $res = Consulting::get();
+            }
+           return view('consultings.index', compact('res')); 
+        }  
 
-        $res = Consulting::get();
-     return view('consultings.index', compact('res'));
-       
     }
-
 
 
     /**
@@ -117,8 +126,6 @@ class ConsultingController extends Controller
         Consulting::destroy($id);
         return redirect()->route('consultings.index');
     }
-
-
     
 
 }

@@ -31,6 +31,7 @@
 					<th>Reg Type</th>
 					<th>Created</th>					
 					<th>Updated</th>	
+					<th>Show</th>
 					<th>EDIT</th>
 					<th>DELETE</th>				
 				</tr>
@@ -50,6 +51,31 @@
 					<td>{{ $res->registration_type }}</td>
 					<td>{{ $res->created_at }}</td>
 					<td>{{ $res->updated_at }}</td>
+					<td>
+
+					@switch ($res->role) 
+			            @case("client")
+			                <a href="/client/{{$res->id}}">
+			                @break;
+			            @case("trainer")
+			             	<a href="/employee/{{$res->id}}">
+			            	@break;
+			            @case("consultant")
+			            	<a href="/consultant/{{$res->id}}"> 
+			                @break;
+			            @case("course_provider")
+			                <a href="/employee/{{$res->id}}"> 
+			             	@break;
+			            @case("off_admin")
+			            	<a href="/officeadmin/{{$res->id}}"> 
+			                @break;
+			            @case("employer")
+			                <a href="/employer/{{$res->id}}"> 
+			                @break;
+			        @endswitch
+			        <button class="btn btn-primary">Go</button>
+        		</a>
+					</td>
 					<td class="text-success text-center font-weight-bold">
 						<a href="{{ route('admin.edit', $res->id)}}">
 							<button class="bg-success text-white pointer" style="border-radius: 100%; border:0; cursor: pointer;">O</button>

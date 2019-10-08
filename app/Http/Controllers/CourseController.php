@@ -16,13 +16,39 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request)
     {
-
-        $courses = Course::get();
-        // $course = Course::find(8);
-        // return $course->courseToSkill;
-        return view('courses/index', compact('courses'));
+/*
+        if(request()->ajax())
+         {
+                  if(!empty($request->input_html))
+                      {
+                            $ar = Consulting::where('title', 'like',  $request->input_html. '%')->get();
+                            return  $ar; 
+                        }
+                      
+        }else{
+            {
+                $res = Consulting::get();
+            }
+           return view('consultings.index', compact('res')); 
+        } 
+*/
+         if(request()->ajax())
+         {
+                  if(!empty($request->search_course))
+                      {
+                            $ar = Course::where('name', 'like',  $request->search_course. '%')->get();
+                          
+                     return  $ar; 
+                        }
+                      
+        }else{
+            {
+                $courses = Course::get();
+            }
+           return view('courses.index', compact('courses'));
+        }
     }
 
     /**

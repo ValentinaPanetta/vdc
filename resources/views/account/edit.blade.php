@@ -2,7 +2,21 @@
 
 @section('content')
 	<div class="p-5">
-		 <form method="POST" action="{{ route('account.update', $res->id) }}">
+		@if ($errors->any())
+		    <div class="alert alert-danger alert-dismissible" role="alert">
+		        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		            <span aria-hidden="true">×</span>
+		        </button>
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		                <li>
+		                    {{ $error }}
+		                </li>
+		            @endforeach
+		        </ul>
+		    </div>
+		@endif
+		 <form method="POST" action="{{ route('account.update', $res->id) }}"  enctype="multipart/form-data">
 			@csrf 
 			{{ method_field('PUT') }}
 		  <div class="form-group">
@@ -22,8 +36,10 @@
 
 		
 		  <div class="form-group">
-		    <label for="image">Profile Picture</label>
-			<input name="image" type="text"  class="form-control" value="{{ $res->image }}">	
+	<!-- 	    <label for="image">Profile Picture</label>{{-- $res->image --}}
+					<input name="image" type="text"  class="form-control" value=""> -->	
+    			<div for="image">Profile Picture</div>
+    			<input type="file" class="btn btn-success "  name="image" >
 		</div>
 
 

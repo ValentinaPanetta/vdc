@@ -25,11 +25,11 @@ class Course extends Model
     @belongsToMany param: Table to connect, relational table, foreign key of the starting table, foreign key of the second table.
     @withPivot('additional data of the relational table')
     */
-    public function courseToSkill() {
+    public function courseToSkill(){
     	return $this->belongsToMany('App\Skill', 'courses_to_skills', 'FK_course', 'FK_skill')->withPivot('lvl');
     }
 
-    public function cToSkill(){
-        return $this->belongsToMany('App\Skill', 'courses_to_skills', 'FK_course', 'FK_skill');
+    public function courseToClient(){
+        return $this->belongsToMany('App\User', 'clients_to_courses', 'FK_course', 'FK_client')->withPivot('client_status');
     }
 }

@@ -71,15 +71,22 @@ Route::resource('newsletter', 'NewsletterController');
 Route::resource('account', 'UserAccountController');
 Route::resource('employer', 'EmployerController');
 Route::resource('officeadmin', 'OfficeAdminController');
-Route::resource('consultings', 'ConsultingController');
 Route::resource('courses', 'CourseController');
 Route::resource('languages', 'LanguageController');
+
+
+Route::resource('consultings', 'ConsultingController');
+Route::resource('documents', 'DocumentController');
+
+
+
 
 Route::resource('calendar', 'CalendarController');
 Route::resource('blog', 'BlogController');
 Route::resource('postComments', 'BlogPstsCommentController');
 Route::resource('job', 'JobController');
 Route::resource('skills', 'SkillController');
+Route::resource('comments', 'CommentController');
 
 /*Routes for clientsToConsulting*/
 Route::post('clientsToConsulting', 'ClientsToConsultingController@attach')
@@ -102,6 +109,7 @@ Route::delete('pts_delete/{id}', 'ProfilesToSkillController@delete')
 /*end*/
 
 
+
 /*Routes for coursesToSkill*/
 Route::get('attachSkills/{id}', 'CoursesToSkillController@display')
 ->name('attachSkills');
@@ -110,6 +118,16 @@ Route::post('coursesToSkill', 'CoursesToSkillController@attach')
 Route::get('laica', 'CoursesToSkillController@detach')
 ->name('courseToSkill.detach');
 /*end*/
+
+/*routes for clientsToCourse*/
+Route::post('clientsToCourse', 'ClientsToCourseController@attach')
+->name('ClientToCourse.attach');
+Route::get('confirm_unsub', 'ClientsToCourseController@detach')
+->name('ClientsToCourse.detach');
+Route::delete('del_tt/{id}', 'ClientsToCourseController@delete')
+->name('ClientsToCourse.delete');
+/*end*/
+
 
 Auth::routes();
 

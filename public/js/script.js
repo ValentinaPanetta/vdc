@@ -8,12 +8,13 @@ $( document ).ready(function() {
 		var dinamic =  document.getElementsByClassName('dinamic');
 		for (let i = 0; i < availability.length; i++) {
 			dinamic[i].style.color = 'green';
-			console.log(availability[i].innerHTML);
+			/*console.log(availability[i].innerHTML);*/
 			if(availability[i].innerHTML == 0){
 				dinamic[i].style.color = 'red';
 				dinamic[i].innerHTML = 'Completed';
 			}
 		}		
+
 	}else if(window.location.pathname == '/blog'){
 
 		var comment_btn = document.getElementsByClassName('comment_btn');
@@ -32,6 +33,18 @@ $( document ).ready(function() {
 			})
 		}
 		
+	}else if(window.location.pathname == '/calendar'){
+/*		$('#pro').css('display', 'none')
+		var dateString = $('#pro').html();
+		var result = dateString.substring(3, dateString.length-2);
+		var dateArr = result.split('#');
+		console.log(dateArr);
+		$('#daily').html('ciaoaooaoa');
+		$('.onclick').each(function(){
+			$(this).addEventListener('click',function(){
+				alert('ciao');
+			})
+		})*/
 	}
 
-});
+})

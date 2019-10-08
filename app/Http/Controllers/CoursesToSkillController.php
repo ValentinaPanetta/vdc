@@ -36,12 +36,17 @@ class CoursesToSkillController extends Controller
     public function detach(Request $request){
         $course = $request['FK_course'];
         $skill = $request['FK_skill'];
-        $pivot = CoursesToSkill::where('FK_course', '=', $course)->where('FK_skill', '=', $skill)->first()->id;
-
-        if(CoursesToSkill::destroy($pivot)){
-            return 'success';
-        }
-
+        $row = CoursesToSkill::where('FK_course', '=', $course)->where('FK_skill', '=', $skill);
+        if($row){
+            $id = $row->first()->id;
+            if(CoursesToSkill::destroy($id)){
+             
+              return redirect('../attachSkills/'.$course);
+            }
+        }else{
+        return redirect('../attachSkills/'.$course);
+    }      
+       
     }
 
     
