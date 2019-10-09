@@ -7,6 +7,9 @@
 	<a href="{{ route('languages.index')}}" >
 		<button class="btn btn-info ">Languages</button>
 	</a>
+	<a href="{{ route('jobProfiles.index')}}" >
+   		<button class="btn-custom btn-custom-blue">Job Profiles</button>
+	</a>
 	<a href="{{ route('skills.index')}}" >
         <button class="btn-custom btn-custom-blue ">Skills</button>
     </a>

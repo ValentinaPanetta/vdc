@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-12 h2 text-center">Job Profiles</div>
         <div class="col-6 my-3 text-left">
-            <a href="{{ route('admin.index') }}"><button type="submit" class="btn btn-primary text-light">Back
+            <a href="{{ route('admin.index') }}"><button type="submit" class="btn-custom btn-custom-blue text-light">Admin Panel
             </button></a>
         </div>
         <div class="col-6 my-3 text-right">
             <a href="{{ route('jobProfiles.create') }}">
-            	<button type="submit" class="btn btn-primary text-light">Create New Profile
+            	<button type="submit" class="btn-custom btn-custom-blue text-light">Create New Profile
             	</button>
             </a>
         </div>
@@ -18,7 +18,7 @@
 		
 		@foreach ($profiles as $profiles)
 			<div class="col-md-4 col-sm-12 p-2" >
-            	<div class="col-12 border border-info px-5 py-3" style="height: 100%;">
+            	<div class="col-12 border border-secondary rounded px-5 py-3" style="height: 100%;">
             		<div class="col-12 h4 mt-3 p-0" id="{{ $profiles->id }}">{{ $profiles->name }}</div>
             		<div class="col-12 p-0">{{ $profiles->importance }}</div>
 
@@ -43,16 +43,16 @@
             		
 					<div class="col-12 p-0 my-3">
 						<a href="{{ route('jobProfiles.show', $profiles->id) }}">
-							<button class="btn btn-index pointer">show</button>
+							<button class="btn-custom btn-custom-grey pointer">show</button>
 						</a>
 	            		<a href="{{ route('jobProfiles.edit', $profiles->id)}}">
-							<button class="btn btn-primary text-white pointer">edit</button>
+							<button class="btn btn-secondary text-white pointer">edit</button>
 						</a>
 						<form class="d-inline" method="POST" action="{{ route('jobProfiles.destroy', $profiles->id) }}">
 							@csrf
 							{{ method_field('DELETE') }}
 						    
-							<button type="submit" value="delete" class="btn btn-secondary text-white pointer d-inline" onclick="return confirm('Do you really want to delete this profile?')">delete</button>
+							<button type="submit" value="delete" class="btn-custom btn-custom-blue text-white pointer d-inline" onclick="return confirm('Do you really want to delete this profile?')">delete</button>
 						</form>
 					</div>
             	</div>            	

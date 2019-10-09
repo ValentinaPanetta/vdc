@@ -75,15 +75,16 @@
                         </thead>
 
                         <tbody>
-                        {{-- @foreach($profiles->profileToSkills()->get() as $skill)
+                        @foreach($profiles->profileToSkills()->get() as $skill)
                             <tr>
-                                <form method="POST" action="{{ route('ProfilesToSkill.update') }}">
+                                <form method="POST" action="{{-- {{ route('ProfilesToSkill.update') }} --}}">
                                 {{ method_field('PUT') }}
                                 @csrf
                                 <h2>{{$skill->pivot->FK_skill}}</h2>
-                                    <td class="pl-4">
-                                        <input class="form-check-input" type="checkbox" name="name">
+                                    <td class="pl-4">                                        
                                         <label>{{ $skill->name }}</label>
+                                        <input type="hidden" name="FK_skill" value="'.$skills[$i]->id.'">
+                                        <input type="hidden" name="FK_profile" value="'.$FK_profile.'">
                                     </td>
                                     <td class="py-2">
                                         <input class="col-11 form-control" type="number" name="min_level" value="{{ $skill->pivot->min_level }}">
@@ -96,7 +97,7 @@
                                     </td>
                                 </form>                            
                             </tr>                        
-                        @endforeach --}}
+                        @endforeach
                         </tbody>
                         </table>                        
                     </div>

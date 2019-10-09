@@ -14,6 +14,9 @@ Route::get('/events', function () {
     return view('events');
 });
 
+Route::get('/uploads/files',function(){
+    return 'ciao';
+});
 
 Route::get('/', function () {
     return view('welcome_guest');
@@ -74,7 +77,7 @@ Route::resource('officeadmin', 'OfficeAdminController');
 Route::resource('courses', 'CourseController');
 Route::resource('languages', 'LanguageController');
 
-
+Route::resource('jobProfiles', 'JobProfileController');
 Route::resource('consultings', 'ConsultingController');
 Route::resource('documents', 'DocumentController');
 
@@ -128,6 +131,17 @@ Route::delete('del_tt/{id}', 'ClientsToCourseController@delete')
 ->name('ClientsToCourse.delete');
 /*end*/
 
+
+/*Routes for profilesToSkill*/
+Route::get('pts_attach/{id}', 'JobProfilesToSkillController@display')
+        ->name('pts_attach');
+Route::post('profilesToSkill', 'JobProfilesToSkillController@attach')
+        ->name('JobProfilesToSkill.attach');
+Route::get('pts_confirm', 'JobProfilesToSkillController@detach')
+        ->name('JobProfilesToSkill.detach');
+Route::post('pts_update', 'JobProfilesToSkillController@update')
+        ->name('JobProfilesToSkill.update');
+/*end*/
 
 Auth::routes();
 
