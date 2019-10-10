@@ -71,7 +71,7 @@ class Kernel extends HttpKernel
         'ex_consultant' => \App\Http\Middleware\ExcludeConsultant::class,
         'ex_employer' => \App\Http\Middleware\ExcludeEmployer::class,
         'ex_course_prov' => \App\Http\Middleware\ExcludeCourseProvider::class,
-
+        'private_content' => \App\Http\Middleware\PrivateContent::class,
         
     ];
 

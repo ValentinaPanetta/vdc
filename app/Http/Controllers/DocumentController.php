@@ -10,6 +10,7 @@ use App\Traits\UploadTrait;
 class DocumentController extends Controller
 {
     use UploadTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -57,20 +58,23 @@ class DocumentController extends Controller
             // Get doc file
             $doc = $request->file('path');
             // Make a doc name based on user name and current timestamp
-            $name =$file_name.'_'.'userID'.'-'.$user_id;
+            $name =$file_name;
             // Define folder path
-            $folder = '/uploads/files/';
+            $folder = $user_id.'/files/';
             // Make a file path where doc will be stored [ folder path + file name + file extension]
-           $filePath = $folder . $name. '.' . $doc->getClientOriginalExtension();
-            // Upload doc
+           $filePath = '/file/'.$name.'.'.$doc->getClientOriginalExtension().'/'.$user_id; 
+            // Upload  /file/{filename}/{id}/
             $this->uploadOne($doc, $folder, 'public', $name);
         }
 
+        $file_name_and_extension = $file_name.'.'.$doc->getClientOriginalExtension();
         Document::create([
-            'name'=>$request['name'],
+            'name'=>$file_name_and_extension,
             'FK_user'=>$request['FK_user'],
             'path'=>$filePath,
         ]);
+    /*  return $filePath;*/
+      return redirect('/documents/'.$user_id);
     }
 
     /**
@@ -80,7 +84,8 @@ class DocumentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+
         $res=Document::where('FK_user', $id)->get();
         $user=User::find($id);
         return view('documents.show', compact('res', 'user'));
@@ -119,11 +124,12 @@ class DocumentController extends Controller
      */
     public function destroy( $id)
     {
-        $res = Document::find($id);        
-        $filename = last(explode('/',  $res->path));       
-        $folder = '/uploads/files/';
+        $res = Document::find($id);         
+        $filename =  $res->name;  
+        $folder = '/'.$res->FK_user.'/files/';  
         $this->deleteOne($folder, 'public', $filename);
         Document::destroy($id);
         return back();
+
     }
 }

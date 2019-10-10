@@ -6,7 +6,7 @@
 
 		  <div class="form-group">
 		    <label for="name">Name</label>
-		    <input name="name" type="text" class="form-control" id="name" value="" required>
+		    <input name="name" type="text" class="form-control" id="name" placeholder="file name" required>
 		  </div>
 		 
 		

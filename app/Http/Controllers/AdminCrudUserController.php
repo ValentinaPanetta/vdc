@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\User;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Traits\UploadTrait;
 
 class AdminCrudUserController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -128,6 +131,12 @@ class AdminCrudUserController extends Controller
 
     public function destroy($id)
     {
+        $profile_img = '/profile_imgs/'.$id.'/';
+        $this->folderDestroyer('images', $profile_img);
+
+        $docs = $id;
+        $this->folderDestroyer('public', $docs);
+        
          if(User::destroy($id)) {
            return redirect('admin');
          } else {

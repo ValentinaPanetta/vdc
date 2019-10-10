@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Traits\UploadTrait;
+
 class UserAccountController extends Controller
 {
     use UploadTrait;
+/*    use Filesystem;*/
     /**
      * Display a listing of the resource.
      *
@@ -89,11 +91,12 @@ class UserAccountController extends Controller
             // Make a image name based on user name and current timestamp
             $name =$account->name.'_'.'userID'.'-'.$account->id;
             // Define folder path
-            $folder = '/uploads/images/';
+            $folder = '/profile_imgs/'.$account->id.'/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+           
             // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
+            $this->upgradeOne($image, $folder, 'images', $name);
             // Set user profile image path in database to filePath
            $account->image = $filePath;
         }

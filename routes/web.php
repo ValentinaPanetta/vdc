@@ -76,14 +76,9 @@ Route::resource('employer', 'EmployerController');
 Route::resource('officeadmin', 'OfficeAdminController');
 Route::resource('courses', 'CourseController');
 Route::resource('languages', 'LanguageController');
-
 Route::resource('jobProfiles', 'JobProfileController');
 Route::resource('consultings', 'ConsultingController');
 Route::resource('documents', 'DocumentController');
-
-
-
-
 Route::resource('calendar', 'CalendarController');
 Route::resource('blog', 'BlogController');
 Route::resource('postComments', 'BlogPstsCommentController');
@@ -142,6 +137,20 @@ Route::get('pts_confirm', 'JobProfilesToSkillController@detach')
 Route::post('pts_update', 'JobProfilesToSkillController@update')
         ->name('JobProfilesToSkill.update');
 /*end*/
+
+/*FILE  route*/
+Route::get('/file/{filename}/{id}/', function ($filename, $id) {
+    $path = storage_path('app/public/'.$id.'/files/' . $filename);
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->middleware('auth', 'private_content');
+
 
 Auth::routes();
 
