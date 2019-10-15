@@ -2,14 +2,13 @@
 @section('content')
 <div class="container-fluid mb-5" style="margin-top: 100px;">
     <div class="row justify-content-center">
-        <div class="col-12 h2 text-center">Edit Job Profile</div>
+        <div class="col-12 h2 text-center">{{ $profiles->name }}</div>
         <div class="col-md-11">
             <div class="form-group row">
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-11 my-2 ">
                     <a href="{{ route('jobProfiles.index') }}">
-                        <button type="submit" class="btn btn-primary">
-                        Go Back
-                    </button></a>
+                        <button type="submit" class="btn-custom btn-custom-blue">Back to Job Profiles</button>
+                    </a>
                 </div>
             </div>
 
@@ -55,8 +54,8 @@
                         </div>                        
 
                         <div class="form-group row">
-                            <div class="col-12 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-12 mt-2 d-flex justify-content-center">
+                                <button type="submit" class="btn-custom btn-custom-blue">
                                     Save Profile
                                 </button>
                             </div>
@@ -64,46 +63,57 @@
                     </form>
 
                     <div class="row mx-4 mt-5">
-                        <div class="h4 mb-3">Required Skills</div>
-                        <table class="col-12 p-0 mt-3">                                 
-                        <thead>
-                            <tr>
-                                <th>Skills</th>
-                                <th>min-lvl</th>
-                                <th>max-lvl</th>
-                            </tr>
-                        </thead>
+                        <div class="h3 my-5 text-center w-100">Required Skills</div>                        
 
-                        <tbody>
+                        <div class="col-12">
+                            <div class="row mb-2">
+                                <div class="col-md-3 h5 text-md-right font-weight-bold">Skill</div>
+                                
+                                <div class="col-md-3">
+                                    <div class="h5 font-weight-bold">min_level</div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="h5 font-weight-bold">max_level</div>
+                                </div>
+
+                                <div class="col-3 d-inline"></div> {{-- column for buttons --}}
+                            </div>
+                        </div>
+
+                        
                         @foreach($profiles->profileToSkills()->get() as $skill)
-                            <tr>
-                                <form method="POST" action="{{-- {{ route('ProfilesToSkill.update') }} --}}">
-                                {{ method_field('PUT') }}
+
+                            <form class="col-12" method="POST" action="{{ route('JobProfilesToSkill.update') }}">
+                                
                                 @csrf
-                                <h2>{{$skill->pivot->FK_skill}}</h2>
-                                    <td class="pl-4">                                        
-                                        <label>{{ $skill->name }}</label>
-                                        <input type="hidden" name="FK_skill" value="'.$skills[$i]->id.'">
-                                        <input type="hidden" name="FK_profile" value="'.$FK_profile.'">
-                                    </td>
-                                    <td class="py-2">
-                                        <input class="col-11 form-control" type="number" name="min_level" value="{{ $skill->pivot->min_level }}">
-                                    </td>
-                                    <td>
-                                        <input class="col-11 form-control" type="number" name="max_level" value="{{ $skill->pivot->max_level }}">
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-primary" type="submit">edit</button>
-                                    </td>
-                                </form>                            
-                            </tr>                        
-                        @endforeach
-                        </tbody>
-                        </table>                        
+
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label text-md-right">{{ $skill->name }}</label>
+                                    <input type="hidden" name="FK_skill" value="{{ $skill->pivot->FK_skill }}">
+                                    <input type="hidden" name="FK_profile" value="{{ $skill->pivot->FK_profile }}">
+                                    
+                                    <div class="col-md-3">
+                                        <input name="min_level" type="number" class="form-control" value="{{ $skill->pivot->min_level }}" id="min_level" min="1" max="5">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input name="max_level" type="number" class="form-control" value="{{ $skill->pivot->max_level }}" id="max_level" min="1" max="5">
+                                    </div> 
+                                    <div class="col-3 d-inline">
+                                        <button class="btn-custom btn-custom-blue" type="submit">update</button>
+                                    </div>                                                                    
+                                </div>      
+                            </form>                
+                        @endforeach                         
+                    </div> {{-- end row for skills --}}
+                    <div class="mb-4 my-4 text-center w-100">
+                        <a href="{{ route('pts_attach', $profiles->id) }}">
+                            <button class="btn-custom btn-custom-blue">add/remove skills</button>
+                        </a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </div> {{-- card body end --}}
+            </div> {{-- card end --}}
+        </div> {{-- col-11 --}}
+    </div> {{-- row --}}
+</div> {{-- container end --}}
 @endsection
