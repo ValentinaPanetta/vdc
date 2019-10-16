@@ -18,6 +18,20 @@ class JobProfilesToSkillController extends Controller
         return view('jobProfiles.attach', compact('profile', 'skills', 'FK_profile'));
     }
 
+    public function store(Request $request)
+    {
+        switch ($request->input('action')) {
+            case 'remove':
+                redirect()->route('JobProfilesToSkill.detach');
+                break;
+
+            case 'update':
+                redirect()->route('JobProfilesToSkill.update', $request);
+                break;
+        }
+    }
+
+
     // function triggered from jobProfile/ View
     public function attach(Request $request) 
     {
@@ -58,11 +72,12 @@ class JobProfilesToSkillController extends Controller
      * @param  \App\JobProfile  $jobProfile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $skill = $request['FK_skill'];
+        $profile = $request['FK_profile'];
         
-        $jobID = JobProfilesToSkill::where('FK_profile', '=', $id)
+        $jobID = JobProfilesToSkill::where('FK_profile', '=', $profile)
             ->where('FK_skill', '=', $skill)->first()->id;
 
         JobProfilesToSkill::where('id', $jobID)->update($request->except(['_token','_method']));

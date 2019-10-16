@@ -1,6 +1,6 @@
 @extends('layouts.adminPannel')
 @section('content')
-    <div class="row mx-4 mt-5">
+    <div class="row mx-4 my-5">
         <div class="col-12 h2 text-center mb-3">{{ $profile->name }}</div>
         <div class="mb-4 my-2 w-100">            
             <p class="h4 text-center">Required Skills</p>
@@ -8,16 +8,23 @@
                 <button class="btn-custom btn-custom-blue pointer">Back to Profile</button>
             </a>
         </div>
-        {{-- <table class="col-12 p-0 mt-3">  --}}                                
-        {{-- <thead>
-            <tr>
-                <th>Skills</th>
-                <th>min-lvl</th>
-                <th>max-lvl</th>
-            </tr>
-        </thead> --}}
 
-        {{-- <tbody> --}}
+        <div class="col-12">
+            <div class="row mb-2">
+                <div class="col-md-3 h5 text-md-right font-weight-bold">Skill</div>
+                
+                <div class="col-md-3">
+                    <div class="h5 font-weight-bold">min_level</div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="h5 font-weight-bold">max_level</div>
+                </div>
+
+                <div class="col-3 d-inline">                
+                </div>
+            </div>
+        </div>
         @php
             for($i=0; $i<count($skills); $i++){
                 $sk_id = $skills[$i]->id;
@@ -27,11 +34,10 @@
                 @if($res->pivot->FK_skill == $sk_id)
                     @php
                     $check = true;
-                    @endphp 
+                    @endphp
                 
-                    @if($check == true )                        
-                        @php echo'
-                            
+                    @if($check == true)                        
+                        @php echo'                            
                             <form class="col-12" method="POST" action="';
                         @endphp
 
@@ -49,16 +55,14 @@
                                     <input type="hidden" name="FK_profile" value="'.$FK_profile.'">
 
                                     <div class="col-md-3">
-                                        <input name="min_level" class="form-control" value="" id="min_level">
+                                        <input name="min_level" type="number" class="form-control" value="'.$res->pivot->min_level.'" id="min_level" min="1" max="5" disabled>
                                     </div>
-
                                     <div class="col-md-3">
-                                        <input name="max-level" class="form-control" value="" id="max_level">
-                                    </div>
-
+                                        <input name="max-level" type="number" class="form-control" value="'.$res->pivot->max_level.'" id="max_level" min="1" max="5"disabled>
+                                    </div> 
                                     <div class="col-3 d-inline">
-                                        <button class="btn-custom btn-custom-grey" type="submit">remove</button>
-                                    </div>
+                                        <button class="btn btn-secondary" type="submit">remove</button>
+                                    </div>                                                                    
                                 </div>                                
                             </form>';
                         @endphp
@@ -85,13 +89,12 @@
                             <input type="hidden" name="FK_profile" value="'.$FK_profile.'">
 
                             <div class="col-md-3">
-                                <input name="min_level" class="form-control" value="" id="min_level">
+                                <input name="min_level" type="number" class="form-control" value="" id="min_level" min="1" max="5">
                             </div>
 
                             <div class="col-md-3">
-                                <input name="max_level" class="form-control" value="" id="max_level">
+                                <input name="max_level" type="number" class="form-control" value="" id="max_level" min="1" max="5">
                             </div>
-
                             <div class="col-3 d-inline">
                                 <button class="btn-custom btn-custom-blue px-4" type="submit">add</button>
                             </div>
@@ -99,8 +102,11 @@
                     </form>';
                 @endphp
             @endif
-            @php } @endphp    
-        {{-- </tbody>
-        </table> --}}                        
+            @php } @endphp
+        <div class="mb-4 my-4 text-center w-100">
+            <a href="{{ route('jobProfiles.edit', $profile->id) }}">
+                <button class="btn-custom btn-custom-blue">Edit Values</button>
+            </a>
+        </div>                              
     </div>
 @endsection
