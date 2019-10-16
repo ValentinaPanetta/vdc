@@ -8,7 +8,7 @@ class PrivateContent
 
 
     /*
-    *This middleware filters the requestes to access to the page and allowes
+    *This middleware filters the requestes to see Personal Files and allowes
     only the owner, sys_admin and off_admin
 
     */

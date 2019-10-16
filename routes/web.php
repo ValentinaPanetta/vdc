@@ -78,7 +78,6 @@ Route::resource('courses', 'CourseController');
 Route::resource('languages', 'LanguageController');
 Route::resource('jobProfiles', 'JobProfileController');
 Route::resource('consultings', 'ConsultingController');
-Route::resource('documents', 'DocumentController');
 Route::resource('calendar', 'CalendarController');
 Route::resource('blog', 'BlogController');
 Route::resource('postComments', 'BlogPstsCommentController');
@@ -86,6 +85,13 @@ Route::resource('job', 'JobController');
 Route::resource('skills', 'SkillController');
 Route::resource('comments', 'CommentController');
 
+Route::resource('documents', 'DocumentController');
+/*Route::post('documents', 'DocumentController@post')->name('documents.post');
+Route::get('documents/{id}', 'DocumentController@show')->name('documents.show');
+Route::get('documents/create', 'DocumentController@create');
+Route::delete('documents/{id}', 'DocumentController@destroy')->name('documents.destroy');*/
+
+                    
 /*Routes for clientsToConsulting*/
 Route::post('clientsToConsulting', 'ClientsToConsultingController@attach')
 ->name('ClientToConsulting.attach');
@@ -150,7 +156,7 @@ Route::get('/file/{filename}/{id}/', function ($filename, $id) {
     $response->header("Content-Type", $type);
     return $response;
 })->middleware('auth', 'private_content');
-
+/*f r*/
 
 Auth::routes();
 
