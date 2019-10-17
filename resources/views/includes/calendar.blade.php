@@ -50,49 +50,46 @@
     </tr>
     <tr>
     @php
+    $my_course = '';
      for($i=1;$i<=$nd;$i++)
-	    {	
+	    {
+        $con = '';	
 		$going = $i."-".$mn."-".$yn; //current day in the loop
-        $match = false;             //default no consultings 
         if($con_date != null){
                 for($r=0; $r<count($con_date); $r++){
-                    if($con_date[$r] == $going){ //matched consultings    -->       print consulting
-                        $j++;
-                        $match = true;              // consulting found
+                    if($con_date[$r] == $going){ 
+                    $con .= "   
+                             <a href='consultings/".$con_id[$r]."' class='text-success'>
+                             <p>".$con_title[$r]."</p>
+                             </a>";  
 
-                        if($today == $going) 
-                            echo $adj."
-                                <td class='text-success border border-success font-weight-bold'>
-                                <a href='consultings/".$con_id[$r]."' class='text-success'>
-                                <p>".$con_title[$r]."</p>
-                                <h2 class='text-success font-italic'>".$i."</h2>
-                                </a>
-                                </td>";
-                        else
-                            echo $adj."
-                                      <td class='text-success border border-success font-weight-bold'>
-                                      <a href='consultings/".$con_id[$r]."' class='text-success'>
-                                        <h2 class='font-italic'>".$i."</h2>
-                                        <p>".$con_title[$r]."</p>
-                                        </a>
-                                      </div>
-                                      </td>";
                     }
                 }
-            }//con_date != null
-            if($match == false){ 
-                                        //default no consultings today
-                                      //   --> print normal days
-                        $j++;
-                        if($today == $going) 
+            }
+            /*COURSESESSESESE*/
+            if($con_date != null){
 
-                            echo $adj."<td>
-                                            <h2 class='text-primary font-italic'>".$i."</h2> 
-                                       </td>";  
-                        else
-                            echo $adj."<td><h4 class='font-italic p-2'>".$i."</h4></td>";       
+                for($z=0; $z<count($course_start); $z++){
+
+                    if($course_start[$z] == $going){ 
+                    $my_course .= "Kourse ".$course_name[$z];
+
+                                      
+
+                    }
+                }
             }
 
+            echo $adj."<td class=' font-weight-bold'>";
+            if($going == $today)
+                echo "<h2 class='font-italic text-primary'>".$i."</h2>";
+            else
+                echo "<h2 class=''>".$i."</h2>";
+            echo $con;
+            echo $my_course;
+            echo "</div></td>";       
+
+            $j++;
 	    	$adj='';    	
      		if($j==7){echo"</tr><tr>";$j=0;}
      	}  //end main for loop 
@@ -104,3 +101,5 @@
    </table>
 
 </div>
+
+

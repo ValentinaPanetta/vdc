@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Consulting;
 use App\User;
+use App\ClientsToCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -25,11 +26,11 @@ class CalendarController extends Controller
         ->where('users.id', $authId)
         ->get();      
 
-    $unsub = Consulting::all();  // Get All the consultings
+    $courses = ClientsToCourse::where('FK_client', Auth::id())->get();   
 
-   /*  $res = Consulting::get();*/
-     return view('calendar_page', compact('res', 'unsub'));
-       /*return $subscriptions;*/
+   /* return $courses->findCourse()->get();*/
+    return view('calendar_page', compact('res','courses'));
+       /**/
     }
 
 

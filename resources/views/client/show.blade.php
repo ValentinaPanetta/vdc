@@ -13,6 +13,9 @@
 	<a href="{{ url('documents/'.$resUser->id)}}" >
 		<button class="btn btn-info text-white">Documents</button>
 	</a>
+	<a href="{{ url('reservations/')}}" >
+		<button class="btn btn-info text-white">My Courses</button>
+	</a>
 </div>
 	<hr>
 <div class="row d-flex justify-content-center my-4 ">	

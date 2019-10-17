@@ -14,20 +14,27 @@ $un_date = null;
 	@php($con_id[] = $res->con_ID)
 @endforeach 
 
+@foreach ($courses as $courses)
+	@foreach ($courses->findCourse()->get() as $c)
+		<!-- Start date -->
+		@php($cs = substr($c->start_date,0,10))
+		@php($cs_2 = date("j-n-Y", strtotime($cs)))
+		@php($course_start[] = $cs_2)
+		<!-- End Date -->
+		@php($es = substr($c->end_date,0,10))
+		@php($es_2 = date("j-n-Y", strtotime($es)))
+		@php($course_end[] = $es_2)
+		<!-- Course Name -->
+		@php($course_name[] = $c->name)
+		<!-- Course Id -->
+		@php($course_id[] = $c->id)
+	@endforeach
+@endforeach
+
+		{{$course_end[0]}}
 @include('includes.calendar')
 
 
 @endsection
 
 
-
-
-
-{{--All Consultings
-@foreach ($unsub as $un)   
-	@php($ud = substr($un->consult_date,0,10))
-	@php($uf = date("d-n-Y", strtotime($ud)))
-	@php($un_date[] = $uf)
-	@php($un_title[] = $un->title)
-	@php($un_id[] = $un->id)
-@endforeach--}}
