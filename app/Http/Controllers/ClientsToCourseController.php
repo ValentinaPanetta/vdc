@@ -30,9 +30,9 @@ class ClientsToCourseController extends Controller
     {
 
         if(ClientsToCourse::destroy($id)) {
-           return redirect('../courses');
+           return redirect('../reservations');
          } else {
-           return redirect('../courses');
+           return redirect('../reservations');
          }
 
     }

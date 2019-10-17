@@ -32,7 +32,7 @@
         </a>
         @endif
     
-   <div class="d-flex justify-content-start">
+   <div class="">
     {{-- subscription buttons for clients --}}
     @if(Auth::user()->role == 'client')             
     @php ($subscribed = false)
@@ -51,13 +51,16 @@
                 <button type="submit" class="btn-custom btn-custom-blue mr-2" onclick="return confirm('Are you sure to enroll in this course?')">enroll</button>
             </form>
         @else
-            <form method="POST" action="{{ route('ClientsToCourse.detach') }}">
-            @csrf
-            {{ method_field('GET') }}
-                <input type="hidden" name="FK_client" value="{{ Auth::user()->id }}">
-                <input type="hidden" name="FK_course" value="{{ $courses->id }}">
-                <button type="submit" value="delete" class="btn-custom btn-custom-grey mr-2">unsubscribe</button>
-            </form>
+           
+        <div><div>This course is in your wish list!</div>
+               <a href="{{ route('reservations.index')}}"> 
+
+            <button type="submit" value="delete" class="btn-custom btn-custom-grey mr-2">
+                Manage enrollmetn
+            </button>
+            </a>
+           </div>
+           
         @endif
     @endif
 

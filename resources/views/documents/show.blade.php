@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h2 class="text-center p-4">{{ $user->name}} files</h2>
+<h2 class="text-center p-4">{{ $user->name }} files</h2>
 <div class="container shadow p-2">
-	<a href="{{ url('documents/create') }}">
+	<a href="{{ route('documents.create') }}">
 	<button class="btn btn-success my-2">Add New</button>
 </a>
 

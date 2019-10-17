@@ -84,13 +84,12 @@ Route::resource('postComments', 'BlogPstsCommentController');
 Route::resource('job', 'JobController');
 Route::resource('skills', 'SkillController');
 Route::resource('comments', 'CommentController');
-
-Route::resource('documents', 'DocumentController');
-/*Route::post('documents', 'DocumentController@post')->name('documents.post');
-Route::get('documents/{id}', 'DocumentController@show')->name('documents.show');
-Route::get('documents/create', 'DocumentController@create');
-Route::delete('documents/{id}', 'DocumentController@destroy')->name('documents.destroy');*/
-
+Route::resource('reservations', 'CourseReservationController');
+/*Route::resource('documents', 'DocumentController');*/
+Route::get('/documents/create/', 'DocumentController@create')->name('documents.create');
+Route::get('documents/{id}', 'DocumentController@show')->name('documents.show')->middleware('auth', 'private_page');;
+Route::delete('documents/{id}', 'DocumentController@destroy')->name('documents.destroy')->middleware('auth', 'private_page');;
+Route::post('documents', 'DocumentController@store')->name('documents.store');
                     
 /*Routes for clientsToConsulting*/
 Route::post('clientsToConsulting', 'ClientsToConsultingController@attach')

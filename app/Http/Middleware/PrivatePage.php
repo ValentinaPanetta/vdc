@@ -23,7 +23,7 @@ class PrivatePage
     {
      
 
-         $id = last($request->route()->parameters());
+         $id = $request->route('id');
                 if (   Auth::user()->id != $id 
                     and Auth::user()->role != 'sys_admin'
                     and Auth::user()->role != 'off_admin'
