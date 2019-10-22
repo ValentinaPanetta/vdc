@@ -34,17 +34,10 @@ $( document ).ready(function() {
 		}
 		
 	}else if(window.location.pathname == '/calendar'){
-/*		$('#pro').css('display', 'none')
-		var dateString = $('#pro').html();
-		var result = dateString.substring(3, dateString.length-2);
-		var dateArr = result.split('#');
-		console.log(dateArr);
-		$('#daily').html('ciaoaooaoa');
-		$('.onclick').each(function(){
-			$(this).addEventListener('click',function(){
-				alert('ciao');
-			})
-		})*/
+		$('.bg-prz-0').css({"backgroundColor":"Teal","color":"white"});
+		$('.bg-prz-1').css({"backgroundColor":"lightcoral","color":"white"});
+		$('.bg-prz-3').css({"backgroundColor":"Teal","color":"white"});
+		$('.bg-prz-2').css({"backgroundColor":"lightcoral","color":"white"});
 	}
 
 })

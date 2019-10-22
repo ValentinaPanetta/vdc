@@ -50,7 +50,8 @@
     </tr>
     <tr>
     @php
-    $my_course = '';
+    $my_course = ''; 
+    $my_course=[];
      for($i=1;$i<=$nd;$i++)
 	    {
         $con = '';	
@@ -67,15 +68,13 @@
                 }
             }
             /*COURSESESSESESE*/
-            if($con_date != null){
+           
+            if($course_start != null){
 
                 for($z=0; $z<count($course_start); $z++){
 
                     if($course_start[$z] == $going){ 
-                    $my_course .= "Kourse ".$course_name[$z];
-
-                                      
-
+                    $my_course[$z] = "<a href='/courses/".$course_id[$z]."'><p class='bg-prz-".$z." '>".$course_name[$z]."</p></a>";     
                     }
                 }
             }
@@ -86,8 +85,18 @@
             else
                 echo "<h2 class=''>".$i."</h2>";
             echo $con;
-            echo $my_course;
-            echo "</div></td>";       
+
+            foreach ($my_course as $cours_date => $value){
+                echo $value;
+            }
+            echo "</div></td>";     
+            if($course_end != null){
+                for($z=0; $z<count($course_end); $z++){
+                    if($course_end[$z] == $going){ 
+                    $my_course[$z] ='';     
+                    }
+                }
+            } 
 
             $j++;
 	    	$adj='';    	

@@ -197,6 +197,12 @@ fieldset:disabled a.btn-custom {
   box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
 }
 
+#daily {
+  background-color: white;
+  border: 2px solid red;
+  height: 20em;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10840,4 +10846,96 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+/*                                  styling start */
+body{
+  background-color: #FAFAFA;
+}
 
+#Account img{ 
+  height: 25em;
+ -webkit-box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
+-moz-box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
+box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
+}
+#Account h2{
+ background-color:  rgba(21,40,65,0.89);
+    position: absolute;
+    margin-top: -16%;
+    padding-left: 5%;
+    padding-right: 2%;
+}
+
+
+#Account a:hover img{
+display: none;
+}
+
+#Account a:hover h2{
+display: none;
+}
+
+.text_img{
+  background-color: rgba(21,40,65,0.89);
+  height: 25em;
+}
+.text_img p{
+ display: none;
+}
+#Account a:hover .text_img p{
+display: block;
+}
+
+a{
+  text-decoration: none !important; 
+}
+.msg a{
+  color: white;
+}
+.msg a:hover{
+  color: #1C9D9A;
+}
+.msg li{
+  
+  list-style: none;
+}
+.msg {
+  padding: 5px;
+}
+.msg div{
+  border-radius: 4%;
+  font-size: 1.5em;
+  padding: 4px;
+  background-color: rgba(21,40,65,0.89);
+  margin: 10px 0;
+}
+.btn-our{
+  background-color: #4AC2E4;
+  color: white;
+  text-align: center;
+  border-radius: 4%;
+  font-size: 1.5em;
+  padding: 4px;
+}
+.messageboard{
+ background-color:  #1A9C9C;
+}
+.references{
+  background-color: rgba(21,40,65,0.89);
+   -webkit-box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
+-moz-box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
+box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
+}
+.references h3{
+   color:  #4AC2E4;
+}
+
+.references p{
+   font-size: 1.3em;
+
+}
+.virgolette{
+  font-family: verdana;
+  font-size: 10em;
+  font-style: italic;
+  color:  #4AC2E4;
+}

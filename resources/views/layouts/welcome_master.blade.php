@@ -17,20 +17,82 @@
             
 
             <div id="hero" class=" border border-alert">
-                <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" class="img-fluid w-100 " style="height: 40em; width: 100%;">
+                <img src="/backgrounds/bg1.jpg" class="img-fluid w-100 " style="width: 100%;">
             </div>
             @yield('account')
             @yield('video')
 
 
 
-            <div id="references" class="w-100 border border-danger" style="height: 20em;">
-                <h2 class="text-danger text-center">references</h2>
+            <div id="references" class="w-100 " >
+             
+                <div class="row">
+                    <div class="p-3 col-lg-4 ">
+                        <div class="references p-2">
+                            <h3 class="text-center  my-5">Lorem Ipsum</h3>
+                            <p class="text-white p-3">
+                                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                            <h1 class="virgolette text-center p-2">"</h1>
+                        </div>
+                    </div>
+
+                    <div class="p-3 col-lg-4 ">
+                        <div class="references p-2">
+                            <h3 class="text-center my-5">Lorem Ipsum</h3>
+                            <p class="text-white p-3">
+                                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                            <h1 class="virgolette text-center p-2">"</h1>
+                        </div>
+                    </div>
+
+                    <div class="p-3 col-lg-4 ">
+                        <div class="references p-2">
+                            <h3 class="text-center   my-5">Lorem Ipsum</h3>
+                            <p  class="text-white  p-3">
+                                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                            <h1 class="virgolette text-center p-2">"</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="blog" class="w-100 border border-primary my-3" style="height: 20em;">
+            <div id="blog" class="w-100 border border-primary my-3">
                 <a href="{{ url('blog') }}">
-                    <h2 class="text-primary text-center">blog</h2>
+                    <h2 class="text-primary text-center">Blog</h2>
                 </a>
+                <div class="row">
+                    <div class="p-3 col-lg-4 ">
+                        <div class="references p-2">
+                            <h3 class="text-center  my-5">Blog Ipsum</h3>
+                            <p class="text-white p-3">
+                                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                            <h1 class="virgolette text-center p-2">#</h1>
+                        </div>
+                    </div>
+
+                    <div class="p-3 col-lg-4 ">
+                        <div class="references p-2">
+                            <h3 class="text-center my-5">Blog Ipsum</h3>
+                            <p class="text-white p-3">
+                                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                            <h1 class="virgolette text-center p-2">#</h1>
+                        </div>
+                    </div>
+
+                    <div class="p-3 col-lg-4 ">
+                        <div class="references p-2">
+                            <h3 class="text-center   my-5">Blog Ipsum</h3>
+                            <p  class="text-white  p-3">
+                                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                            <h1 class="virgolette text-center p-2">#</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="partners" class="w-100 border border-info mb-3" style="height: 20em;">
                 <h2 class="text-info text-center">partners</h2>
