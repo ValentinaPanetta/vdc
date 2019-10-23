@@ -2,7 +2,10 @@
 
 /*console.log(window.location.pathname);*/  //Show path !!!
 $( document ).ready(function() {
-    
+
+	let path = window.location.pathname;
+    let showPost = path.substring(0, 5);
+
 	if(window.location.pathname == '/consultings'){
 		var availability = document.getElementsByClassName('availability');
 		var dinamic =  document.getElementsByClassName('dinamic');
@@ -17,6 +20,7 @@ $( document ).ready(function() {
 
 	}else if(window.location.pathname == '/blog'){
 
+		
 		var comment_btn = document.getElementsByClassName('comment_btn');
 		var comment_form = document.getElementsByClassName('comment_form');
 		var close_msg = document.getElementsByClassName('close_msg');
@@ -33,11 +37,26 @@ $( document ).ready(function() {
 			})
 		}
 		
+	}else if( showPost =='/blog'){
+		console.log('Post Section');
+
+		$('#commentForm').css({"display":"none"});
+
+		$('#AddComt').click(function(){
+			$('#commentForm').css({"display":"block"});
+		})
+
+		$('#close_msg').click(function(){
+			$('#commentForm').css({"display":"none"});
+		})
+
 	}else if(window.location.pathname == '/calendar'){
 		$('.bg-prz-0').css({"backgroundColor":"Teal","color":"white"});
 		$('.bg-prz-1').css({"backgroundColor":"lightcoral","color":"white"});
 		$('.bg-prz-3').css({"backgroundColor":"Teal","color":"white"});
 		$('.bg-prz-2').css({"backgroundColor":"lightcoral","color":"white"});
+	}else{
+		console.log(showPost);
 	}
 
 })

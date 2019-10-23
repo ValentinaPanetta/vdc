@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light row fixed-top bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light row fixed-top bg-white shadow-sm" id="main_navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     VDC
@@ -33,28 +33,7 @@
                             <li class="nav-item">
                             <a class="nav-link" href="{{ url('blog') }}">Blog/News</a>
                             </li>
-                            @switch(Auth::user()->role) 
-                                @case('client')
-                                    <li class="nav-item">
-                                         <a class="nav-link" href="{{ url('client/'.Auth::user()->id) }}">My Profile</a>
-                                    </li>
-                                @break
-                                @case('consultant')
-                                    <li class="nav-item">
-                                         <a class="nav-link" href="{{ url('consultant/'.Auth::user()->id) }}">My Profile</a>
-                                    </li>
-                                @break
-                                @case('trainer')
-                                    <li class="nav-item">
-                                         <a class="nav-link" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
-                                    </li>
-                                @break
-                                @case('course_provider')
-                                    <li class="nav-item">
-                                         <a class="nav-link" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
-                                    </li>
-                                @break
-                            @endswitch
+                           
 
                             @if(Auth::user()->role == 'sys_admin' or Auth::user()->role == 'off_admin')
                                 <li class="nav-item">
@@ -93,12 +72,37 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                   
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                
+
+                                @switch(Auth::user()->role) 
+                                @case('client')
+                                    
+                                         <a class="dropdown-item" href="{{ url('client/'.Auth::user()->id) }}">My Profile</a>
+                                    
+                                @break
+                                @case('consultant')
+                                    
+                                         <a class="dropdown-item" href="{{ url('consultant/'.Auth::user()->id) }}">My Profile</a>
+                                    
+                                @break
+                                @case('trainer')
+                                    
+                                         <a class="dropdown-item" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
+                                    
+                                @break
+                                @case('course_provider')
+                                    
+                                         <a class="dropdown-item" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
+                                    
+                                @break
+                                @endswitch
                                 </div>
                             </li>
+                            
                         @endguest
                     </ul>
                 </div>

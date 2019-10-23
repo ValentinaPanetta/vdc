@@ -51,13 +51,15 @@
     <tr>
     @php
     $my_course = ''; 
-    $my_course=[];
+    $my_course=Array();
+    $sper=Array();
      for($i=1;$i<=$nd;$i++)
 	    {
         $con = '';	
-		$going = $i."-".$mn."-".$yn; //current day in the loop
+		$going = $i."-".$mn."-".$yn; //current day in the loop  CONSULTINGS
         if($con_date != null){
                 for($r=0; $r<count($con_date); $r++){
+
                     if($con_date[$r] == $going){ 
                     $con .= "   
                              <a href='consultings/".$con_id[$r]."' class='text-success'>
@@ -67,14 +69,18 @@
                     }
                 }
             }
-            /*COURSESESSESESE*/
+            /*-------------------------------------------------COURSES*/
            
             if($course_start != null){
 
                 for($z=0; $z<count($course_start); $z++){
-
-                    if($course_start[$z] == $going){ 
-                    $my_course[$z] = "<a href='/courses/".$course_id[$z]."'><p class='bg-prz-".$z." '>".$course_name[$z]."</p></a>";     
+     
+                    if(date_create($course_start[$z]) <= date_create($going)){ 
+                            if(date_create($course_end[$z]) >= date_create($going))
+                                $my_course[$z] = "<a href='/courses/".$course_id[$z]."'><p class='bg-prz-".$z." '>".$course_name[$z]."</p></a>";     
+                            else
+                                 $my_course[$z] = '';
+                        
                     }
                 }
             }
@@ -84,19 +90,26 @@
                 echo "<h2 class='font-italic text-primary'>".$i."</h2>";
             else
                 echo "<h2 class=''>".$i."</h2>";
+
             echo $con;
 
             foreach ($my_course as $cours_date => $value){
                 echo $value;
             }
-            echo "</div></td>";     
-            if($course_end != null){
+
+            foreach ($sper as $element =>$op){
+
+                echo $op;
+}
+            echo "</div></td>"; 
+            /*---------------------------.-----------------.------Course reset*/    
+         /*   if($course_end != null){
                 for($z=0; $z<count($course_end); $z++){
                     if($course_end[$z] == $going){ 
                     $my_course[$z] ='';     
                     }
                 }
-            } 
+            } */
 
             $j++;
 	    	$adj='';    	

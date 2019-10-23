@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Consulting;
 use App\User;
+use App\Payment;
 use App\ClientsToCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,10 +26,9 @@ class CalendarController extends Controller
         ->join('users', 'users.id', 'FK_client')
         ->where('users.id', $authId)
         ->get();      
+    $courses = Payment::where('FK_client', Auth::id())->get();   
 
-    $courses = ClientsToCourse::where('FK_client', Auth::id())->get();   
-
-   /* return $courses->findCourse()->get();*/
+    
     return view('calendar_page', compact('res','courses'));
        /**/
     }

@@ -55,9 +55,11 @@ class BlogController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $res = Post::find($id);
+       /* return $res;*/
+        return view('blog.show', compact('res'));
     }
 
     /**
