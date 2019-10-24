@@ -32,6 +32,13 @@ class Course extends Model
     public function courseToClient(){
         return $this->belongsToMany('App\User', 'clients_to_courses', 'FK_course', 'FK_client')->withPivot('client_status');
     }
+    
+    
+    
+    // public function paidCourse()
+    // {
+    //     return $this->hasMany('App\Payment', 'FK_course');
+    // }
 
 
 

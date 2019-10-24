@@ -8,13 +8,14 @@
 	                	<a href="{{ url('consultings') }}">
 		                    <div class="text_img" >
 		                    	<img class="img-fluid" src="/backgrounds/consulting.jpg">
+		                    	<span class="hidden_text p-3">
 									<h3 class="text-center text-white">Courses</h3>
 					                  <p class="text-white">
 					                
 					                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 					                  
 					                  </p> 
-			               
+			              		</span>
 		                        <h2 class="text-white">Intro consulting</h2>
 		                    </div>
 	                	</a>
@@ -23,12 +24,13 @@
 	                	<a href="{{ url('courses') }}">
 		                    <div class="text_img" >
 		                    	<img class="img-fluid" src="/backgrounds/course.jpg">
-		                    	<h3 class="text-center text-white">Courses</h3>
+		                    	<span class="hidden_text p-3">
+		                    	<h3 class="text-center text-white littleTitle">Courses</h3>
 					                  <p class="text-white">
 					                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 					                  
 					                  </p> 
-					             
+					             </span>
 		                        <h2 class="text-white">Intro courses</h2>
 		                    </div>
 	              	    </a>
@@ -38,11 +40,13 @@
 	                	<a href="{{ url('job') }}">
 		                    <div class="text_img" >
 		                    	<img class="img-fluid" src="/backgrounds/career.jpg">
-		                    	<h3 class="text-center text-white">Career</h3>
+		                    	<span class="hidden_text p-3">
+		                    	<h3 class="text-center text-white littleTitle">Career</h3>
 					                  <p class="text-white">
 					                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 					                  
 					                  </p> 
+					                  </span>
 		                        <h2 class="text-white">Intro career</h2>
 		                    </div>
 		                </a>    

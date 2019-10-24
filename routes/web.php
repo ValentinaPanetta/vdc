@@ -17,16 +17,17 @@ Route::get('/events', function () {
 Route::get('/uploads/files',function(){
     return 'ciao';
 });
-
+/*
 Route::get('/', function () {
     return view('welcome_guest');
-})->middleware('guest');
+})->middleware('guest');*/
 
 
-Route::get('/home', function () {
+/*Route::get('/home', function () {
     return view('welcome_logged');
-})->middleware('auth');
-
+})->middleware('auth');*/
+Route::get('/', 'HomePageController@indexguest')->middleware('guest');
+Route::get('/home', 'HomePageController@index')->middleware('auth');
 
 Route::get('about', function () {
     return view('about');

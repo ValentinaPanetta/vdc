@@ -3,6 +3,9 @@
 @php
 $con_date = null;
 $un_date = null;
+$course_start = null;
+$course_name = null;
+$course_id = null;
 @endphp
 
 
@@ -15,23 +18,30 @@ $un_date = null;
 @endforeach 
 
 @foreach ($courses as $courses)
-	@foreach ($courses->findCourse()->get() as $c)
-		<!-- Start date -->
-		@php($cs = substr($c->start_date,0,10))
-		@php($cs_2 = date("j-n-Y", strtotime($cs)))
-		@php($course_start[] = $cs_2)
-		<!-- End Date -->
-		@php($es = substr($c->end_date,0,10))
-		@php($es_2 = date("j-n-Y", strtotime($es)))
-		@php($course_end[] = $es_2)
-		<!-- Course Name -->
-		@php($course_name[] = $c->name)
-		<!-- Course Id -->
-		@php($course_id[] = $c->id)
+
+	@foreach ($courses->paidCourse()->get() as $c)
+		
+	
+							<!-- Start date -->
+			
+			@php($cs = substr($c->start_date,0,10))
+			@php($cs_2 = date("j-n-Y", strtotime($cs)))
+			@php($course_start[] = $cs_2)
+			<!-- End Date -->
+			@php($es = substr($c->end_date,0,10))
+			@php($es_2 = date("j-n-Y", strtotime($es)))
+			@php($course_end[] = $es_2)
+			<!-- Course Name -->
+			@php($course_name[] = $c->name)
+			<!-- Course Id -->
+			@php($course_id[] = $c->id)
+		
+		
 	@endforeach
 @endforeach
 
-		{{$course_end[0]}}
+
+		
 @include('includes.calendar')
 
 
