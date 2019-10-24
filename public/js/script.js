@@ -38,6 +38,50 @@ $( document ).ready(function() {
 		$('.bg-prz-1').css({"backgroundColor":"lightcoral","color":"white"});
 		$('.bg-prz-3').css({"backgroundColor":"Teal","color":"white"});
 		$('.bg-prz-2').css({"backgroundColor":"lightcoral","color":"white"});
+
+
+	}else if(window.location.pathname == '/'){
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		// var next = document.getElementsByClassName("next");
+		// var prev = document.getElementsByClassName("prev");
+
+		// Next/previous controls
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+
+		// Thumbnail image controls
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");		  
+		  if (n > slides.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = slides.length}
+
+		  for (i = 0; i < slides.length; i++) {
+		      slides[i].style.display = "none";
+		  }		  
+		  
+		  slides[slideIndex-1].style.display = "block";	
+		  console.log(slides.length, n, slideIndex);	  
+		}
+
+		
+
+		$(".next").click(function(){
+			plusSlides(1);
+		})
+		// prev.addEventListener('click', function(){
+		// 	plusSlides(-1);
+		// });
+		
 	}
+
+
 
 })

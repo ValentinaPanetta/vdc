@@ -98,6 +98,74 @@
                 <h2 class="text-info text-center">partners</h2>
             </div>
 
+            <!-- Parntner Companies Slideshow -->
+            <div class="w-100 my-3 slideshow-cont">
+                <div class="mySlides" id="slide_1">
+                    <div class="slideContainer">
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/cf.png">
+                            </div>
+                        </a>
+                        <a class="py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/sn.png">
+                            </div>
+                        </a>
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/bfi1.png">
+                            </div>
+                        </a>
+                    </div>                       
+                </div>
+
+                <div class="mySlides" id="slide_2">
+                    <div class="slideContainer">
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/sn.png">
+                            </div>
+                        </a>
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/waff.png">
+                            </div>
+                        </a>
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/cf.png">
+                            </div>
+                        </a>
+                    </div>                        
+                </div>
+
+                <div class="mySlides" id="slide_3">
+                    <div class="slideContainer">
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/waff.png">
+                            </div>
+                        </a>
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/cf.png">
+                            </div>
+                        </a>
+                        <a class="col-3 py-5" href="">
+                            <div class="text-center" id="logo">
+                                <img src="/logos/sn.png">
+                            </div>
+                        </a>
+                    </div>                   
+                </div>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a> 
+            </div>
+
+
+         
+
         
             @include('includes.footer')
         </main>
