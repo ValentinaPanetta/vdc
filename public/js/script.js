@@ -43,9 +43,6 @@ $( document ).ready(function() {
 		var slideIndex = 1;
 		showSlides(slideIndex);
 
-		// var next = document.getElementsByClassName("next");
-		// var prev = document.getElementsByClassName("prev");
-
 		// Next/previous controls
 		function plusSlides(n) {
 		  showSlides(slideIndex += n);
@@ -68,16 +65,14 @@ $( document ).ready(function() {
 		  
 		  slides[slideIndex-1].style.display = "block";	
 		  console.log(slides.length, n, slideIndex);	  
-		}
-
-		
+		}		
 
 		$(".next").click(function(){
 			plusSlides(1);
 		})
-		// prev.addEventListener('click', function(){
-		// 	plusSlides(-1);
-		// });
+		$(".prev").click(function(){
+			plusSlides(-1);
+		});
 		
 
 	}else{
