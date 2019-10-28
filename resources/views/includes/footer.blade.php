@@ -1,5 +1,5 @@
 <footer class="footer w-100 shadow row d-flex justify-content-around align-content-center text-center">
-	<div  class="col-12 p-3 d-flex d-flex text-center">
+	<div  class="col-12 pt-3 d-flex text-center">
 		<div class="d-flex text-center">
 			<div class="px-3 social"><i class="fab fa-facebook-square">t</i></div>
 			<div class="px-3 social"><i class="fab fa-instagram"></i>t</div>
@@ -8,7 +8,7 @@
 			<div class="px-3 social"><i class="fab fa-linkedin">t</i></div>
 		</div>
 	</div>
-	<div class="p-3 d-flex text-center">
+	<div class="pb-3 d-flex text-center">		
 		<div class="px-3">
 			<a href="{{ url('contact') }}" >Contact</a>
 		</div>
