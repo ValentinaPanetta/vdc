@@ -25,7 +25,7 @@ html, body {
 
 .footer {
  position: absolute;
- bottom: 0;
+ bottom: 0; 
 }
 
 // Typography
@@ -57,6 +57,36 @@ $mediumgrey: #abb2b9;
 $lightgrey: #d5d8dc;
 
 $btn-shadow: rgba(82, 161, 225, 0.5);
+
+//--- from Designer
+$vdcdarkblue1: rgb(35,31,32);
+$vdcdarkblue1-t: rgba(35,31,32, 0.88);
+$vdcdarkblue2: rgb(11,28, 43);
+$vdcdarkblue2-t: rgba(11,28,43, 0.85);
+$vdcdarkblue3: rgb(21,40,75);
+$vdcdarkblue3-t: rgba(21,40,75, 0.87);
+$vdcdarkblue4: rgb(0,72,118);
+$vdcdarkblue4-t: rgba(0,72,118, 0.87);
+
+$vdcmidblue1: rgb(0,118,169);
+$vdcmidblue1-t: rgba(0,118,169, 0.8);
+$vdcmidblue2: rgb(0,124,186);
+$vdcmidblue2-t: rgba(0,124,186, 0.8);
+$vdcmidblue3: rgb(64,124,202);
+$vdcmidblue3-t: rgba(64,124,202, 0.8);
+
+$vdcdarkcyan: rgb(30,152,138);
+$vdcdarkcyan-t: rgba(30,152,138, 0.75);
+$vdclightcyan: rgb(114,202,195);
+$vdclightcyan-t: rgba(114,202,195, 0.6);
+
+$vdclightblue: rgb(78,193,224);
+$vdclightblue-t: rgba(78,193,224, 0.75);
+$vdclightmix: rgb(99,208,223);
+$vdclightmix-t: rgba(99,208,223, 0.75);
+
+$vdcgrey: rgb(188,190,192);
+$vdcgrey-t: rgba(188,190,192, 0.75);
 
 // Background Colors
 

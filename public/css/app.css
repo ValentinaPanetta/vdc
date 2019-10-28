@@ -212,6 +212,7 @@ fieldset:disabled a.btn-custom {
 
 #logo {
   height: 75px;
+  width: 30%;
 }
 
 #logo img {
@@ -223,6 +224,11 @@ fieldset:disabled a.btn-custom {
 
 .mySlides {
   display: none;
+}
+
+.slideContainer {
+  display: flex;
+  justify-content: space-around;
 }
 
 /* Next & previous buttons */
@@ -261,6 +267,15 @@ fieldset:disabled a.btn-custom {
 }
 
 /* Fading animation */
+
+.footer {
+  font-size: 1.1em !important;
+  background-color: #0b1c2b;
+}
+
+.footer .social {
+  color: #72cac3;
+}
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10906,7 +10921,6 @@ a.text-dark:focus {
   }
 }
 
-
 /*                                  styling start */
 
 body {
@@ -11013,5 +11027,4 @@ a {
   height: 5em !important;
   font-size: 1.1em !important;
 }
-
 
