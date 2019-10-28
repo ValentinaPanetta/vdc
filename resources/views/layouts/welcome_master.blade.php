@@ -156,8 +156,8 @@
                         </a>
                     </div>                   
                 </div>
-                <a class="prev">&#10094;</a>
-                <a class="next">&#10095;</a> 
+                <a class="prev"><i class="fas fa-chevron-left"></i></a>
+                <a class="next"><i class="fas fa-chevron-right"></i></a> 
             </div>
 
             @include('includes.footer')

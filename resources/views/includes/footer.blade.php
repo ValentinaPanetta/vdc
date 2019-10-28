@@ -1,11 +1,11 @@
-<footer class="footer w-100 shadow row d-flex justify-content-around align-content-center text-center">
-	<div  class="col-12 pt-3 d-flex text-center">
-		<div class="d-flex text-center">
-			<div class="px-3 social"><i class="fab fa-facebook-square">t</i></div>
-			<div class="px-3 social"><i class="fab fa-instagram"></i>t</div>
-			<div class="px-3 social"><i class="fab fa-twitter-square">t</i></div>
-			<div class="px-3 social"><i class="fab fa-youtube">t</i></div>
-			<div class="px-3 social"><i class="fab fa-linkedin">t</i></div>
+<footer class="footer w-100 shadow row d-flex justify-content-center align-content-center text-center">
+	<div  class="col-12 pt-3 pb-1 d-flex justify-content-center text-center">
+		<div class="d-flex">tfff
+			<div class="h2 px-3 social"><a href=""><i class="fab fa-facebook-square"></i></a></div>
+			<div class="h2 px-3 social"><a href=""><i class="fab fa-instagram"></i></a></div>
+			<div class="h2 px-3 social"><a href=""><i class="fab fa-twitter"></i></a></div>
+			<div class="h2 px-3 social"><a href=""><i class="fab fa-youtube"></i></a></div>
+			<div class="h2 px-3 social"><a href=""><i class="fab fa-linkedin"></i></a></div>
 		</div>
 	</div>
 	<div class="pb-3 d-flex text-center">		

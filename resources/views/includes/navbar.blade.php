@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light row fixed-top bg-white shadow-sm" id="main_navbar">
+<nav class="navbar navbar-expand-md row fixed-top shadow-sm" id="main_navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     VDC
