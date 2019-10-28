@@ -79,10 +79,7 @@
               
                 </div>  <!-- Row                   ends here -->
             </div>
-            <div id="partners" class="w-100 border border-info mb-3" style="height: 20em;">
-                <h2 class="text-info text-center">partners</h2>
-            </div>
-
+            
             <!-- Parntner Companies Slideshow -->
             <div class="w-100 my-3 slideshow-cont">
                 <div class="mySlides" id="slide_1">
@@ -148,10 +145,6 @@
                 <a class="next">&#10095;</a> 
             </div>
 
-
-         
-
-        
             @include('includes.footer')
         </main>
 

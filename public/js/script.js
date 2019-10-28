@@ -39,7 +39,7 @@ $( document ).ready(function() {
 
 
 
-	}else if(window.location.pathname == '/'){
+	}else if(window.location.pathname == '/' || window.location.pathname =='/home'){
 		var slideIndex = 1;
 		showSlides(slideIndex);
 
