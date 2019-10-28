@@ -18,25 +18,6 @@ $( document ).ready(function() {
 			}
 		}		
 
-	}else if(window.location.pathname == '/blog'){
-
-		
-		var comment_btn = document.getElementsByClassName('comment_btn');
-		var comment_form = document.getElementsByClassName('comment_form');
-		var close_msg = document.getElementsByClassName('close_msg');
-		for(let i=0;i<comment_btn.length;i++){
-			comment_form[i].style.display = "none";
-			comment_btn[i].addEventListener('click',function(){
-				for(let y=0;y<comment_btn.length;y++){
-					comment_form[y].style.display = "none";	
-				}
-				comment_form[i].style.display = "block";
-			})
-			close_msg[i].addEventListener('click',function(){
-				comment_form[i].style.display = "none";
-			})
-		}
-		
 	}else if( showPost =='/blog'){
 		console.log('Post Section');
 
@@ -58,7 +39,7 @@ $( document ).ready(function() {
 
 
 
-	}else if(window.location.pathname == '/'){
+	}else if(window.location.pathname == '/' || window.location.pathname =='/home'){
 		var slideIndex = 1;
 		showSlides(slideIndex);
 
