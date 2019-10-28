@@ -89,6 +89,9 @@ $vdcgrey: rgb(188,190,192);
 $vdcgrey-t: rgba(188,190,192, 0.75);
 
 // Background Colors
+.bg-light-c{
+  background-color: $vdcdarkblue4-t;
+}
 
 .bg-darkblue {
 	background-color: $darkblue;

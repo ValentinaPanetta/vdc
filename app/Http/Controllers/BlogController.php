@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+use App\Traits\UploadTrait;
 class BlogController extends Controller
 {
+     use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -37,16 +41,46 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-            Post::create([
-            'title' => $request['title'],
-            'video' => $request['video'],
-            'image' => $request['image'],
-            'content' => $request['content'],
-            'FK_author' => $request['FK_author'],
-            
+    {    
+        $author = $request['FK_author'];
+        /*     'image' => $request['image'],*/
+        Post::create([
+                    'title' => $request['title'],
+                    'video' => $request['video'],
+                    'content' => $request['content'],
+                    'FK_author' => $request['FK_author'],
+                    
+                ]);
+
+        $thisPostId = Post::all()->last()->id;
+        $this_post = Post::where('FK_author','=', $author)->find($thisPostId);/*return 'lsls';*/
+
+        $request->validate([
+            'image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-            return redirect()->route('blog.index');
+
+        if ($request->has('image')) {
+
+            $image = $request->file('image');
+
+            // Make a image name based on user name and current timestamp
+            $name ='postimg';
+            // Define folder path
+            $folder = '/blog_imgs/'.$thisPostId.'_post_id/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+           
+            // Upload image
+            $this->upgradeOne($image, $folder, 'images', $name);
+            // Set user profile image path in database to filePath
+            $this_post->image = $filePath;
+            Post::where('id', $thisPostId)->update($request->except(['_token','_method']));
+            // Persist user record to database
+            $this_post->save();
+
+        }
+        
+           return redirect()->route('blog.index');
     }
 
     /**
@@ -58,7 +92,6 @@ class BlogController extends Controller
     public function show($id)
     {
         $res = Post::find($id);
-       /* return $res;*/
         return view('blog.show', compact('res'));
     }
 
@@ -94,11 +127,12 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        if(Post::destroy($id)) {
-            return redirect()->route('blog.index');
-        } else {
-            return redirect()->route('blog.index');
-        }
+    {   
+
+        $folder = '/blog_imgs/'.$id.'_post_id/';
+        $this->folderDestroyer('images', $folder);
+        Post::destroy($id);
+        return redirect()->route('blog.index');
+       
     }
 }

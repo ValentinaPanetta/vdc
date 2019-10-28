@@ -24,10 +24,13 @@
 
 
 
-            <div id="references" class="w-100 " >
+            <div id="references" class="w-100 shadow" >
              
-                <div class="row">
+                <div class="row ">
                     <div class="p-3 col-lg-4 ">
+                        <div class="reference_img">
+                            <img src="images_static/references/img1.jpg" alt="">
+                        </div>
                         <div class="references p-2">
                             <h3 class="text-center  my-5">Lorem Ipsum</h3>
                             <p class="text-white p-3">
@@ -38,6 +41,9 @@
                     </div>
 
                     <div class="p-3 col-lg-4 ">
+                        <div class="reference_img">
+                            <img src="images_static/references/img2.jpg" alt="">
+                        </div>
                         <div class="references p-2">
                             <h3 class="text-center my-5">Lorem Ipsum</h3>
                             <p class="text-white p-3">
@@ -48,6 +54,9 @@
                     </div>
 
                     <div class="p-3 col-lg-4 ">
+                        <div class="reference_img">
+                            <img src="images_static/references/img3.jpg" alt="">
+                        </div>
                         <div class="references p-2">
                             <h3 class="text-center   my-5">Lorem Ipsum</h3>
                             <p  class="text-white  p-3">
@@ -58,17 +67,23 @@
                     </div>
                 </div>
             </div>
-            <div id="blog" class="w-100 border border-primary my-3">
-                <a href="{{ url('blog') }}">
-                    <h2 class="text-primary text-center">Blog</h2>
+
+            <div id="blog" class="w-100 shadow my-3">
+                <a class="text-white" href="{{ url('blog') }}">
+                    <h2 class="text-white text-center p-1">Latest Posts</h2>
                 </a>
                 <div class="row">
                     @foreach ($post as $post)
                         <div class="p-3 col-lg-4 ">
-                            <div class="references p-2">
+                            <div class="bg-light-c p-2">
                                 <a href="{{ url('/blog/'.$post->id) }}">
                                     <h3 class="text-center  my-5">{{ $post->title }}</h3>
                                 </a>
+                                @if ($post->image != null)
+                                <div class="">
+                                    <img class=" img-fluid" src="{{ $post->image}}">
+                                </div>
+                                @endif
                                 <p class="text-white p-3">
                              "{{ str_limit($post->content, $limit = 160, $end = '...') }}"
                                 </p>

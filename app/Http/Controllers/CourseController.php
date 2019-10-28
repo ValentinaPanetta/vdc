@@ -18,22 +18,7 @@ class CourseController extends Controller
      */
     public function index( Request $request)
     {
-/*
-        if(request()->ajax())
-         {
-                  if(!empty($request->input_html))
-                      {
-                            $ar = Consulting::where('title', 'like',  $request->input_html. '%')->get();
-                            return  $ar; 
-                        }
-                      
-        }else{
-            {
-                $res = Consulting::get();
-            }
-           return view('consultings.index', compact('res')); 
-        } 
-*/
+
          if(request()->ajax())
          {
                   if(!empty($request->search_course))

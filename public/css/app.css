@@ -30,6 +30,10 @@ body {
   bottom: 0;
 }
 
+.bg-light-c {
+  background-color: rgba(0, 72, 118, 0.87);
+}
+
 .bg-darkblue {
   background-color: #000044;
 }
@@ -11011,7 +11015,12 @@ a {
   color: #4AC2E4;
 }
 
-.references p {
+.references p,
+#blog p {
+  font-size: 1.3em;
+}
+
+.big_text {
   font-size: 1.3em;
 }
 
@@ -11026,5 +11035,23 @@ a {
   /* opacity: 0.9 !important; */
   height: 5em !important;
   font-size: 1.1em !important;
+}
+
+.reference_img img {
+  overflow: hidden;
+  width: 100%;
+  height: 20em;
+}
+
+.postimg {
+  margin: 0 auto;
+  width: 48%;
+  padding: 5px;
+  box-shadow: -6px -6px 35px -12px rgba(0, 0, 0, 0.2);
+}
+
+.postimg img {
+  width: 100%;
+  position: relative;
 }
 

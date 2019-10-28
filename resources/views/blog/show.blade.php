@@ -21,8 +21,13 @@
 		<div class="border-bottom py-3 my-5">
 			<h2 class="text-center">{{ $res->title }}</h2>
 		</div>
+		@if ($res->image != null)
+		<div class="postimg">
+			<img src="{{ $res->image}}">
+		</div>
+		@endif
 		<div class="py-4">
-			<p class="text-center">{{ $res->content }}</p>
+			<p class="text-center big_text">{{ $res->content }}</p>
 		</div>
 		
 		<div>

@@ -7,7 +7,7 @@
 	</div>
 	<h2 class="text-center text-success">Create a New Post</h2>
 	<div class="container text-center">
-		<form method="POST" action="{{ route('blog.store') }}">
+		<form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
 		@csrf
 		<div class="w-100 my-3">
 			<div>Title</div>
@@ -19,7 +19,7 @@
 		</div>
 		<div>
 			<div class="w-100 my-3">Image</div>
-			<input type="text" name="image" value="image url"  class="w-100">
+			<input type="file" name="image"  class="w-100">
 		</div>
 		<div>
 			<div class="w-100 my-3">Video</div>

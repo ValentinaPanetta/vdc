@@ -19,8 +19,14 @@
 				
 				<div>
 					<a href="{{ url('blog/'.$res->id) }}" title="">
-					<h2>{{ $res->title }}</h2></a>
+					<h2 class="text-center mb-2">{{ $res->title }}</h2></a>
 				</div>
+				@if ($res->image != null)
+					<div class="postimg mb-2">
+					<img src="{{ $res->image}}">
+					</div>
+				@endif
+				
 				<div>
 					<p>{{ $res->content }}</p>
 				</div>
