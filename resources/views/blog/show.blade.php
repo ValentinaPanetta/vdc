@@ -4,16 +4,20 @@
 	@php($auth_id = $author->id)
 @endforeach
 	<div class="container shadow p-2">
-		@if (Auth::id() == $auth_id or Auth::User()->role == 'sys_admin' or Auth::User()->role == 'off_admin')
-			<div class="d-flex justify-content-end">
-					<a href="{{ url('/blog/'.$res->id.'/edit') }}"><button class="btn btn-info text-white">Edit</button></a>
-					<form method="POST" action="{{ route('blog.destroy', $res->id) }}">
-                        {{ method_field('DELETE') }}
-                        @csrf
-                        <button type="submit" class="btn btn-danger"   onclick="return confirm('Are you sure to delete?')">Delete</button>        
-					</form>					
-			</div>
-		@endif
+		@auth
+			{{-- expr --}}
+		
+			@if (Auth::id() == $auth_id or Auth::User()->role == 'sys_admin' or Auth::User()->role == 'off_admin')
+				<div class="d-flex justify-content-end">
+						<a href="{{ url('/blog/'.$res->id.'/edit') }}"><button class="btn btn-info text-white">Edit</button></a>
+						<form method="POST" action="{{ route('blog.destroy', $res->id) }}">
+	                        {{ method_field('DELETE') }}
+	                        @csrf
+	                        <button type="submit" class="btn btn-danger"   onclick="return confirm('Are you sure to delete?')">Delete</button>        
+						</form>					
+				</div>
+			@endif
+		@endauth
 		<div class="border-bottom py-3 my-5">
 			<h2 class="text-center">{{ $res->title }}</h2>
 		</div>
@@ -54,19 +58,28 @@
 		<div>
 			<p class="">{{ $res->created_at }}</p>
 		</div>
-		<div class="text-right">
-					<button class="btn btn-success" id="AddComt">Comment</button>
-		</div>
+		
+			<div class="text-right">
+				@auth
+						<button class="btn btn-success" id="AddComt">Comment</button>
+				@else
+						<a href="{{ url('/login') }}"><strong>Log in to write a comment</strong></a>
+				@endauth
+			</div>
+		
+		
+		
 	</div>
 
 	<div class="container">
-			<div class="border border-primary p-3 bg-info " id="commentForm"> 
+		@auth
+			<div class="shadow p-3  " id="commentForm"> 
 				<div class="text-right " id="close_msg">
 					<h3 class="text-danger" style="cursor: pointer;">X</h3>
 				</div>
 				<form method="POST" action="{{ route('postComments.store') }}">
 					@csrf
-					<h3 class="text-white ">Write your comment</h3>
+					<h3 class="text-dark ">Write your comment</h3>
 					<input type="hidden" name="FK_author" value="{{ Auth::user()->id}}" >
 					<input type="hidden" name="FK_post" value="{{ $res->id }}" >
 					<textarea name="content" class="w-100"></textarea >
@@ -75,7 +88,7 @@
 					</div>
 				</form>
 			</div>
-	
+		@endauth
 	@foreach($res->comments()->get() as $text) {{--Comments--}}
 				<div class="shadow p-3 ml-4 mt-1 mb-4">
 					<form method="POST" action="{{ route('postComments.destroy', $text->id) }}">
