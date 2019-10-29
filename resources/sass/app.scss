@@ -11,6 +11,15 @@
 /*                                  styling start */
 body{
   background-color: mintcream;
+/*   padding: 0 !important; */
+  background-image: url('backgrounds/bg2.jpg');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+#hero{
+/*   background-image: url('backgrounds/bg1.jpg'); */
+
 }
 #Account img{ 
   height: 25em;
@@ -73,7 +82,15 @@ a{
   padding: 4px;
 }
 .messageboard{
- background-color:  #1A9C9C;
+ background-color:  $vdcdarkcyan-t;
+}
+#references{
+  background-color: $vdcdarkblue1-t;
+  padding: 15px;
+}
+#blog{
+  background-color: $vdcdarkblue2-t;
+  padding: 15px;
 }
 .references{
   background-color: rgba(21,40,65,0.89);
@@ -119,4 +136,8 @@ box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
     width: 100%;
     position: relative;
   }
+}
+
+.container-fluid {
+/*   padding: 3px !important; */
 }

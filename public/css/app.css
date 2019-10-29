@@ -10966,6 +10966,15 @@ a.text-dark:focus {
 
 body {
   background-color: mintcream;
+  /*   padding: 0 !important; */
+  background-image: url(/images/bg2.jpg?ce2e64393c41d098a2c15a856b23b0bd);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#hero {
+  /*   background-image: url('backgrounds/bg1.jpg'); */
 }
 
 #Account img {
@@ -11040,7 +11049,17 @@ a {
 }
 
 .messageboard {
-  background-color: #1A9C9C;
+  background-color: rgba(30, 152, 138, 0.75);
+}
+
+#references {
+  background-color: rgba(35, 31, 32, 0.88);
+  padding: 15px;
+}
+
+#blog {
+  background-color: rgba(11, 28, 43, 0.8);
+  padding: 15px;
 }
 
 .references {
@@ -11090,5 +11109,9 @@ a {
 .postimg img {
   width: 100%;
   position: relative;
+}
+
+.container-fluid {
+  /*   padding: 3px !important; */
 }
 

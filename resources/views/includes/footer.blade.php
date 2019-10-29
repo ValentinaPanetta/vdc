@@ -1,6 +1,6 @@
 <footer class="footer w-100 shadow row d-flex justify-content-center align-content-center text-center">
 	<div  class="col-12 pt-3 pb-1 d-flex justify-content-center text-center">
-		<div class="d-flex">tfff
+		<div class="d-flex">
 			<div class="h2 px-3 social"><a href=""><i class="fab fa-facebook-square"></i></a></div>
 			<div class="h2 px-3 social"><a href=""><i class="fab fa-instagram"></i></a></div>
 			<div class="h2 px-3 social"><a href=""><i class="fab fa-twitter"></i></a></div>

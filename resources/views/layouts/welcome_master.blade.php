@@ -16,16 +16,19 @@
 
             
 
-            <div id="hero" class=" border border-alert">
-                <img src="/backgrounds/bg1.jpg" class="img-fluid w-100 " style="width: 100%;">
+            <div id="hero" class="h-100">
+       <img src="/backgrounds/bg1.jpg" class="img-fluid w-100 " style="
+       width: 100%;
+       opacity: 0.9;">
+            <h1 class="text-white text-center ">Vienna Digital Campus</h1>
             </div>
             @yield('account')
             @yield('video')
 
 
 
-            <div id="references" class="w-100 shadow" >
-             
+            <div id="references" class="w-100 shadow rounded" >
+                <h1 class="text-white text-center p-4">References</h1>
                 <div class="row ">
                     <div class="p-3 col-lg-4 ">
                         <div class="reference_img">
@@ -68,9 +71,9 @@
                 </div>
             </div>
 
-            <div id="blog" class="w-100 shadow my-3">
+            <div id="blog" class="w-100 shadow my-5 rounded">
                 <a class="text-white" href="{{ url('blog') }}">
-                    <h2 class="text-white text-center p-1">Latest Posts</h2>
+                    <h1 class="text-white text-center p-4">Latest Posts</h1>
                 </a>
                 <div class="row">
                     @foreach ($post as $post)
@@ -80,14 +83,16 @@
                                     <h3 class="text-center  my-5">{{ $post->title }}</h3>
                                 </a>
                                 @if ($post->image != null)
-                                <div class="">
-                                    <img class=" img-fluid" src="{{ $post->image}}">
+                                <div class="text-center">
+                                    <img class=" img-fluid rounded shadow " src="{{ $post->image}}" style="max-height: 17em;">
                                 </div>
+                                @else
+                                    <h1 class="virgolette text-center p-2 m-3">#</h1>
                                 @endif
                                 <p class="text-white p-3">
                              "{{ str_limit($post->content, $limit = 160, $end = '...') }}"
                                 </p>
-                                    <h1 class="virgolette text-center p-2 m-3">#</h1>
+                                    
                             </div>
                         </div>
                     @endforeach
