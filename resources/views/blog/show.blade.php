@@ -3,7 +3,7 @@
 @foreach($res->post_auth()->get() as $author)
 	@php($auth_id = $author->id)
 @endforeach
-	<div class="container shadow p-2">
+	<div class="container shadow p-2 bg-darkcyan-t text-white rounded">
 		@auth
 			{{-- expr --}}
 		
@@ -18,8 +18,8 @@
 				</div>
 			@endif
 		@endauth
-		<div class="border-bottom py-3 my-5">
-			<h2 class="text-center">{{ $res->title }}</h2>
+		<div class="border-bottom pmy-5 bg-lgblue-t">
+			<h2 class="text-center text-darkblue p-3 rounded text-purple">{{ $res->title }}</h2>
 		</div>
 		@if ($res->image != null)
 		<div class="postimg">
@@ -31,7 +31,7 @@
 		</div>
 		
 		<div>
-			<p>Author:
+			<p class="big_text"><span>Author:</span>
 			 @foreach($res->post_auth()->get() as $auth_p)
 				@switch($auth_p->role)
 				    @case('off_admin')
@@ -41,19 +41,19 @@
 				        {{ $auth_p->name }} (Sys_Admin)
 				        @break
 					@case('client')
-				        <a href="{{ url('../client/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
+				        <a class="text-info" href="{{ url('../client/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
 				        @break
 				    @case('trainer')
-				        <a href="{{ url('../employee/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
+				        <a class="text-info" href="{{ url('../employee/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
 				        @break
 				    @case('course_provider')
-				        <a href="{{ url('../employee/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
+				        <a class="text-info" href="{{ url('../employee/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
 				        @break
 				    @case('employer')
 				        {{ $auth_p->name }} (Employer)
 				        @break
 				    @case('consultant')
-				        <a href="{{ url('../consultant/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
+				        <a class="text-info" href="{{ url('../consultant/'.$auth_p->id ) }}">{{ $auth_p->name }} ({{ $auth_p->role }})</a>
 				        @break
 				    @default
 				            {{ $auth_p->name }}({{ $auth_p->role }})
@@ -78,13 +78,13 @@
 
 	<div class="container">
 		@auth
-			<div class="shadow p-3  " id="commentForm"> 
+			<div class="shadow p-3 rounded bg-mint-t" id="commentForm"> 
 				<div class="text-right " id="close_msg">
 					<h3 class="text-danger" style="cursor: pointer;">X</h3>
 				</div>
 				<form method="POST" action="{{ route('postComments.store') }}">
 					@csrf
-					<h3 class="text-dark ">Write your comment</h3>
+					<h3 class="text-white ">Write your comment</h3>
 					<input type="hidden" name="FK_author" value="{{ Auth::user()->id}}" >
 					<input type="hidden" name="FK_post" value="{{ $res->id }}" >
 					<textarea name="content" class="w-100"></textarea >
@@ -95,7 +95,7 @@
 			</div>
 		@endauth
 	@foreach($res->comments()->get() as $text) {{--Comments--}}
-				<div class="shadow p-3 ml-4 mt-1 mb-4">
+				<div class="shadow p-3 ml-4 mt-1 mb-4 rounded bg-mint-t">	
 					<form method="POST" action="{{ route('postComments.destroy', $text->id) }}">
                         {{ method_field('DELETE') }}
                         @csrf
@@ -103,7 +103,12 @@
                         	<button type="submit" class="btn btn-danger"   onclick="return confirm('Are you sure to delete?')">Delete</button>
                         </div>
 					</form>
-					<p>{{$text->content}}</p>
+					<div class="">
+						<h2 class="text-purple">
+							{{ str_limit($text->content, $limit = 20, $end = '...') }}...
+						</h2>
+					</div>
+					<p class="big_text text-white">{{$text->content}}</p>
 					<p class="text-right">{{$text->created_at}}</p>
 					@foreach ($text->comm_auth()->get() as $auth_m)
 					@switch($auth_m->role)
@@ -114,19 +119,19 @@
 					        {{ $auth_m->name }} (Sys_Admin)
 					        @break
 						@case('client')
-					        <a href="{{ url('../client/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
+					        <a class="text-white" href="{{ url('../client/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
 					        @break
 					    @case('trainer')
-					        <a href="{{ url('../employee/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
+					        <a class="text-white" href="{{ url('../employee/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
 					        @break
 					    @case('course_provider')
-					        <a href="{{ url('../employee/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
+					        <a class="text-white" href="{{ url('../employee/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
 					        @break
 					    @case('employer')
 					        {{ $auth_m->name }} (Employer)
 					        @break
 					    @case('consultant')
-					        <a href="{{ url('../consultant/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
+					        <a class="text-white" href="{{ url('../consultant/'.$auth_m->id ) }}">{{ $auth_m->name }} ({{ $auth_m->role }})</a>
 					        @break
 					    @default
 					            {{ $auth_m->name }}({{ $auth_m->role }})

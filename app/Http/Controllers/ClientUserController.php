@@ -78,8 +78,9 @@ class ClientUserController extends Controller
      */
     public function edit($user)
     {
+        $ur = User::where('role', '=' , 'client')->find($user);
         $res = User::where('role', '=' , 'client')->find($user)->userClient;
-        return view('client/edit', compact('res'));
+        return view('client/edit', compact('res','ur'));
     }
 
     /**

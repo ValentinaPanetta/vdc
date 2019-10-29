@@ -11,7 +11,11 @@
         <main id="main" class="container-fluid">
         	@include('includes.navbar')
 			
-			@yield('content')
+				@yield('content')
+			
+			
+
+			
 
 		 @include('includes.footer')
         </main>

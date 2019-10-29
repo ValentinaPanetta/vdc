@@ -1,4 +1,4 @@
-<div class="container border border-secondary mt-5">	
+<div class="container border border-secondary mt-5 bg-dark-t">	
 
 @php
     if(isset($_GET['prm'])){
@@ -23,32 +23,32 @@
     $today = date("j-n-Y");
 @endphp
 
-  <table class="table table-bordered text-center" id="calendar_table">
+  <table class="table table-bordered text-center bg-white" id="calendar_table">
     <div class="d-flex justify-content-around p-2 border-bottom border-secondary">
 	    <div>
 		     <a href="?prm={{$m}}&chm=-1">
-				<button class="btn btn-success "><h2><</h2></button>
+				<button class="btn btn-info "><h2><</h2></button>
 		     </a>
 	    </div>
 	    <div >
-	     	<h2 class="text-success pt-1">{{$MONTHS[$mn]." ".$yn}}</h2>
+	     	<h2 class="bg-dark-t pt-1">{{$MONTHS[$mn]." ".$yn}}</h2>
 	    </div>
 	    <div>
 		     <a href="?prm={{$m}}&chm=1">
-				<button class="btn btn-success "><h2>></h2></button>
+				<button class="btn btn-info "><h2>></h2></button>
 		     </a>
 	    </div>
     </div>
-    <tr class="">
-    <td><strong>Montag</strong></td>
-    <td><strong>Dienstag</strong></td>
-    <td><strong>Mittwoch</strong></td>
-    <td><strong>Donnerstag</strong></td>
-    <td><strong>Freitag</strong></td>
-    <td><strong>Samstag</strong></td>
-    <td><strong>Sonntag</strong></td>
-    </tr>
     <tr>
+    <td><strong class="text-mediumblue">Montag</strong></td>
+    <td><strong class="text-mediumblue">Dienstag</strong></td>
+    <td><strong class="text-mediumblue">Mittwoch</strong></td>
+    <td><strong class="text-mediumblue">Donnerstag</strong></td>
+    <td><strong class="text-mediumblue">Freitag</strong></td>
+    <td><strong class="text-mediumblue">Samstag</strong></td>
+    <td><strong class="text-Dpurple">Sonntag</strong></td>
+    </tr>
+    <tr class='calnd_slots'>
     @php
     $my_course = ''; 
     $my_course=Array();
@@ -62,8 +62,8 @@
 
                     if($con_date[$r] == $going){ 
                     $con .= "   
-                             <a href='consultings/".$con_id[$r]."' class='text-success'>
-                             <p>".$con_title[$r]."</p>
+                             <a href='consultings/".$con_id[$r]."' class='text-white'>
+                             <p class='bg-green-t'>".$con_title[$r]."</p>
                              </a>";  
 
                     }
@@ -87,11 +87,11 @@
 
             echo $adj."<td class=' font-weight-bold'>";
             if($going == $today)
-                echo "<h2 class='font-italic text-primary'>".$i."</h2>";
+                echo "<h2 class='font-italic text-purple pt-2'>".$i."</h2>";
             else
-                echo "<h2 class=''>".$i."</h2>";
+                echo "<h2 class='text-darkcyan pt-2'>".$i."</h2>";
 
-            echo $con;
+            
 
             foreach ($my_course as $cours_date => $value){
                 echo $value;
@@ -100,20 +100,14 @@
             foreach ($sper as $element =>$op){
 
                 echo $op;
-}
+            }
+            echo $con;
             echo "</div></td>"; 
-            /*---------------------------.-----------------.------Course reset*/    
-         /*   if($course_end != null){
-                for($z=0; $z<count($course_end); $z++){
-                    if($course_end[$z] == $going){ 
-                    $my_course[$z] ='';     
-                    }
-                }
-            } */
+
 
             $j++;
 	    	$adj='';    	
-     		if($j==7){echo"</tr><tr>";$j=0;}
+     		if($j==7){echo"</tr><tr class='calnd_slots'>";$j=0;}
      	}  //end main for loop 
 
 

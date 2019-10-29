@@ -1,11 +1,11 @@
 @extends('layouts.default')
 
 @section('content')
-		 <form method="POST" action="{{ route('documents.store') }}"  enctype="multipart/form-data">
+		 <form method="POST" action="{{ route('documents.store') }}"  enctype="multipart/form-data" class="bg-dark-t my-3 text-white p-3" >
 			@csrf 
 
 		  <div class="form-group">
-		    <label for="name">Name</label>
+		    <label for="name">File Name</label>
 		    <input name="name" type="text" class="form-control" id="name" placeholder="file name" required>
 		  </div>
 		 

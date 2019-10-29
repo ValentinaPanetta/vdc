@@ -138,6 +138,24 @@ box-shadow: -7px -5px 4px -4px rgba(0,0,0,0.27);
   }
 }
 
-.container-fluid {
-/*   padding: 3px !important; */
+.white_transparent_bg{
+
+  background-color: rgba(255,255,255,0.85);
+}
+.text-purple{
+  color: #db36a4;
+}
+.text-Dpurple{
+  color: #C13071;
+}
+
+.bg-green-t{
+  background-color: #00b733;}
+.calnd_slots td{
+  height: 8em;
+  width: 8%;
+  padding: 0 !important;
+}
+.bg-achtung{
+  background-color: rgba(0, 204, 153, 0.812)
 }
