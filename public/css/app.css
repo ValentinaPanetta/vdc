@@ -127,14 +127,14 @@ fieldset:disabled a.btn-custom {
 
 .btn-custom-blue {
   color: #fff;
-  background-color: #000044;
-  border-color: #000044;
+  background-color: #0b1c2b;
+  border-color: #0b1c2b;
 }
 
 .btn-custom-blue:hover {
   color: #fff;
-  background-color: #003366;
-  border-color: #6699CC;
+  background-color: #004876;
+  border-color: #004876;
 }
 
 .btn-custom-blue:focus,
@@ -316,6 +316,14 @@ fieldset:disabled a.btn-custom {
 .dropdown-item:focus {
   background-color: #72cac3 !important;
   color: #0b1c2b !important;
+}
+
+.btn-link {
+  color: #407cca !important;
+}
+
+.btn-link:hover {
+  color: #004876 !important;
 }
 
 /*!
