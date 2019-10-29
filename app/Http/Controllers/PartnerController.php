@@ -14,7 +14,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $res = PartnerCompanie::all();
+        $res = PartnerCompanie::where('type', '=', 'course-provider')->get();
         return view('partners', compact('res'));
     }
 

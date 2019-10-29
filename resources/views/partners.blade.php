@@ -1,12 +1,13 @@
 @extends('layouts.default')
 @section('content')	
-<div class="container">
-	<h3 class="p-3 text-center text-dark">Partner Companies</h3>
+<div class="px-5 py-3 mb-3" id="partners">
+	<h3 class="p-3 text-center text-lightcyan">Partner Companies</h3>
 
 	<div class="row">
 		@foreach ($res as $res)
 		<div class=" col-md-4  col-sm-12 p-3">
-			<div class="col-12 border rounded border-radius p-3">
+			<div class="col-12 p-3" id="box">
+				<div id="partners-logo"><img class="img-fluid mb-5" src="{{ $res->logo }}"></div>
 				<div class="h2" id="{{ $res->id }}">{{ $res->company_name }}</div>
 				<div> {{ str_limit($res->description, $limit = 100, $end = '...') }}</div>
 				<div><b>Web : </b>{{ $res->website }}</div>

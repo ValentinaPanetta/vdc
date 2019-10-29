@@ -1,3 +1,8 @@
+/* Definition for textcolor */
+.text-lightcyan{
+  color: $vdclightcyan;
+}
+
 /* Parntner Companies Slideshow */
 .slideshow-cont{
   position: relative;
@@ -84,7 +89,7 @@
 // }
 
 
-// --- Footer
+/* --- Footer --- */
 .footer{
   font-size: 1.1em !important;
   background-color: $vdcdarkblue2;
@@ -103,7 +108,7 @@
 }
 
 
-// --- Navbar
+/* --- Navbar --- */
 .navbar{
   background-color: $vdcdarkblue2;
 }
@@ -126,7 +131,7 @@
   color: $vdcdarkblue2 !important;
 }
 
-// --- Login Link for forgotten password
+/* --- Login Link for forgotten password --- */
 .btn-link {
   color: $vdcmidblue3 !important;
 }
@@ -134,6 +139,38 @@
 .btn-link:hover {
   color: $vdcdarkblue4 !important;
 }
+
+/* --- Partner Companies Page ---*/
+#partners{
+  background-color: $vdcdarkblue2-t;
+}
+
+#partners #box{
+  background-color: white;
+  opacity: 0.75;
+  border-radius: 5px;
+}
+
+#partners-logo{  
+  border: solid 0.5px red;
+  position: relative;
+  height: 150px;
+}
+
+#partners-logo img{  
+  max-width: 100%;
+  
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+
+
+  
+  
+  
+}
+
+
 
 
 

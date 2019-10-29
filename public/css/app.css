@@ -207,6 +207,12 @@ fieldset:disabled a.btn-custom {
   height: 20em;
 }
 
+/* Definition for textcolor */
+
+.text-lightcyan {
+  color: #72cac3;
+}
+
 /* Parntner Companies Slideshow */
 
 .slideshow-cont {
@@ -279,6 +285,8 @@ fieldset:disabled a.btn-custom {
 
 /* Fading animation */
 
+/* --- Footer --- */
+
 .footer {
   font-size: 1.1em !important;
   background-color: #0b1c2b;
@@ -295,6 +303,8 @@ fieldset:disabled a.btn-custom {
 .footer a:hover {
   color: #1e988a !important;
 }
+
+/* --- Navbar --- */
 
 .navbar {
   background-color: #0b1c2b;
@@ -318,12 +328,39 @@ fieldset:disabled a.btn-custom {
   color: #0b1c2b !important;
 }
 
+/* --- Login Link for forgotten password --- */
+
 .btn-link {
   color: #407cca !important;
 }
 
 .btn-link:hover {
   color: #004876 !important;
+}
+
+/* --- Partner Companies Page ---*/
+
+#partners {
+  background-color: rgba(11, 28, 43, 0.8);
+}
+
+#partners #box {
+  background-color: white;
+  opacity: 0.75;
+  border-radius: 5px;
+}
+
+#partners-logo {
+  border: solid 0.5px red;
+  position: relative;
+  height: 150px;
+}
+
+#partners-logo img {
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 /*!
