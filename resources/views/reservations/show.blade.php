@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 
-	<div class="container">
+	<div class="container  shadow p-2 bg-dark-t my-3 text-white">
 		<div class="p-3 shadow">
 			<a href="{{ url('/courses').'/'.$res->id }}">
 				<h2 class="text-center">{{$res->name}}</h2> 
@@ -46,6 +46,9 @@
 					
 				</div>
 			@endif
+	</div>
+	<div class=" ">
+		<a href="{{ url('reservations') }}" class="bg-darkcyan-t p-2 rounded text-white">Go Back</a>
 	</div>
 @endsection
 

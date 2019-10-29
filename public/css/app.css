@@ -30,6 +30,22 @@ body {
   bottom: 0;
 }
 
+.bg-dark-t {
+  background-color: rgba(11, 28, 43, 0.8);
+}
+
+.bg-mint-t {
+  background-color: rgba(99, 208, 223, 0.75);
+}
+
+.bg-darkcyan-t {
+  background-color: rgba(30, 152, 138, 0.75);
+}
+
+.bg-lgblue-t {
+  background-color: rgba(78, 193, 224, 0.75);
+}
+
 .bg-light-c {
   background-color: rgba(0, 72, 118, 0.87);
 }
@@ -56,6 +72,10 @@ body {
 
 .bg-lightgrey {
   background-color: #d5d8dc;
+}
+
+.text-darkcyan {
+  color: #1e988a;
 }
 
 .text-darkblue {
@@ -11119,7 +11139,29 @@ a {
   position: relative;
 }
 
-.container-fluid {
-  /*   padding: 3px !important; */
+.white_transparent_bg {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.text-purple {
+  color: #db36a4;
+}
+
+.text-Dpurple {
+  color: #C13071;
+}
+
+.bg-green-t {
+  background-color: #00b733;
+}
+
+.calnd_slots td {
+  height: 8em;
+  width: 8%;
+  padding: 0 !important;
+}
+
+.bg-achtung {
+  background-color: rgba(0, 204, 153, 0.812);
 }
 

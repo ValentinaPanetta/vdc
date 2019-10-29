@@ -1,6 +1,9 @@
 @extends('layouts.default')
 ​
 @section('content')
+<div class="white_transparent_bg rounded">
+	
+
 	<div class="p-4 mt-3">
 		<h2 class="text-center">Welcome lorem</h2>
 	</div>
@@ -17,4 +20,5 @@
 	Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Id aliquet risus feugiat in ante metus dictum at. Arcu cursus euismod quis viverra nibh cras. Morbi quis commodo odio aenean sed adipiscing diam. Blandit cursus risus at ultrices mi. In ornare quam viverra orci sagittis eu volutpat. Tempor id eu nisl nunc mi. Amet facilisis magna etiam tempor orci eu lobortis elementum. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Auctor elit sed vulputate mi sit amet mauris commodo quis. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Congue quisque egestas diam in. Ante metus dictum at tempor. Accumsan lacus vel facilisis volutpat est velit egestas. Sit amet nisl purus in mollis nunc sed id.
 	</p>
 	</article>
+</div>
 @endsection

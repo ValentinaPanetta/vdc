@@ -1,24 +1,55 @@
 @extends('layouts.default')
  
 @section('content')
-<h3 class="text-secondary text-center pb-3">User</h3>
-<div class="d-flex justify-content-around">
-	<a href="{{ url('account/'.$resUser->id.'/edit')}}" >
-		<button class="btn btn-info text-white">Edit Account</button>
-	</a>
-	
-	<a href="{{ url('client/'.$resUser->id.'/edit')}}" >
-		<button class="btn btn-info text-white">Edit Profile</button>
-	</a>
-	<a href="{{ url('documents/'.$resUser->id)}}" >
-		<button class="btn btn-info text-white">Documents</button>
-	</a>
-	<a href="{{ url('reservations/')}}" >
-		<button class="btn btn-info text-white">My Courses</button>
-	</a>
+<!-- <h3 class="text-secondary text-center pb-3">User</h3> -->
+<div class="d-flex justify-content-around ">
+	<div class="shadow bg-darkcyan-t p-2" style="border: 2px solid rgb(78,193,224)">
+		@switch(Auth::user()->role) 
+                @case('client')
+                    
+                         <a class="p-5 text-white" href="{{ url('client/'.Auth::user()->id) }}">My Profile</a>
+                    
+                @break
+                @case('consultant')
+                    
+                         <a class="p-5 text-white" href="{{ url('consultant/'.Auth::user()->id) }}">My Profile</a>
+                    
+                @break
+                @case('trainer')
+                    
+                         <a class="p-5 text-white" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
+                    
+                @break
+                @case('course_provider')
+                    
+                         <a class="p-5 text-white" href="{{ url('employee/'.Auth::user()->id) }}">My Profile</a>
+                    
+                @break
+        @endswitch
+	</div>
+	<div class="shadow bg-darkcyan-t  p-2">
+		<a class="p-5 text-white" href="{{ url('account/'.$resUser->id.'/edit')}}" >
+		Edit Account
+		</a>
+	</div>
+	<div class="shadow bg-darkcyan-t  p-2">
+		<a  class="p-5 text-white"href="{{ url('client/'.$resUser->id.'/edit')}}" >
+		Edit Profile
+		</a>
+	</div>
+	<div class="shadow bg-darkcyan-t  p-2">
+		<a  class="p-5 text-white"href="{{ url('documents/'.$resUser->id)}}" >
+		Documents
+		</a>
+	</div>
+	<div class="shadow bg-darkcyan-t  p-2">
+		<a  class="p-5 text-white"href="{{ url('reservations/')}}" >
+		My Courses
+		</a>
+	</div>
 </div>
 	<hr>
-<div class="row d-flex justify-content-center my-4 ">	
+<div class="row d-flex justify-content-center my-4 bg-dark-t text-white">	
 	<div class="col-6 shadow p-3 m-2">	
 		<h2 class="text-primary text-center">{{ $resUser->name}} {{ $resUser->last_name}}</h2>
 		<div class="row d-flex justify-content-center">
@@ -27,8 +58,10 @@
 			</div>
 			<div class="col-lg-12">
 				@foreach ($res as $res)
-					<h5 class="p-2">About Me</h5>
+				@if($res->description != null)
+				<h5 class="p-2">About Me</h5>
 				<p class="pb-3"> {{ $res->description }}</p>
+				@endif
 				<hr>
 				<p>Date of Birth: {{ date('d-m-Y', strtotime($res->date_birth)) }}</p>
 				<p>Website: {{ $res->website }}</p>

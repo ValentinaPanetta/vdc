@@ -90,6 +90,18 @@ $vdcgrey: rgb(188,190,192);
 $vdcgrey-t: rgba(188,190,192, 0.75);
 
 // Background Colors
+.bg-dark-t{
+  background-color: $vdcdarkblue2-t;
+}
+.bg-mint-t{
+  background-color: $vdclightmix-t;
+}
+.bg-darkcyan-t{
+  background-color: $vdcdarkcyan-t;
+}
+.bg-lgblue-t{
+  background-color: $vdclightblue-t;
+}
 .bg-light-c{
   background-color: $vdcdarkblue4-t;
 }
@@ -119,7 +131,9 @@ $vdcgrey-t: rgba(188,190,192, 0.75);
 }
 
 // Text Colors
-
+.text-darkcyan {
+  color: $vdcdarkcyan;
+}
 .text-darkblue {
 	color: $darkblue;
 }
