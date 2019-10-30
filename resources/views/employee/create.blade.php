@@ -1,6 +1,6 @@
 @extends('layouts.adminPannel')
 @section('content')
-<div class="p-5">
+<div class="p-5 bg-dark-t text-white">
 <form method="POST" action="{{ route('employee.store') }}">
   @csrf
   <div class="form-group">

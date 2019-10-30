@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid mb-5" style="margin-top: 100px;">
     <div class="row justify-content-center">
-        <div class="col-12 h2 text-center">{{ $profiles->name }}</div>
+        <div class="col-12 h2 text-center text-white">{{ $profiles->name }}</div>
         <div class="col-md-11">
             <div class="form-group row">
                 <div class="col-12 d-flex justify-content-center">

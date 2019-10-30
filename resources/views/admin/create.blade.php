@@ -2,12 +2,29 @@
 
 @section('content')
 
-	<div class="d-flex justify-content-around">
-		<a href="{{ route('admin.index')}}" >
-			<button class="btn btn-primary ">Go Back</button>
-		</a>
+	<div class="d-flex justify-content-around ">
+    <a href="{{ route('admin.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow ">Users List</div>
+	</a>
+	<a href="{{ route('admin.create')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow " 
+		 style="border: 3px solid white; text-shadow: 2px 2px #000024">Create User</div>
+	</a>
+	<a href="{{ route('languages.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow">Languages</div>
+	</a>
+	<a href="{{ route('jobProfiles.index')}}" >
+   		<div class="bg-darkcyan-t p-2 text-white big_text shadow">Job Profiles</div>
+	</a>
+	<a href="{{ route('skills.index')}}" >
+        <div class="bg-darkcyan-t p-2 text-white big_text shadow">Skills table</div>
+    </a>
+	<a href="{{ route('companies.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow">COMPANIES table</div>
+	</a>
 	</div>
-	<div class="p-5">
+	<div class="p-5  bg-dark-t text-white mt-3">
+		<h3 class="text-center">New User Creation</h3>
 		 <form method="POST" action="{{ route('admin.store') }}">
 
 			@csrf

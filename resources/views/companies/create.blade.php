@@ -1,13 +1,15 @@
 @extends('layouts.adminPannel')
 
 @section('content')
-
-<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around p-3">
 	<a href="{{ route('companies.index')}}" >
-		<button class="btn btn-primary ">Go Back</button>
+		<button class="btn btn-primary ">Back to Companies index</button>
 	</a>
 </div>
-	<div class="p-5">
+
+<h1 class="text-center text-white">Create A New Company</h1>
+
+	<div class="p-5 bg-dark-t text-white">
 		 <form method="POST" action="{{ route('companies.store') }}">
 
 			@csrf

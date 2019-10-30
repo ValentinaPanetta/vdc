@@ -1,26 +1,31 @@
 @extends('layouts.adminPannel')
 @section('content')
-<div class="d-flex justify-content-around">
-    <a href="{{ route('admin.create')}}" >
-		<button class="btn btn-success ">CREATE User</button>
+
+<div class="d-flex justify-content-around ">
+    <a href="{{ route('admin.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow " 
+		style="border: 3px solid white; text-shadow: 2px 2px #000024">Users List</div>
+	</a>
+	<a href="{{ route('admin.create')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow " >Create User</div>
 	</a>
 	<a href="{{ route('languages.index')}}" >
-		<button class="btn btn-info ">Languages</button>
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow">Languages</div>
 	</a>
 	<a href="{{ route('jobProfiles.index')}}" >
-   		<button class="btn-custom btn-custom-blue">Job Profiles</button>
+   		<div class="bg-darkcyan-t p-2 text-white big_text shadow">Job Profiles</div>
 	</a>
 	<a href="{{ route('skills.index')}}" >
-        <button class="btn-custom btn-custom-blue ">Skills</button>
+        <div class="bg-darkcyan-t p-2 text-white big_text shadow">Skills table</div>
     </a>
 	<a href="{{ route('companies.index')}}" >
-		<button class="btn btn-primary ">COMPANIES table</button>
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow">COMPANIES table</div>
 	</a>
 </div>
 	
 
-		<h3 class="p-3 text-center text-dark">Users List</h3>
-	<table class="w-100 table table-striped table-bordered">
+	<h3 class="p-3 mb-0 mt-3 border text-center text-mediumblue bg-darkcyan-t">Users List</h3>
+	<table class="w-100 table table-striped table-bordered bg-dark-t text-white">
 		
 		<thead>
 				<tr>

@@ -1,19 +1,37 @@
 @extends('layouts.adminPannel')
 @section('content')
-	<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around ">
+    <a href="{{ route('admin.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow " >Users List</div>
+	</a>
+	<a href="{{ route('admin.create')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow " >Create User</div>
+	</a>
+	<a href="{{ route('languages.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow">Languages</div>
+	</a>
+	<a href="{{ route('jobProfiles.index')}}" >
+   		<div class="bg-darkcyan-t p-2 text-white big_text shadow" >Job Profiles</div>
+	</a>
+	<a href="{{ route('skills.index')}}" >
+        <div class="bg-darkcyan-t p-2 text-white big_text shadow" >Skills table</div>
+    </a>
+	<a href="{{ route('companies.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow" style="border: 3px solid white; text-shadow: 2px 2px #000024">COMPANIES table</div>
+	</a>
+</div>
+	<div class="text-center">
+		<h3 class="p-3 text-center text-white">Partner Companies</h3>
 	    <a href="{{ route('companies.create')}}" >
-			<button class="btn btn-success ">CREATE Company</button>
+			<button class="btn btn-success ">CREATE Company Profile</button>
 		</a>
-		<a href="{{ route('languages.index')}}" >
-			<button class="btn btn-info ">Languages</button>
-		</a>
-		<a href="{{ route('admin.index')}}" >
-			<button class="btn btn-primary ">USERS table</button>
-		</a>
+		<div class="text-mediumblue bg-darkcyan-t text-center ">
+			<h1 class="mb-0 mt-4 border ">Companies:</h1>
+		</div>
 	</div>
 
-		<h3 class="p-3 text-center text-dark">Partner Companies</h3>
-	<table class="w-100 table table-striped table-bordered">
+		
+	<table class="w-100 table table-striped table-bordered bg-dark-t text-white">
 		
 		<thead>
 				<tr>

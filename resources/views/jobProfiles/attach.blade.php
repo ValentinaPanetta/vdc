@@ -1,11 +1,11 @@
 @extends('layouts.adminPannel')
 @section('content')
-    <div class="row mx-4 my-5">
+    <div class="row mx-4 my-5 bg-dark-t text-white">
         <div class="col-12 h2 text-center mb-3">{{ $profile->name }}</div>
         <div class="mb-4 my-2 w-100">            
             <p class="h4 text-center">Required Skills</p>
             <a href="{{ route('jobProfiles.show', $profile->id) }}">
-                <button class="btn-custom btn-custom-blue pointer">Back to Profile</button>
+                <button class="btn-custom btn-success pointer">Back to Profile</button>
             </a>
         </div>
 
@@ -25,6 +25,9 @@
                 </div>
             </div>
         </div>
+
+            
+       
         @php
             for($i=0; $i<count($skills); $i++){
                 $sk_id = $skills[$i]->id;
@@ -49,7 +52,7 @@
                         @csrf
                         
                         @php echo'
-                                <div class="form-group row">
+                                <div class="form-group row ">
                                     <label class="col-md-3 col-form-label text-md-right">'.$skills[$i]->name.'</label>
                                     <input type="hidden" name="FK_skill" value="'.$skills[$i]->id.'">
                                     <input type="hidden" name="FK_profile" value="'.$FK_profile.'">
@@ -96,7 +99,7 @@
                                 <input name="max_level" type="number" class="form-control" value="" id="max_level" min="1" max="5">
                             </div>
                             <div class="col-3 d-inline">
-                                <button class="btn-custom btn-custom-blue px-4" type="submit">add</button>
+                                <button class="btn-custom btn-info px-4" type="submit">add</button>
                             </div>
                         </div>   
                     </form>';
@@ -105,7 +108,7 @@
             @php } @endphp
         <div class="mb-4 my-4 text-center w-100">
             <a href="{{ route('jobProfiles.edit', $profile->id) }}">
-                <button class="btn-custom btn-custom-blue">Edit Values</button>
+                <button class="btn-custom btn-info">Edit Values</button>
             </a>
         </div>                              
     </div>

@@ -1,7 +1,13 @@
 @extends('layouts.adminPannel')
 
 @section('content')
-	<div class="p-5">
+<div class="d-flex justify-content-around p-3">
+	<a href="{{ route('companies.index')}}" >
+		<button class="btn btn-primary ">Back to Companies index</button>
+	</a>
+</div>
+<h1 class="text-white text-center">Editing the selected company</h1>
+	<div class="p-5 bg-dark-t text-white">
 		 <form method="POST" action="{{ route('companies.update', $res->id) }}">
 			@csrf 
 			{{ method_field('PUT') }}

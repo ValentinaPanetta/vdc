@@ -5,7 +5,7 @@
 @foreach ($res as $res)
 	{{-- expr --}}
 
-	<div class="p-5">
+	<div class="p-5 bg-dark-t text-white">
 		 <form method="POST" action="{{ route('consultant.update', $res->id) }}">
 			@csrf 
 			{{ method_field('PUT') }}

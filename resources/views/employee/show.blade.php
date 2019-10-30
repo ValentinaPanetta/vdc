@@ -5,14 +5,14 @@
 	<a href="{{ url('account/'.$resUser->id.'/edit')}}" >
 		<button class="btn btn-info">Edit Account</button>
 	</a>
-	<h3 class="text-secondary">Emloyee</h3>
+	<h3 class="text-white">Emloyee</h3>
 	<a href="{{ url('employee/'.$resUser->id.'/edit')}}" >
 		<button class="btn btn-info">Edit Profile</button>
 	</a>
 
 </div>
 	<hr>
-<div class="row d-flex justify-content-center my-4 border">	
+<div class="row d-flex justify-content-center my-4 border bg-dark-t text-white">	
 	<div class="col-6 shadow p-3 m-2">	
 		<h2 class="text-primary text-center">{{ $resUser->name}} {{ $resUser->last_name}}</h2>
 		<div class="row d-flex justify-content-center">
@@ -35,7 +35,7 @@
 @if(Auth::user()->id != $resUser->id)
 	@if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'trainer' OR Auth::user()->role == 'course_provider' OR Auth::user()->role == 'consultant')
 
-	<div class="row d-flex justify-content-center flex-column align-items-center">
+	<div class="row d-flex justify-content-center flex-column align-items-center bg-dark-t text-white">
 		<div class="col-6 mb-3">
 			<form method="POST" action="{{ route('comments.store') }}">
 			@csrf
