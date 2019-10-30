@@ -2,10 +2,10 @@
 @section('content')
 <div class="d-flex justify-content-around">
 	<a href="{{ route('languages.index')}}" >
-		<button class="btn btn-primary ">Go Back</button>
+		<button class="btn btn-info text-darkblue">Back to Language index</button>
 	</a>
 </div>
-<div class="p-5 d-flex justify-content-center row">
+<div class="p-5 d-flex justify-content-center row bg-dark-t text-white big_text mt-5">
 	<form class="col-6" method="POST" action="{{ route('languages.store') }}">
 
 		@csrf

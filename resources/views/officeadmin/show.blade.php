@@ -2,15 +2,15 @@
  
 @section('content')
 
-<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around ">
 	<a href="{{ url('account/'.$resUser->id.'/edit')}}" >
 		<button class="btn btn-info">Edit Account</button>
 	</a>
 </div>
 	<hr>
-<div class="row d-flex justify-content-center my-4">	
-	<div class="col-6">
-		<h2 class="text-primary">User Table -> Off ADmin</h2>
+<div class="row d-flex justify-content-center my-4 bg-dark-t text-white">	
+	<div class="col-6 p-3">
+		<h2 class="text-primary">Role: Office Admin</h2>
 	<h3><small>Name:</small>  {{ $resUser->name}}</h3>
 	<h3><small>Last Name:</small> {{ $resUser->last_name}}</h3>
 	</div>
@@ -19,7 +19,7 @@
 @if(Auth::user()->id != $resUser->id)
 	@if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'trainer' OR Auth::user()->role == 'course_provider' OR Auth::user()->role == 'consultant')
 
-	<div class="row d-flex justify-content-center flex-column align-items-center">
+	<div class="row d-flex justify-content-center flex-column align-items-center bg-dark-t text-white p-1">
 		<div class="col-6 mb-3">
 			<form method="POST" action="{{ route('comments.store') }}">
 			@csrf

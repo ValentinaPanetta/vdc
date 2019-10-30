@@ -1,7 +1,7 @@
 @extends('layouts.adminPannel')
 @section('content')
 @foreach ($res as $res)
-<div class="p-5">
+<div class="p-5 bg-dark-t text-white">
 <form method="POST" action="{{ route('employee.update', $res->id) }}">
   @csrf
   {{ method_field('PUT') }}

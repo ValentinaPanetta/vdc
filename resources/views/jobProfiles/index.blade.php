@@ -1,28 +1,43 @@
 @extends('layouts.adminPannel')
 @section('content')
 
+<div class="d-flex justify-content-around ">
+    <a href="{{ route('admin.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow " >Users List</div>
+	</a>
+	<a href="{{ route('admin.create')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow " >Create User</div>
+	</a>
+	<a href="{{ route('languages.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow">Languages</div>
+	</a>
+	<a href="{{ route('jobProfiles.index')}}" >
+   		<div class="bg-darkcyan-t p-2 text-white big_text shadow" 
+		style="border: 3px solid white; text-shadow: 2px 2px #000024">Job Profiles</div>
+	</a>
+	<a href="{{ route('skills.index')}}" >
+        <div class="bg-darkcyan-t p-2 text-white big_text shadow">Skills table</div>
+    </a>
+	<a href="{{ route('companies.index')}}" >
+		<div class="bg-darkcyan-t p-2 text-white big_text shadow">COMPANIES table</div>
+	</a>
+</div>
+<div class="col-12 h2 text-center text-white mt-4">Job Profiles</div>
+<div class=" text-white text-center mt-4">
+    <a href="{{ route('jobProfiles.create') }}">
+    	<button type="submit" class="btn-custom btn-custom-blue text-light border">Create New Job Profile
+    	</button>
+    </a>
+</div>
 <div class="container-fluid" style="margin-top: 100px;">
     <div class="row">
-        <div class="col-12 h2 text-center">Job Profiles</div>
-        <div class="col-6 my-3 text-left">
-            <a href="{{ route('admin.index') }}"><button type="submit" class="btn-custom btn-custom-blue text-light">Admin Panel
-            </button></a>
-        </div>
-        <div class="col-6 my-3 text-right">
-            <a href="{{ route('jobProfiles.create') }}">
-            	<button type="submit" class="btn-custom btn-custom-blue text-light">Create New Profile
-            	</button>
-            </a>
-        </div>
-       	
-		
-		@foreach ($profiles as $profiles)
+	@foreach ($profiles as $profiles)
 			<div class="col-md-4 col-sm-12 p-2" >
-            	<div class="col-12 border border-secondary rounded px-5 py-3" style="height: 100%;">
+            	<div class="col-12 border border-secondary rounded px-5 py-1 bg-white" style="height: 100%;">
             		<div class="col-12 h4 mt-3 p-0" id="{{ $profiles->id }}">{{ $profiles->name }}</div>
             		<div class="col-12 p-0">{{ $profiles->importance }}</div>
 
-    				<table class="col-12 p-0 mt-3">            						
+    				<table class="col-12 p-0 mt-1">            						
 						<thead>
 							<tr>
 								<th>Skills</th>
