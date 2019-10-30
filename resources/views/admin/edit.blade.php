@@ -2,24 +2,18 @@
 
 @section('content')
 	<div class="p-5">
-		 <form method="POST" action="{{ route('admin.update', $res->id) }}">
+		 <form method="POST" action="{{ route('admin.update', $res->id) }}" class="bg-dark-t text-white p-3">
 			@csrf 
 			{{ method_field('PUT') }}
-		  <div class="form-group">
-		    <label class="font-weight-bold h2" for="role">ROLE</label>
-		    <select name="role" class="form-control" id="role">
-		      <option value="{{ $res->role }}" selected class="text-primary">
-		      	{{ $res->role }}
-		      </option>
-		      <option value="client">Client</option>
-		      <option value="consultant">Consultant</option>
-		      <option value="trainer">Trainer</option>
-		      <option value="course_provider">Course Provider</option>
-		      <option value="employer">Employer</option>
-		      <option value="off_admin">Office Admin</option>
-		    </select>
-		  </div>
-
+			<h2 class="text-center p-3">Profile Editing</h2 >
+			<div class="row">
+				<div class="col-lg-6 text-center">
+					<h3>Profile Email: <span class="text-danger">{{ $res->email }}</span></h3>
+				</div>
+				<div class="col-lg-6 text-center">
+					<h3>Profile role: <span class="text-danger">{{ $res->role }}</span></h3>
+				</div>
+			</div>
 		  <div class="form-group">
 		    <label for="name_add">Name</label>
 		    <input name="name" type="text" class="form-control" id="name_add" value="{{ $res->name }}" required>
