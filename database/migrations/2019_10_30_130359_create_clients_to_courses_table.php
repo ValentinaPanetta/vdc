@@ -19,6 +19,7 @@ class CreateClientsToCoursesTable extends Migration {
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->bigInteger('FK_course')->unsigned()->nullable()->index('FK_course');
 			$table->bigInteger('FK_client')->unsigned()->nullable()->index('FK_client');
+			$table->bigInteger('FK_payments')->unsigned()->nullable()->index('FK_payments');
 		});
 	}
 

@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->string('phone', 191)->nullable();
 			$table->string('gender', 191)->nullable()->default('Private');
 			$table->enum('registration_type', array('vdc','external'))->default('vdc');
-			$table->string('image', 191)->default('image url');
+			$table->string('image', 191)->default('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png');
 			$table->string('email', 191)->unique();
 			$table->dateTime('email_verified_at')->nullable();
 			$table->string('password', 191);

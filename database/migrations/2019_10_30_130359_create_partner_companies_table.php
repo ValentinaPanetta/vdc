@@ -25,6 +25,8 @@ class CreatePartnerCompaniesTable extends Migration {
 			$table->string('country', 191)->nullable();
 			$table->string('website', 191)->nullable();
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->enum('type', array('course-provider','employer'))->nullable();
+			$table->string('logo', 191)->nullable();
 		});
 	}
 
