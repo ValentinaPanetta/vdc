@@ -79,7 +79,7 @@ body {
 }
 
 .text-darkblue {
-  color: #000044;
+  color: #0b1c2b;
 }
 
 .text-mediumblue {
@@ -231,6 +231,45 @@ fieldset:disabled a.btn-custom {
 
 .text-lightcyan {
   color: #72cac3;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.corners {
+  border-radius: 5px;
+}
+
+/* button */
+
+.btn-custom-cyan {
+  color: #fff;
+  background-color: #1e988a;
+  border-color: #1e988a;
+}
+
+.btn-custom-cyan:hover {
+  color: #fff;
+  background-color: #72cac3;
+  border-color: #72cac3;
+}
+
+.btn-custom-cyan:focus,
+.btn-custom-cyan.focus {
+  box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
+}
+
+/* borders*/
+
+.border-cyan {
+  border: solid 1px #72cac3;
+  border-radius: 5px;
+}
+
+.border-blue {
+  border: solid 1px rgba(11, 28, 43, 0.8);
+  border-radius: 5px;
 }
 
 /* Parntner Companies Slideshow */

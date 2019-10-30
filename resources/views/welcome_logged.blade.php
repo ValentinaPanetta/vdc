@@ -9,7 +9,7 @@
 		                    <div class="text_img" >
 		                    	<img class="img-fluid" src="/backgrounds/consulting.jpg">
 		                    	<span class="hidden_text p-3">
-									<h3 class="text-center text-white">Courses</h3>
+									<h3 class="text-center text-white">Consulting</h3>
 					                  <p class="text-white">
 					                
 					                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
