@@ -15,13 +15,13 @@
 					</div>
 					@if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'consultant')
 						<div>
-							<a href="{{ $res->id }}/edit"><button class="btn btn-success">Edit</button></a>
+							<a href="{{ $res->id }}/edit"><button class="btn-custom btn-custom-blue">Edit</button></a>
 						</div>
 						<div>
 							<form method="POST" action="{{ route('consultings.destroy', $res->id) }}">
 								@csrf
 								{{ method_field('DELETE') }} 
-								<button type="submit" value="delete" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')" >Delete</button>
+								<button type="submit" value="delete" class="btn-custom btn-custom-grey" onclick="return confirm('Are you sure to delete?')" >Delete</button>
 							</form>
 						</div>
 					@endif
@@ -123,7 +123,7 @@
 								<div class="col-4 p-1">
 
 								  	<div class="border-cyan">
-								  		<h5 class="text-success">It's me</h5>
+								  		<h5 class="text-darkcyan">It's me</h5>
 									   	<div>
 										 	<img src="{{$client->image}}"  class="w-100">
 									   	</div>

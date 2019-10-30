@@ -1,12 +1,13 @@
 @extends('layouts.default')
 
-@section('content') 
+@section('content')
+<div class="m-5 bg-dark-t text-white">
 	<div class="">
-		<h1 class="text-center">Consulting Creation</h1>
+		<h1 class="pt-4 text-center text-darkcyan">Consulting Creation</h1>
 	</div>
 	<div class="pl-5 ">
 		<a href="{{ url('consultings') }}" >
-			<button class="btn btn-success"> <- Back to Consultings</button>
+			<button class="btn-custom btn-custom-cyan"> <- Back to Consultings</button>
 		</a>
 	</div>
 
@@ -95,8 +96,8 @@
 		  </div>
 
 
-		<div class="p-2  text-center">
-			<button type="submit" class="btn btn-primary w-50">
+		<div class="p-2 text-center">
+			<button type="submit" class="px-5 btn-custom btn-custom-cyan">
 				save
 			</button>
 		</div>
@@ -104,4 +105,5 @@
 		</form>
 		
 	</div>
+</div>
 @endsection
