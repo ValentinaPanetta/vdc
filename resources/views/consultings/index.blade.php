@@ -7,7 +7,7 @@
 		<h1 class="text-center text-lightcyan">Consultings</h1>
 	</div>
 	<div class="d-flex justify-content-around">
-		@if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'course_provider')
+		@if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'consultant')
 			<a href="{{ url('consultings/create') }}" >
 				<button class="btn-custom btn-custom-cyan my-2">Create a Consulting</button>
 			</a>
@@ -68,7 +68,7 @@
 							<a href="{{ url('employee/'.$sub->id) }}">{{$sub->name}} {{$sub->last_name}}</a>
 						@endforeach
 					</p>
-					@if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'course_provider')
+					@if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'consultant')
 						<div class="d-flex justify-content-around">
 							<div>
 								<a href="consultings/{{ $res->id }}/edit"><button class="btn-custom btn-custom-blue">Edit</button></a>
