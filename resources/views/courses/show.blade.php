@@ -1,8 +1,8 @@
 @extends('layouts.adminPannel')
 @section('content')
-<div class='row d-flex justify-content-center align-items-start p-4'>
+<div class='row d-flex justify-content-center align-items-start m-3 py-3' id="partners">
 
-    <div class='col-lg-6 col-md-6 col-sm-12 my-3'>
+    <div class='col-lg-6 col-md-6 col-sm-12 my-3 py-3' id="course">
         <h5 class='text-blue'>{{ $courses->name }}</h5>
         <p>Version: {{ $courses->version }}</p>
         <p>{{ $courses->description }}</p>
@@ -48,7 +48,7 @@
                 <input type="hidden" name="FK_client" value="{{ Auth::user()->id }}">
                 <input type="hidden" name="FK_course" value="{{ $courses->id }}">
                 <input type="hidden" name="client_status" value="registered">
-                <button type="submit" class="btn-custom btn-custom-blue mr-2" onclick="return confirm('Are you sure to enroll in this course?')">enroll</button>
+                <button type="submit" class="btn-custom btn-custom-grey mr-2" onclick="return confirm('Are you sure to enroll in this course?')">enroll</button>
             </form>
         @else
            
@@ -56,7 +56,7 @@
                <a href="{{ route('reservations.index')}}"> 
 
             <button type="submit" value="delete" class="btn-custom btn-custom-grey mr-2">
-                Manage enrollmetn
+                Manage enrollment
             </button>
             </a>
            </div>
@@ -73,12 +73,12 @@
 			@csrf
 			{{ method_field('DELETE') }}
 			    
-			 <button type="submit" value="delete" class="btn-custom btn-custom-grey mx-2" onclick="return confirm('Are you sure to delete?')">delete</button>
+			 <button type="submit" value="delete" class="btn-custom btn-custom-grey mx-2" onclick="return confirm('Are you sure to delete?')">Delete</button>
 			</form>
     @endif
     {{-- go back button for everyone --}}
 		<a href="{{ route('courses.index' )}}" >
-			<button class="btn btn-primary">Go Back</button>
+			<button class="btn-custom btn-custom-blue">Go Back</button>
 		</a>
 
     </div>

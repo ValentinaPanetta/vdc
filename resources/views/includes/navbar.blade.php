@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-md row fixed-top shadow-sm" id="main_navbar">
+<nav class="navbar navbar-expand-md navbar-dark row fixed-top shadow-sm" id="main_navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     VDC
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="" id="toggler-icon"><i class="fas fa-bars"></i></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse pl-3" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">

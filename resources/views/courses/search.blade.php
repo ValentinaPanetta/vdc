@@ -1,4 +1,4 @@
-<h4>Search by Title</h4>
+<h4 class="text-lightcyan">Search by Title</h4>
 
 <input type="search" id="search_course" name="search_course">
 

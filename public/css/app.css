@@ -348,6 +348,15 @@ fieldset:disabled a.btn-custom {
   color: #0b1c2b !important;
 }
 
+.navbar-dark .navbar-toggler {
+  color: #72cac3 !important;
+  border-color: #72cac3 !important;
+}
+
+#navbarSupportedContent {
+  background-color: #0b1c2b;
+}
+
 /* --- Login Link for forgotten password --- */
 
 .btn-link {
@@ -360,27 +369,34 @@ fieldset:disabled a.btn-custom {
 
 /* --- Partner Companies Page ---*/
 
-#partners {
+#partners,
+#courses {
   background-color: rgba(11, 28, 43, 0.8);
 }
 
 #partners #box {
+  height: 100%;
   background-color: white;
-  opacity: 0.75;
   border-radius: 5px;
 }
 
 #partners-logo {
-  border: solid 0.5px red;
   position: relative;
   height: 150px;
 }
 
 #partners-logo img {
   max-width: 100%;
+  max-height: 100%;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
+}
+
+#course {
+  background-color: white;
+  opacity: 0.75;
+  border-radius: 5px;
 }
 
 /*!
