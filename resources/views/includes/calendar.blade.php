@@ -31,7 +31,7 @@
 		     </a>
 	    </div>
 	    <div >
-	     	<h2 class="bg-dark-t pt-1">{{$MONTHS[$mn]." ".$yn}}</h2>
+	     	<h2 class="text-darkcyan pt-1">{{$MONTHS[$mn]." ".$yn}}</h2>
 	    </div>
 	    <div>
 		     <a href="?prm={{$m}}&chm=1">
