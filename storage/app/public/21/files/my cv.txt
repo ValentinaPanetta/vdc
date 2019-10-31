@@ -1,9 +1,0 @@
-Colors
-
-bg-darkcyan-t
-bg-dark-t
-text-lightcyan
-bg-mint-t
-
-bg-lgblue-t
-bg-light-c
