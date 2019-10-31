@@ -86,11 +86,11 @@ Route::resource('job', 'JobController');
 Route::resource('skills', 'SkillController');
 Route::resource('comments', 'CommentController');
 Route::resource('reservations', 'CourseReservationController');
-/*Route::resource('documents', 'DocumentController');*/
-Route::get('/documents/create/', 'DocumentController@create')->name('documents.create');
-Route::get('documents/{id}', 'DocumentController@show')->name('documents.show')->middleware('auth', 'private_page');;
-Route::delete('documents/{id}', 'DocumentController@destroy')->name('documents.destroy')->middleware('auth', 'private_page');;
-Route::post('documents', 'DocumentController@store')->name('documents.store');
+Route::resource('documents', 'DocumentController');
+// Route::get('/documents/create/', 'DocumentController@create')->name('documents.create');
+// Route::get('documents/{id}', 'DocumentController@show')->name('documents.show')->middleware('auth', 'private_page');;
+// Route::delete('documents/{id}', 'DocumentController@destroy')->name('documents.destroy')->middleware('auth', 'private_page');;
+// Route::post('documents', 'DocumentController@store')->name('documents.store');
                     
 /*Routes for clientsToConsulting*/
 Route::post('clientsToConsulting', 'ClientsToConsultingController@attach')
