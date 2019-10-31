@@ -11,17 +11,7 @@ class DocumentController extends Controller
 {
     use UploadTrait;
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      /*  $res = User::where('role', 'client')->get();*/
-       /* return view('documents.index', compact('res'));*/
-     /*  return $res;*/
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -73,7 +63,7 @@ class DocumentController extends Controller
             'FK_user'=>$request['FK_user'],
             'path'=>$filePath,
         ]);
-    /*  return $filePath;*/
+
       return redirect('/documents/'.$user_id);
     }
 
@@ -93,28 +83,6 @@ class DocumentController extends Controller
       
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Document  $document
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Document $document)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Document  $document
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Document $document)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -124,6 +92,8 @@ class DocumentController extends Controller
      */
     public function destroy( $id)
     {
+
+
         $res = Document::find($id);         
         $filename =  $res->name;  
         $folder = '/'.$res->FK_user.'/files/';  
