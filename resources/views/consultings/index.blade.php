@@ -15,7 +15,11 @@
 	</div>
 	<div class="row">
 		@foreach ($res as $res)
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 bg-white m-3 p-2 corners cane" id="{{ $res->id }}" >
+		<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-5">
+			<div class=" bg-white p-2 corners cane" id="{{ $res->id }}" >
+
+					
+				
 				<a href="consultings/{{ $res->id }}" class="text-darkblue">
 				<div class="pl-3 py-4 h-100">
 					<h2 class="text-center text-darkblue font-weight-bold">{{ $res->title }}</h2>
@@ -86,7 +90,7 @@
 					
 				</div></a>
 
-			</div>	
+			</div>	</div>
 		@endforeach
 	</div>
 </div>

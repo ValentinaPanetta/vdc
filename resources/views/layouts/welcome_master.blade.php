@@ -16,11 +16,47 @@
 
             
 
-            <div id="hero" class="h-100">
-       <img src="/backgrounds/bg1.jpg" class="img-fluid w-100 " style="
-       width: 100%;
-       opacity: 0.9;">
-            <h1 class="text-white text-center ">Vienna Digital Campus</h1>
+            <div id="hero" class="h-100 ">
+                <div class="sub-hero">
+                    <img src="/backgrounds/sub-hero1.jpg" class="img-fluid w-100 my-3" style="
+                    width: 100%;
+                    opacity: 0.9;">
+           
+                    <div class="divoverimg t-shadow text-white ">
+                       <h1 class=" text-center overimg">Start your new career now</h1>
+                       <h3>Education can change your life</h3>
+                       <h2 class=""><a href="{{ url('about') }}">Boarding at any time</a></h2>
+                    </div>
+                
+                </div>
+
+                 <div class="sub-hero">
+                    <img src="/backgrounds/sub-hero2.jpg" class="img-fluid w-100 my-3" style="
+                    width: 100%;
+                    opacity: 0.9;">
+           
+                    <div class="divoverimg t-shadow text-white ">
+                       <h1 class=" text-center overimg">Test: Which course is my match?</h1>
+                       <!-- <h3>Consultings</h3> -->
+                       <h2 class=""><a class="text-white" href="{{ url('courses') }}">See all courses</a></h2>
+                    </div>
+                
+                </div>
+
+                 <div class="sub-hero">
+                    <img src="/backgrounds/sub-hero3.jpg" class="img-fluid w-100 my-3" style="
+                    width: 100%;
+                    opacity: 0.9;">
+           
+                    <div class="divoverimg t-shadow text-white ">
+                       <h1 class=" text-center overimg">Free individual support by your VDC coach</h1>
+                       <h3><a class="text-white" href="{{ url('#') }}">Call the VDC Coach</a></h3>
+                       <h2 class=""><a class="text-white" href="{{ url('contact') }}">Send a Message</a></h2>
+                    </div>
+                
+                </div>
+               
+                    
             </div>
             @yield('account')
             @yield('video')
