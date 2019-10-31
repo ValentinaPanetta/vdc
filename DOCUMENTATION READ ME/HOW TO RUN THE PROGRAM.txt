@@ -1,0 +1,56 @@
+1- Download and install XAMPP or any other server;
+2- Run it and start Apache and MySQL;
+3- Move this folder(project folder) in C:/Xampp/htdocs
+4- Open the CMD (windows) in the folder (it s going to be something like  C:/Xampp/htdocs/VDC_folder )
+5- type in the CMD  the following line :   
+
+	composer install
+
+6-create empty database in Mysql  with the following line and dont create any table it has to be empty:
+
+	CREATE DATABASE vdc_db DEFAULT CHARACTER SET utf8;
+
+
+6- search in the VDC_folder the file called:   
+
+	.env.example 
+
+Make a copy of it and rename it without .example, as: 
+
+	.env      
+
+7- open the .env file and search those strings
+
+	DB_CONNECTION=mysql
+	DB_HOST=TO_SET_UP
+	DB_PORT=TO_SET_UP
+	DB_DATABASE=TO_SET_UP
+	DB_USERNAME=TO_SET_UP
+	DB_PASSWORD=TO_SET_UP
+
+8- modify them to: 
+
+	DB_CONNECTION=mysql
+	DB_HOST= localhost  (to work in local)
+	DB_PORT=3306
+	DB_DATABASE=vdc_db  (or the name that you chose for the database in mysql)
+	DB_USERNAME=root  (or your name in the db)
+	DB_PASSWORD=   (empty default, or the password you have in your db)
+
+9- again in the CMD (allways on C:/Xampp/htdocs/VDC_folder) type
+
+	php artisan key:generate
+
+10- Now lets create the tables into the database, type in the CMD:
+
+	php artisan migrate --force
+
+11-RUn the app !!! again in the CMD:
+
+	php artisan serve
+
+it will return a string with the url where the app is running in the server (usualy http://127.0.0.1:8000/);
+
+Copy it in the browser, Enjoy !
+
+	
