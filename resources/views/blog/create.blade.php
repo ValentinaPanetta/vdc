@@ -1,11 +1,12 @@
 @extends('layouts.default') 
 @section('content')
+<div class="p-5 m-5 bg-dark-t text-white">
 	<div class="container">
 		<a href="{{ url('blog') }}" >
-		<button class="btn btn-success">Back</button>
+		<button class="btn-custom btn-custom-cyan">Back</button>
 		</a>
 	</div>
-	<h2 class="text-center text-success">Create a New Post</h2>
+	<h2 class="text-center text-darkcyan">Create a New Post</h2>
 	<div class="container text-center">
 		<form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
 		@csrf
@@ -27,8 +28,9 @@
 		</div>
 		<input type="hidden" name="FK_author" value="{{ Auth::user()->id}}" >
 		<div class="text-center p-3">
-			<button type="submit" class="btn btn-success">Send</button>
+			<button type="submit" class="btn-custom btn-custom-cyan">Send</button>
 		</div>
 	</form>
 	</div>
+</div>
 @endsection
