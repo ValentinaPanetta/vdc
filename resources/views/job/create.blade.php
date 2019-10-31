@@ -1,19 +1,19 @@
 @extends('layouts.adminPannel')
 @section('content')
-<div class="container-fluid mb-5" style="margin-top: 100px;">
-    <div class="row justify-content-center">
-        <div class="col-12 h2 text-center">Create Offer</div>
+<div class="container-fluid mb-5">
+    <div class="row mx-5 py-3 justify-content-center bg-dark-t">
+        <div class="col-12 h2 text-center text-lightcyan">Create Offer</div>
         <div class="col-md-11">
             <div class="form-group row">
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-12 mt-2 d-flex justify-content-center">
                     <a href="{{ route('job.index') }}">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn-custom btn-custom-cyan">
                         Go Back
                     </button></a>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header">Create Job Offer</div>
 
                 <div class="card-body">
@@ -108,7 +108,7 @@
 
                         <div class="form-group row">
                             <div class="col-12 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn-custom btn-custom-blue">
                                     Save Offer
                                 </button>
                             </div>

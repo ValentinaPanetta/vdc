@@ -66,6 +66,7 @@
 
     {{-- crud buttons for admins / course providers --}}
     @if(Auth::user()->role == 'sys_admin' OR Auth::user()->role == 'off_admin' OR Auth::user()->role == 'course_provider')
+        <div class="d-flex justify-content-center">
 			<a href="{{ route('courses.edit', $courses->id)}}">
 			<button class="btn-custom btn-custom-blue">edit</button>
 			</a>
@@ -77,9 +78,10 @@
 			</form>
     @endif
     {{-- go back button for everyone --}}
-		<a href="{{ route('courses.index' )}}" >
-			<button class="btn-custom btn-custom-blue">Go Back</button>
-		</a>
+    		<a href="{{ route('courses.index' )}}" >
+    			<button class="btn-custom btn-custom-blue">Go Back</button>
+    		</a>
+        </div>
 
     </div>
 	
